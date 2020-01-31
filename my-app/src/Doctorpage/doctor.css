@@ -1,0 +1,65 @@
+
+
+.styledr {
+    background-image: url('../images/Eye-Banner.jpg');;
+    width: 100%;
+    height:400px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .imgtextdr {
+   padding-top: 100px;
+   }
+   .firstimg {
+    background-image: url('../images/dc1.jpg');;
+    width: 100%;
+    height:200px;
+    background-repeat: no-repeat;
+  }
+  .secondimg {
+    background-image: url('../images/dc2.jpg');;
+    width: 100%;
+    height:200px;
+    background-repeat: no-repeat;
+  }
+  .thirdimg {
+    background-image: url('../images/dc3.jpg');;
+    width: 100%;
+    height:200px;
+    background-repeat: no-repeat;
+  }
+  .fourthimg {
+    background-image: url('../images/dc4.jpg');;
+    width: 100%;
+    height:200px;
+    background-repeat: no-repeat;
+  }
+  .fiveimg {
+    background-image: url('../images/dc5.jpeg');;
+    width: 100%;
+    height:200px;
+    background-repeat: no-repeat;
+  }
+  .siximg {
+    background-image: url('../images/dc6.jpg');;
+    width: 100%;
+    height:200px;
+    background-repeat: no-repeat;
+  }
+  .sevenimg {
+    background-image: url('../images/dc7.jpg');;
+    width: 100%;
+    height:200px;
+    background-repeat: no-repeat;
+  }
+  .eightimg {
+    background-image: url('../images/dc8.jpg');;
+    width: 100%;
+    height:200px;
+    background-repeat: no-repeat;
+  }
+   .addstyle{
+    margin-top:10px
+  }
+  

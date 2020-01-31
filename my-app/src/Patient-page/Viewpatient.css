@@ -1,0 +1,55 @@
+.newdiv{
+    padding: 10px;
+    align-items: center;
+
+
+}
+
+
+.date {
+    color: #86c541;
+  
+}
+
+.typecls{
+    padding: 10px;
+    text-align: center;
+    color: #007bff;
+}
+@media only screen and (min-width: 770px)  and (max-width: 2000px) {
+.cardmy{
+   
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border-right: 1px solid rgba(0,0,0,.125);
+        border-radius: .25rem;
+      
+       
+       
+}
+}
+@media only screen and (max-width: 770px) {
+
+    
+.cardmy{
+   
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border-top: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+  
+   
+   
+}
+}
+

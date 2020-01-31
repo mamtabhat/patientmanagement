@@ -1,0 +1,30 @@
+.stylecont {
+    background-image: url('../images/slide-01.jpg');;
+    width: 100%;
+    height:500px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .imgtextcont {
+    padding-top: 100px;
+    }
+     .style3{
+        font-size:40px;
+        margin-top: 10px;
+        color: #007bff
+    }
+    .addstyle{
+        margin-top:10px
+      }
+      .addstyle1{
+        height:200px
+      }
+      .divstyle{
+        margin-top:50px;
+        margin-bottom: 50px;
+      }
+      .divstyle1{
+        margin-top:15px;
+       text-align: center;
+      }

@@ -1,0 +1,48 @@
+
+  .pstyle{
+      margin-left: 10px;
+      padding-top: 5px;
+  }
+  .mainstyle{
+   
+     border-bottom: 1px solid #e9e9f1;
+  }
+  .cardstyle1{
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: rgba(255, 255, 255, 0.363);
+    background-clip: border-box;
+    box-shadow: 0px 11px 40px -5px rgba(0, 0, 0, 0.14);
+    border-radius: 5px ;
+    margin-top: 100px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 200px;
+}
+
+.spanstyle1
+{
+     font-size: 20px;
+     color: #495057;
+     font-weight: 500;
+}
+.hstyle{
+    
+    text-align: center;
+    margin: 10px;
+}
+.divstyle{
+   
+    margin: 20px;
+}
+.btnstyle{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #fff;
+    background-color: #007bff;
+    float: right;
+}
