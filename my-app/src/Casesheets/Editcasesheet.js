@@ -2707,7 +2707,17 @@ $('#modifyid').hide();
         <Tr key={optical._key}>
            <Td>{index+1}</Td>
            <Td>{optical.instruction}</Td>
-           <Td>{new Date(optical.cdate).toLocaleString()}</Td>
+           {(() => {
+                     if(optical.edate){
+                        return (
+                 <Td>{new Date(optical.edate).toLocaleString()}</Td>
+                        );
+                     } else {
+                        return (
+                           <Td>{new Date(optical.cdate).toLocaleString()}</Td>
+                     );
+                     }
+                  })()}
            <Td><button className="btn btn-success btn-sm" name="opticalid" value={optical._key} onClick={this.editoptical.bind(this, optical._key)}><i class="fa fa-edit"></i></button></Td>
            <Td><button className="btn btn-danger btn-sm" onClick={this.deleteoptical.bind(this, optical._key)}><i className="fa fa-trash-alt" aria-hidden="true"></i></button></Td>
         </Tr>
@@ -2724,7 +2734,17 @@ renderPresData() {
         <Tr key={pres._key}>
             <Td>{index+1}</Td>
            <Td>{pres.review}</Td>
-           <Td>{new Date(pres.cdate).toLocaleString()}</Td>
+           {(() => {
+                     if(pres.edate){
+                        return (
+                 <Td>{new Date(pres.edate).toLocaleString()}</Td>
+                        );
+                     } else {
+                        return (
+                           <Td>{new Date(pres.cdate).toLocaleString()}</Td>
+                     );
+                     }
+                  })()}
            <Td><button className="btn btn-success btn-sm" name="opticalid" value={pres._key} onClick={this.editpres.bind(this, pres._key,'aaaaa')}><i class="fa fa-edit"></i></button></Td>
            <Td><button className="btn btn-danger btn-sm" onClick={this.deletepres.bind(this, pres._key)}><i className="fa fa-trash-alt" aria-hidden="true"></i></button></Td>
         </Tr>

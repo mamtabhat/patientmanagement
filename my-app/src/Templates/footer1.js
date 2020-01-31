@@ -18,7 +18,7 @@ export default class Footer extends Component {
         <Row>
         <Col md="12" lg="12" xs="12" sm="12">
 
-        <p className="text-center"  style={{color:"#cccccc"}}>@Copyright 2019. All Rights Reserved AVY EYE CARE & OPTICALS</p>
+        <p className="text-center"  style={{color:"#cccccc"}}>@Copyright 2020. All Rights Reserved By AVY EYE CARE & OPTICALS</p>
 
         </Col>
           </Row>

@@ -203,7 +203,17 @@ class Casesheets extends Component {
                <Tr key={student._key}>
                   <Td>{index+1}</Td>
                   <Td>{student.text}</Td>
-                  <Td>{new Date(student.cdate).toLocaleString()}</Td>
+                  {(() => {
+                     if(student.edate){
+                        return (
+                 <Td>{new Date(student.edate).toLocaleString()}</Td>
+                        );
+                     } else {
+                        return (
+                           <Td>{new Date(student.cdate).toLocaleString()}</Td>
+                     );
+                     }
+                  })()}
                   <Td><a className="btn btn-success btn-sm" title="edit casesheet" href={"/Editcasesheet/"+this.state.pid+"/"+student._key+"/"+student.aseg+"/"+student.pseg}><i className="fa fa-edit"></i></a></Td>
                   <Td><button className="btn btn-danger btn-sm" title="delete casesheet" onClick={this.deletecasesheet.bind(this, student._key)}><i className="fa fa-trash-alt" aria-hidden="true"></i></button></Td>
                </Tr>
