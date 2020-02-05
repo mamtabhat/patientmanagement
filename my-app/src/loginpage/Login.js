@@ -99,7 +99,7 @@ class Bodydata extends Component {
             })
             .then(function (response) {
                 //handle success
-                console.log(response.data);
+                //console.log(response);
 
                 var token = response.data.auth;
                 var sadmin = response.data.data.sadmin;
@@ -116,7 +116,7 @@ class Bodydata extends Component {
             })
             .catch(function (error) {
                 //handle error
-                console.log(error.response.data);
+                // console.log(error.response);
                 $("#submitvalid").show();
                 $("#submitvalid").html(error.response.data.error);
             });

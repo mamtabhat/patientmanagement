@@ -9,6 +9,8 @@ import '../App-page/Alert.css'
 import axios from 'axios';
 import config from '../config/config'
 import $ from 'jquery';
+import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
+import Logoimg from '../images/logonew.png';
 
 const styledata = {
   backgroundColor:"gray",
@@ -65,6 +67,7 @@ class Createcasesheets extends Component {
                 text: '',
                 did : [],
                 didvalue: '',
+                discheck: '',
                 didid: '',
                 username: 'brahmendra',
                 phone: '7330946033',
@@ -353,38 +356,6 @@ class Createcasesheets extends Component {
       $("#spanerror").html('Casesheet already created');
       return false;
      }
-
-
-     if(this.state.distext != ""){
-
-
-      var disdata = {
-        "content": this.state.distext
-      }
-
-      axios({
-        method: 'post',
-        url: config.url+'discharge/ctk/createdischargesheet',
-        data: disdata,
-        headers: {
-            'Content-Type': 'application/json',
-            'auth': auth
-        }
-        })
-        .then( (response) => {
-            //handle success
-      
-
-         console.log(response.data.data);
-
-
-
-         if(this.state.dm != ""){
-
-         }
-
-
-
          var data = {
           pid : this.state.patientid,
           ht: this.state.ht,
@@ -399,7 +370,7 @@ class Createcasesheets extends Component {
           aseg: this.state.aseg,
           pseg: this.state.pseg,
           text : this.state.text,
-          did : response.data.data._key
+          did : this.state.didid
          }
   
   
@@ -448,89 +419,6 @@ class Createcasesheets extends Component {
               $("#diverroralert").show();
               $("#spanerror").html('Oops! something went wrong');
           });
-
-
-        })
-        .catch( (response) => {
-            //handle error
-            console.log(response);
-            $("#diverroralert").show();
-            $("#spanerror").html('Oops! something went wrong');
-        });
-
-
-
-     } else {
-
-
-      var data = {
-        pid : this.state.patientid,
-        dm: this.state.dm,
-        ht: this.state.ht,
-        ihd: this.state.ihd,
-        allergy: this.state.allergy,
-        other : this.state.other,
-        optlist : this.state.optlist,
-        preslist: this.state.prelist,
-        va : this.state.va,
-        re: this.state.redata,
-        le: this.state.ledata,
-        aseg: this.state.aseg,
-        pseg: this.state.pseg,
-        text : this.state.text,
-        did: this.state.didid
-       }
-
-
-       var postdata = JSON.stringify(data);
-
-
-       console.log("postdata", postdata);
-
-       axios({
-        method: 'post',
-        url: config.url+'cs/ctk/createcasesheet',
-        data: postdata,
-        headers: {
-            'Content-Type': 'application/json',
-            'auth': auth
-        }
-        })
-        .then( (response) => {
-            //handle success
-      
-
-         console.log(response.data.data._key);
-
-         this.setState({cid: response.data.data._key}) 
-         
-        // this.setState({oids: response.data.data.optlist}) 
-
-         $("#divsucessalert").show();
-         $("#spansucess").html('Casesheet Created successfully');
-
-         setTimeout( () => {
-
-          $("#divsucessalert").hide();
-           
-          }, 2000 )
-
-
-
-         //opticaldata();
-
-
-        })
-        .catch( (error) => {
-          //handle error
-          console.log(error.response);
-          $("#diverroralert").show();
-          $("#spanerror").html(error.response.data.error);
-      });
-
-
-     }
-
     };
 
 
@@ -653,8 +541,17 @@ class Createcasesheets extends Component {
 
 
     componentDidMount(){
+
+      var sadmin =  sessionStorage.getItem('sadmin');
       this.userdata();
-      this.dischargedata();
+ 
+      if(sadmin == "2"){
+        this.dischargedata();
+      }
+
+     
+
+      
       
       
 
@@ -666,10 +563,12 @@ class Createcasesheets extends Component {
     $('#casesheetdiv').show();
     $('#opticaldiv').hide();
     $('#Prescriptiondiv').hide();
+    $('#dischargediv').hide();
     $('#createid').hide();
     $('#Casesheetid').css("color", "black");
     $('#Opticalid').css("color", "white");
     $('#Prescriptionid').css("color", "white");
+    $('#Dischargeid').css("color", "white");
 
    }
    Optical = () => {
@@ -678,9 +577,11 @@ class Createcasesheets extends Component {
       $('#opticaldiv').show();
       $('#createid').show();
       $('#Prescriptiondiv').hide();
+      $('#dischargediv').hide();
       $('#Casesheetid').css("color", "white");
       $('#Opticalid').css("color", "black");
       $('#Prescriptionid').css("color", "white");
+      $('#Dischargeid').css("color", "white");
     //}
 
 
@@ -700,9 +601,11 @@ class Createcasesheets extends Component {
     $('#opticaldiv').hide();
     $('#createid').hide();
     $('#Prescriptiondiv').show();
+    $('#dischargediv').hide();
     $('#Casesheetid').css("color", "white");
     $('#Opticalid').css("color", "white");
     $('#Prescriptionid').css("color", "black");
+    $('#Dischargeid').css("color", "white");
   //}
    }
 
@@ -1178,6 +1081,20 @@ class Createcasesheets extends Component {
       $('#patient-pres').show();
      }
 
+     downarrowdis = () => {
+
+      $('#downarrow-dis').hide();
+      $('#uparrow-dis').show();
+      $('#patient-dis').hide();
+    
+     }
+    
+     uparrowdis = () => {
+      $('#downarrow-dis').show();
+      $('#uparrow-dis').hide();
+      $('#patient-dis').show();
+     }
+
 
      didlistdata= event =>{
 
@@ -1191,10 +1108,7 @@ class Createcasesheets extends Component {
          
         })
 
-        this.setState({
-          didid : event.target.value
-         
-        })
+        
   
         var auth =  sessionStorage.getItem('auth');
 
@@ -1205,7 +1119,10 @@ class Createcasesheets extends Component {
         console.log("did type", typeof did);
 
          if(did != "none"){
-
+          this.setState({
+            didid : event.target.value
+           
+          })
 
           axios({
             method: 'get',
@@ -1231,7 +1148,7 @@ class Createcasesheets extends Component {
                  
                 })
   
-                $('#distext').show();
+                $('#dischtext').show();
   
               }
   
@@ -1258,7 +1175,7 @@ class Createcasesheets extends Component {
            
           })
 
-           $('#distext').show();
+           $('#dischtext').show();
          }
 
         
@@ -1268,9 +1185,203 @@ class Createcasesheets extends Component {
         }
 
 
+        dischargeoption = () => {
+          
+          $('#casesheetdiv').hide();
+          $('#opticaldiv').hide();
+          $('#createid').hide();
+          $('#Prescriptiondiv').hide();
+          $('#dischargediv').show();
+          $('#Casesheetid').css("color", "white");
+          $('#Opticalid').css("color", "white");
+          $('#Prescriptionid').css("color", "white");
+          $('#Dischargeid').css("color", "black");
 
+
+        }
       
 
+        createdischarge = () => {
+
+          var auth =  sessionStorage.getItem('auth');
+      
+          if(this.state.cid == ""){
+            $("#diverroralert").show();
+            $("#spanerror").html('Create casesheet first');
+            return false;
+          }
+          console.log("didid", this.state.didid);
+    
+          if(this.state.discheck != ""){
+            $("#diverroralert").show();
+            $("#spanerror").html('Discharge sheet already created');
+            return false;
+          }
+
+          var data = {
+            "content": this.state.distext
+          }
+    
+          axios({
+            method: 'post',
+            url: config.url+'discharge/ctk/createdischargesheet',
+            data: data,
+            headers: {
+                'Content-Type': 'application/json',
+                'auth': auth
+            }
+            })
+            .then( (response) => {
+                //handle success
+          
+        
+             console.log("responce",response.data.data);
+        
+             this.setState({didid: response.data.data._key})
+             this.setState({discheck: response.data.data._key})
+        
+           
+             var data = {
+              cid: this.state.cid,
+              did : response.data.data._key
+             }
+          
+          
+             var postdata = JSON.stringify(data);
+          
+             axios({
+              method: 'post',
+              url: config.url+'cs/ctk/editcasesheet',
+              data: postdata,
+              headers: {
+                  'Content-Type': 'application/json',
+                  'auth': auth
+              }
+              })
+              .then( (response) => {
+                  //handle success
+            
+          
+               console.log(response);
+          
+            
+               $("#divsucessalert").show();
+               $("#spansucess").html('Discharge sheet created');
+          
+               setTimeout( () => {
+          
+                $("#divsucessalert").hide();
+                 
+                }, 2000 )
+          
+              })
+              .catch( (error) => {
+              //handle error
+              console.log(error.response);
+              $("#diverroralert").show();
+              $("#spanerror").html(error.response.data.error);
+          });
+           
+        
+            })
+            .catch( (error) => {
+              //handle error
+              console.log(error.response);
+              $("#diverroralert").show();
+              $("#spanerror").html(error.response.data.error);
+          });
+          
+    
+    
+    
+    
+        }
+    
+
+        printcasesheet = () => {
+          //window.print();
+    
+          // var printContent = document.getElementById('casesheetdata');
+          // window.print(printContent);
+    
+          var printContents = document.getElementById('printdisc').innerHTML;
+          //var patientdetail = document.getElementById('patientdetail').innerHTML;
+          var originalContents = document.body.innerHTML;
+    
+          document.body.innerHTML = printContents;
+         
+          window.onafterprint = function(e){
+            $(window).off('mousemove', window.onafterprint);
+            console.log('Print Dialog Closed..');
+            window.location.reload(true);
+    
+           // presdata.Prescription();
+        };
+    
+          window.print();
+    
+          document.body.innerHTML = originalContents;
+          
+        }
+    
+    
+        printpresdata = () => {
+         // window.print();
+    
+          // var printContent = document.getElementById('casesheetdata');
+          // window.print(printContent);
+    
+          var printContents = document.getElementById('printpres').innerHTML;
+          //var patientdetail = document.getElementById('patientdetail').innerHTML;
+          var originalContents = document.body.innerHTML;
+    
+          document.body.innerHTML = printContents;
+          var presdata = this;
+          window.onafterprint = function(e){
+            $(window).off('mousemove', window.onafterprint);
+            console.log('Print Dialog Closed..');
+            window.location.reload(true);
+           // presdata.Prescription();
+        };
+    
+          window.print();
+    
+          document.body.innerHTML = originalContents;
+          
+        }
+    
+        printoptical = () => {
+          //var windowdata =  window.open("http://localhost:3000/Createcasesheets/10496525");
+         
+          var printContents = document.getElementById('printoptical').innerHTML;
+
+          var originalContents = document.body.innerHTML;
+    
+          document.body.innerHTML = printContents;
+          var optical = this;
+          window.onafterprint = function(e){
+            //(window).off('mousemove', window.onafterprint);
+            console.log('Print Dialog Closed..');
+            document.body.innerHTML = originalContents;
+            window.open();
+           // window.close();
+            //window.location.reload(true);
+
+           
+
+            
+       };
+       
+
+
+       window.print();
+
+      
+    
+         
+    
+        }
+    
 
 
        
@@ -1292,10 +1403,10 @@ class Createcasesheets extends Component {
         const prelist = this.state.prelist;
         const diddata = this.state.did;
 
-      
+        var sadmin =  sessionStorage.getItem('sadmin');
 
 
-      
+        if(sadmin == "2"){
           if(diddata.length > 0){
 
             var Discharge = <select className="form-control mt-1" name="didvalue" value={this.state.didvalue} onChange={this.didlistdata}>
@@ -1307,13 +1418,16 @@ class Createcasesheets extends Component {
           </select>
     
             } else {
-              var Discharge = <select className="form-control mt-1" name="didvalue" value={this.state.didvalue} onChange={this.didlistdata}>
-                 <option defaultValue>Select Discharge list</option>
-                  <option>none</option>
-            </select>
+              
+                var Discharge = <select className="form-control mt-1" name="didvalue" value={this.state.didvalue} onChange={this.didlistdata}>
+                <option defaultValue>Select Discharge list</option>
+                 <option>none</option>
+           </select>
+             
+             
             }
 
-
+          }
 
 
         return (
@@ -1324,14 +1438,17 @@ class Createcasesheets extends Component {
            <div className="col-md-12 col-sm-12 col-lg-12 col-xs-12">
           
                 <div className="row" style={styledata}>
-                 <div className="col-md-4">
+                 <div className="col-md-3">
                    <center><h5 id="Casesheetid" onClick={this.Casesheet}>Casesheet</h5></center>
                  </div>
-                 <div className="col-md-4">
+                 <div className="col-md-3">
                  <center><h5 id="Opticalid" style={{color:"white"}} onClick={this.Optical}>Optical</h5></center>
                  </div>
-                 <div className="col-md-4">
+                 <div className="col-md-3">
                  <center><h5 id="Prescriptionid" style={{color:"white"}} onClick={this.Prescription}>Prescription</h5></center>
+                 </div>
+                 <div className="col-md-3">
+                 <center><h5 id="Dischargeid" style={{color:"white"}} onClick={this.dischargeoption}>Discharge</h5></center>
                  </div>
                
             </div>
@@ -1574,21 +1691,6 @@ class Createcasesheets extends Component {
       placeholder="Description"
     ></textarea>
 
-
-{Discharge}
-
-<div>
-<textarea
-      name="distext"
-      id="distext"
-      className="form-control mt-1"
-      style={{display:"none"}}
-      value={this.state.distext}
-      onChange={this.prelistdata}
-      placeholder="Discharge content"
-    ></textarea>
-</div>
-
 <div className="float-right">
 <a className="btn btn-danger mr-1" href="#" onClick={this.Goback}>Cancel</a>
 <button className="btn btn-success mt-2 mb-2">Create</button>
@@ -1674,8 +1776,12 @@ class Createcasesheets extends Component {
 
               </div>
               <div className="col-md-3">
-
-              </div>
+             
+                <div className="float-right">
+            <button title="print optical" onClick={this.printoptical} className="btn btn-info"><i class="fa fa-print" aria-hidden="true"></i></button>
+            </div>
+                </div>
+             
 
             </div>
 
@@ -2134,7 +2240,9 @@ class Createcasesheets extends Component {
 
               </div>
               <div className="col-md-3">
-
+              <div className="float-right">
+            <button title="print" onClick={this.printpresdata} className="btn btn-info"><i class="fa fa-print" aria-hidden="true"></i></button>
+            </div>
               </div>
 
             </div>
@@ -2622,11 +2730,816 @@ class Createcasesheets extends Component {
               
         </div>
         
+        <div id="dischargediv" className="col-md-12 col-sm-12 col-lg-12 col-xs-12" style={{display:"none",height:"500px"}}>
+          <Container>
+               <div className="row">
+          <div className="col-md-1 mt-3">
+          <a id="downarrow-dis" style={{display:"none"}} data-toggle="collapse" onClick={this.downarrowdis} ><i class="fa fa-angle-double-down"></i></a>
+            <a id="uparrow-dis"  onClick={this.uparrowdis}><i class="fa fa-angle-double-up"></i></a>
+           </div>
+                      <div className="col-md-5">
+                      <div id="patient-dis" style={{display:"none"}}>
+            <h6>Patient details</h6>
+            <input
+           type="text"
+           name="username"
+           className="form-control"
+           placeholder="username"
+           value={this.state.username }
+           onChange={this.prelistdata}
+           disabled
+         />
+         <input
+           type="number"
+           name="phone"
+           className="form-control mt-1"
+           placeholder="Phone number"
+           value={this.state.phone }
+           onChange={this.prelistdata}
+           disabled
+         />
+         <input
+           type="number"
+           name="age"
+           className="form-control mt-1"
+           placeholder="Age"
+           value={this.state.age }
+           onChange={this.prelistdata}
+           disabled
+         />
+         <input
+           type="text"
+           name="gender"
+           className="form-control mt-1"
+           placeholder="gender"
+           value={this.state.gender }
+           onChange={this.prelistdata}
+           disabled
+         />
+         <textarea
+       name="address"
+      className="form-control mt-1"
+      value={this.state.address}
+      onChange={this.prelistdata}
+      placeholder="address"
+      disabled
+    ></textarea>
+     <input
+           type="text"
+           name="pincode"
+           className="form-control mt-1"
+           placeholder="pincode"
+           value={this.state.pincode }
+           onChange={this.prelistdata}
+           disabled
+         />
+          </div>
+
+                      </div>
+                      <div className="col-md-6 mt-3">
+                      <div className="float-right">
+             <button title="print" onClick={this.printcasesheet} className="btn btn-info"><i class="fa fa-print" aria-hidden="true"></i></button>
+                   </div>
+                      </div>
+           
+                       </div>
+
+                            <div className="row">
+                        <div className="col-md-3">
+
+                        </div>
+                        <div className="col-md-6 mt-5">
+                          {Discharge}
+                          <div id="dischtext" className="mt-2">
+                        <textarea
+                     name="distext"
+                     className="form-control mt-1"
+                    
+                     rows="5"
+                     value={this.state.distext}
+                     onChange={this.prelistdata}
+                     placeholder="Discharge content"
+                    ></textarea>
+                    <br></br>
+                    <div className="float-right">
+                    <button className="btn btn-danger mr-1" onClick={this.Goback}>Cancel</button>
+                    <button className="btn btn-success" onClick={this.createdischarge}>Create</button>
+                    </div>
+                   
+                   </div>
+                    </div>
+                        <div className="col-md-3">
+
+                        </div>
+                       </div>
+               </Container>
+    </div>
 
            </div>
            </div>
            <div className="row" style={{marginTop:"100px"}}>
         </div> 
+        <div id="printpres" style={{display:"none"}}>
+       <div  className="card" style={{border:"1px solid grey",height:"auto"}}>
+       <div className="row">
+        <div className="mt-1 ml-3 ">
+        <img style={{maxWidth:"400px",height:"55px"}} src={Logoimg}></img>
+        </div>
+        <div className="col-md-6 mt-1">
+          <h5>AVY EYE CARE & OPTICALS</h5>
+        <p> Jansons MRI Opposite,</p>
+        <p>Perunduari Road,</p>
+        <p> Erode - 638 011</p>
+        <p> Ph : 9600392556</p>
+        </div>
+       <div style={{borderRight:"2px solid black"}}  ></div>
+       <div className="col-md-3 mt-1">
+         <p>Dr.R.S. Naveen Balaji</p>
+         <p>M.B.B.S., M.S., FICO</p>
+         <p>Phaco & Refractive Surgeon</p>
+         <p>Reg. No: 91192</p>
+       </div>
+         </div>
+
+         <div className="col-md-12 bg-dark">
+         <h5 className="text-center text-white">PRESCRIPTION FORM</h5>
+         </div>
+        
+       <div className="col-md-12">
+         <div className="float-right">
+         <span>Date:</span>
+          <span>  {this.state.reportStartDate}</span>
+         </div>
+       </div>
+       <div className="row">
+        <div className="col-md-6">
+        <span>Patient Name:</span>
+          <span> {this.state.username}</span>
+        </div>
+        <div className="col-md-3">
+        <span>Age:</span>
+        <span>  {this.state.age}</span>
+        </div>
+        <div className="col-md-3">
+        <span>Sex:</span>
+        <span>  {this.state.gender}</span>
+        </div>
+       </div>
+       <Table className="table mt-2" border="1">
+         <Thead>
+           <Tr>
+            <Th>S.no</Th>
+            <Th>Eye Drop/Ointment/Tablets</Th>
+            <Th>RE</Th>
+            <Th>LE</Th>
+            <Th>Times</Th>
+            <Th>Days</Th>
+           </Tr>
+         </Thead>
+         <Tbody>
+           <Tr>
+           <Td>1</Td>
+          <Td>{this.state.Tablet1}</Td>
+          {(() => {
+           if(this.state.Re1 === 1){
+             return(
+           <Td><i class="fa fa-check" aria-hidden="true"></i></Td>
+             );
+           } else {
+            return(
+              <Td></Td>
+                );
+           }
+          })()} 
+          {(() => {
+           if(this.state.Le1 === 1){
+             return(
+           <Td><i class="fa fa-check" aria-hidden="true"></i></Td>
+             );
+           } else {
+            return(
+              <Td></Td>
+                );
+           }
+          })()} 
+           <Td>{this.state.Time1}</Td>
+           <Td>{this.state.Day1}</Td>
+           </Tr>
+           <Tr>
+           <Td>2</Td>
+          <Td>{this.state.Tablet2}</Td>
+          {(() => {
+           if(this.state.Re2 === 1){
+             return(
+           <Td><i class="fa fa-check" aria-hidden="true"></i></Td>
+             );
+           } else {
+            return(
+              <Td></Td>
+                );
+           }
+          })()} 
+          {(() => {
+           if(this.state.Le2 === 1){
+             return(
+           <Td><i class="fa fa-check" aria-hidden="true"></i></Td>
+             );
+           } else {
+            return(
+              <Td></Td>
+                );
+           }
+          })()} 
+           <Td>{this.state.Time2}</Td>
+           <Td>{this.state.Day2}</Td>
+           </Tr>
+           <Tr>
+           <Td>3</Td>
+          <Td>{this.state.Tablet3}</Td>
+          {(() => {
+           if(this.state.Re3 === 1){
+             return(
+           <Td><i class="fa fa-check" aria-hidden="true"></i></Td>
+             );
+           } else {
+            return(
+              <Td></Td>
+                );
+           }
+          })()} 
+          {(() => {
+           if(this.state.Le3 === 1){
+             return(
+           <Td><i class="fa fa-check" aria-hidden="true"></i></Td>
+             );
+           } else {
+            return(
+              <Td></Td>
+                );
+           }
+          })()} 
+           <Td>{this.state.Time3}</Td>
+           <Td>{this.state.Day3}</Td>
+           </Tr>
+           <Tr>
+           <Td>4</Td>
+          <Td>{this.state.Tablet4}</Td>
+          {(() => {
+           if(this.state.Re4 === 1){
+             return(
+           <Td><i class="fa fa-check" aria-hidden="true"></i></Td>
+             );
+           } else {
+            return(
+              <Td></Td>
+                );
+           }
+          })()} 
+          {(() => {
+           if(this.state.Le4 === 1){
+             return(
+           <Td><i class="fa fa-check" aria-hidden="true"></i></Td>
+             );
+           } else {
+            return(
+              <Td></Td>
+                );
+           }
+          })()} 
+           <Td>{this.state.Time4}</Td>
+           <Td>{this.state.Day4}</Td>
+           </Tr>
+           <Tr>
+           <Td>5</Td>
+          <Td>{this.state.Tablet5}</Td>
+          {(() => {
+           if(this.state.Re5 === 1){
+             return(
+           <Td><i class="fa fa-check" aria-hidden="true"></i></Td>
+             );
+           } else {
+            return(
+              <Td></Td>
+                );
+           }
+          })()} 
+          {(() => {
+           if(this.state.Le5 === 1){
+             return(
+           <Td><i class="fa fa-check" aria-hidden="true"></i></Td>
+             );
+           } else {
+            return(
+              <Td></Td>
+                );
+           }
+          })()} 
+           <Td>{this.state.Time5}</Td>
+           <Td>{this.state.Day5}</Td>
+           </Tr>
+         </Tbody>
+       </Table>
+       <div className="col-md-12">
+       <span>Review Date:</span>
+        <span>  {this.state.Review}</span>
+       </div>
+      
+       <div className="col-md-12" style={{marginTop:"150px"}}>
+         <div className="float-right">
+         <span className="mr-3">Doctor signature</span>
+         </div>
+       </div>
+      </div>
+      </div>
+
+      <div id="printoptical" style={{display:"none"}}>
+      <Container>
+        <div className="card" style={{border:"1px solid grey",height:"auto"}}>
+       
+            <div className="row">
+              <div className="col-md-2 mt-1 ml-4">
+              <img style={{maxWidth:"400px",height:"55px"}} src={Logoimg}></img>
+              </div>
+              <div className="col-md-8 mt-1 text-center">
+              <h3>AVY EYE CARE & OPTICALS</h3>
+              <p> Jansons MRI Opposite, Perunduari Road, Erode - 638 011</p>
+              <p> Ph: 86820 00055</p>
+              <p>Consulting Time 10.00 am to 2.00 pm, 4.00 pm to 8.00 pm</p>
+              </div>
+            </div>
+
+              <h5 className="text-center"><u>PRESCRIPTION</u></h5>
+          
+             <Container fluid={true}>
+             <div className="row">
+             <div className="col-md-6">
+              <span>M.R. No:</span>
+             </div>
+             <div className="col-md-6">
+               <div className="float-right">
+               <span>Date:</span>
+           <span> {this.state.reportStartDate}</span>
+               </div>
+            
+             </div>
+             </div>
+             <div className="row">
+               <div className="col-md-6">
+               <span>Name:</span>
+                <span>  {this.state.username}</span>
+               </div>
+               <div className="col-md-3">
+               <span>Age:</span>
+               <span>  {this.state.age}</span>
+               </div>
+               <div className="col-md-3">
+               <span>Sex:</span>
+               <span>  {this.state.gender}</span>
+               </div>
+             </div>
+             <Table  border="1" className="mt-1">
+               <Thead>
+                 <Tr>
+                 <Th width="40"></Th>
+                 <Th colspan="4" className="text-center">OS</Th>
+                 <Th colspan="4" className="text-center">OD</Th>
+                 </Tr>
+               </Thead>
+               <Tbody>
+                 <Tr>
+                 <Td></Td>
+                <Td className="text-center">SPH</Td>
+                <Td className="text-center">CYL</Td>
+                <Td className="text-center">AXIS</Td>
+                <td className="text-center">V/A</td>
+
+                <Td className="text-center">SPH</Td>
+                <Td className="text-center">CYL</Td>
+                <Td className="text-center">AXIS</Td>
+                <Td className="text-center">V/A</Td>
+                 </Tr>
+                <Tr>
+                  <Td>DV</Td>
+                  <Td>{this.state.ossph}</Td>
+                  <Td>{this.state.oscyl}</Td>
+                  <Td>{this.state.osaxis}</Td>
+                  <Td>{this.state.osva}</Td>
+
+                  <Td>{this.state.odsph}</Td>
+                  <Td>{this.state.odcyl}</Td>
+                  <Td>{this.state.odaxis}</Td>
+                  <Td>{this.state.odva}</Td>
+                </Tr>
+                <Tr>
+                  <Td>NV</Td>
+                  <Td></Td>
+                  <Td colspan="2"></Td>
+                  <Td></Td>
+
+                  <Td></Td>
+                  <Td colspan="2"></Td>
+                  <Td></Td>
+                </Tr>
+               </Tbody>
+             </Table>
+               <div className="row mt-1">
+                 <div className="col-md-3">
+                  <span>Dist | PD.RE:</span>
+                  <span> {this.state.distre}</span>
+                 </div>
+                 <div className="col-md-3">
+                 <span>LE:</span>
+                 <span> {this.state.distle}</span>
+                 </div>
+                 <div className="col-md-3">
+                  <span>Near | PD.RE:</span>
+                  <span> {this.state.nearre}</span>
+                 </div>
+                 <div className="col-md-3">
+                 <span>LE:</span>
+                 <span> {this.state.nearle}</span>
+                 </div>
+             </div>
+             <div className="row mt-2">
+  
+  
+  {(() => {
+    console.log("kryptok", this.state.kryptok);
+  if(this.state.kryptok == 1){
+    return(
+      <div className="col-md-3">
+      <span>Kryptok</span>
+      <i style={{marginLeft:"38px"}} class="fa fa-check" aria-hidden="true"></i>
+ </div>
+    );
+  
+  } else  {
+    return(
+      <div className="col-md-3">
+      <span>Kryptok</span>
+    <input
+     style={{marginLeft:"38px"}}
+    type="checkbox"
+    checked={false}
+
+ />
+ </div>
+    );
+  }
+
+})()}
+
+{(() => {
+ if(this.state.unicvisd == 1){
+  return(
+    <div className="col-md-3">
+   <span>Unicvis D</span>
+   <i style={{marginLeft:"10px"}} class="fa fa-check" aria-hidden="true"></i>
+</div>
+    );
+  } else {
+    return(
+      <div className="col-md-3">
+     <span>Unicvis D</span>
+  <input
+  style={{marginLeft:"10px"}}
+  type="checkbox"
+  checked={false}
+  value={this.state.unicvisd}
+  />
+  </div>
+      );
+  }
+
+})()}
+
+{(() => {
+
+if(this.state.hiindex == 1){
+ return(
+ <div className="col-md-3">
+ <span>Hi index</span>
+ <i style={{marginLeft:"10px"}} class="fa fa-check" aria-hidden="true"></i>
+</div>
+
+ );
+} else {
+  return(
+    <div className="col-md-3">
+ <span>Hi index</span>
+ <input
+ style={{marginLeft:"10px"}}
+ type="checkbox"
+ name="unicvisd"
+ id="unicvisddata"
+ checked={false}
+ value={this.state.unicvisd}
+/>
+</div>
+  );
+}
+
+})()}
+
+{(() => {
+if(this.state.photochromic == 1){
+  return(
+  <div className="col-md-3">
+  <span>Photochromic</span>
+  <i style={{marginLeft:"31px"}} class="fa fa-check" aria-hidden="true"></i>
+  </div>
+  );
+} else {
+  return(
+    <div className="col-md-3">
+    <span>Photochromic</span>
+    <input
+    style={{marginLeft:"31px"}}
+    type="checkbox"
+    checked={false}
+    value={this.state.photochromic}
+    
+    />
+    </div>
+    );
+}
+
+
+})()}
+
+{(() => {
+
+  if(this.state.progreesive == 1){
+    return(
+
+      <div className="col-md-3">
+     <span>Progreesive</span>
+     <i style={{marginLeft:"10px"}} class="fa fa-check" aria-hidden="true"></i>
+   </div>
+
+    );
+
+  } else {
+    return(
+
+      <div className="col-md-3">
+     <span>Progreesive</span>
+     <input
+    style={{marginLeft:"10px"}}
+    type="checkbox"
+    checked={false}
+    value={this.state.progreesive}
+/>
+</div>
+
+    );
+  }
+
+})()}
+
+{(() => {
+
+if(this.state.glass == 1){
+  return(
+    <div className="col-md-3">
+   <span>Glass</span>
+   <i style={{marginLeft:"39px"}} class="fa fa-check" aria-hidden="true"></i>
+</div>
+  );
+} else {
+  return(
+    <div className="col-md-3">
+   <span>Glass</span>
+ <input
+style={{marginLeft:"39px"}}
+type="checkbox"
+checked={false}
+value={this.state.glass}
+
+/>
+</div>
+  );
+}
+
+})()}
+
+
+{(() => {
+
+  if(this.state.white == 1){
+    return(
+      <div className="col-md-3">
+      <span>White</span>
+      <i style={{marginLeft:"26px"}} class="fa fa-check" aria-hidden="true"></i>
+   </div>
+    );
+  } else {
+    return(
+      <div className="col-md-3">
+      <span>White</span>
+    <input
+    style={{marginLeft:"26px"}}
+   type="checkbox"
+   checked={false}
+  value={this.state.white}
+
+/>
+</div>
+    );
+  }
+
+})()}
+
+
+{(() => {
+
+if(this.state.arc == 1){
+  return(
+<div className="col-md-3">
+<span>Arc</span>
+<i style={{marginLeft:"106px"}} class="fa fa-check" aria-hidden="true"></i>
+</div>
+);
+} else {
+  return(
+    <div className="col-md-3">
+    <span>Arc</span>
+    <input
+    style={{marginLeft:"106px"}}
+    type="checkbox"
+    checked={false}
+    value={this.state.arc}
+    />
+    </div>
+    );
+}
+
+})()}
+
+{(() => {
+
+if(this.state.executive == 1){
+ return(
+  <div className="col-md-3">
+  <span>Executive</span>
+  <i style={{marginLeft:"26px"}} class="fa fa-check" aria-hidden="true"></i>
+  </div>
+ );
+} else {
+  return(
+    <div className="col-md-3">
+    <span>Executive</span>
+    <input
+    style={{marginLeft:"26px"}}
+    type="checkbox"
+    checked={false}
+    value={this.state.executive}
+    />
+    </div>
+   );
+}
+
+})()}
+
+{(() => {
+if(this.state.plastic == 1){
+ return(
+<div className="col-md-3">
+<span>Plastic</span>
+<i style={{marginLeft:"30px"}} class="fa fa-check" aria-hidden="true"></i>
+</div>
+ );
+} else {
+  return(
+    <div className="col-md-3">
+    <span>Plastic</span>
+    <input
+    style={{marginLeft:"30px"}}
+    type="checkbox"
+    checked={false}
+    value={this.state.plastic}
+    />
+    </div>
+     );
+}
+
+})()}
+
+{(() => {
+
+if(this.state.tint == 1){
+return(
+  <div className="col-md-3">
+<span>Tint</span>
+<i style={{marginLeft:"40px"}} class="fa fa-check" aria-hidden="true"></i>
+</div>
+);
+} else {
+  return(
+    <div className="col-md-3">
+  <span>Tint</span>
+  <input
+  style={{marginLeft:"40px"}}
+  type="checkbox"
+  checked={false}
+  value={this.state.tint}
+  />
+  </div>
+  );
+}
+
+})()}
+
+{(() => {
+
+if(this.state.ophthalmologist == 1){
+ return(
+ <div className="col-md-3">
+<span>Ophthalmologist</span>
+<i style={{marginLeft:"10px"}} class="fa fa-check" aria-hidden="true"></i>
+</div>
+ );
+} else {
+  return(
+  <div className="col-md-3">
+<span>Ophthalmologist</span>
+<input
+type="checkbox"
+style={{marginLeft:"10px"}}
+name="ophthalmologist"
+id="ophthalmologistdata"
+checked={false}
+value={this.state.ophthalmologist}
+/>
+</div>
+);
+}
+
+})()}
+
+
+</div>
+<div className="mt-2">
+ <span>Special instructions:</span>
+ <span>  {this.state.instruction}</span>
+ <hr></hr>
+ <div className="col-md-12">
+ <h6 className="text-center">Your Glasses are dispensed in the most scientific manner at our opticals</h6>
+ </div>
+ 
+</div>
+  </Container>
+            
+        </div>
+        </Container>
+      </div>
+     
+      <div id="printdisc" style={{display:"none"}}>
+        <Container>
+       <div  className="card">
+       <div className="row">
+       <div className="col-md-1 mt-1">
+       </div>
+              <div className="col-md-5 mt-2">
+              <img style={{maxWidth:"400px",height:"80px"}} src={Logoimg}></img>
+              </div>
+              <div className="col-md-5 mt-2">
+                <div className="float-right">
+                <p> Jansons MRI Opposite, Perunduari Road, Erode - 638 011</p>
+              <p> Ph: 86820 00055</p>
+              <p>Consulting Time 10.00 am to 2.00 pm, 4.00 pm to 8.00 pm</p>
+                </div>
+              
+              </div>
+            </div>
+            <div className="col-md-1 mt-1">
+            </div>
+            <hr></hr>
+            <div className="col-md-12">
+            <div className="row">
+             <div className="col-md-1">
+
+             </div>
+             <div className="col-md-10">
+             <p>{this.state.reportStartDate}</p>
+            <p>{this.state.username}</p>
+            <p>{this.state.address}</p>
+            <h5>Dear {this.state.username}</h5>
+            <br></br>
+            <p style={{whiteSpace:"pre-line"}}>{this.state.distext}</p>
+            <div className="float-right mt-5">
+            <span className="mr-3">Doctor signature</span>
+            </div>
+            </div>
+           <div className="col-md-1">
+
+             </div>
+            </div>
+            </div>
+            
+       </div>
+       </Container>
+       </div>
         </Container>
             <Footerdata/>
           

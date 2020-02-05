@@ -196,7 +196,7 @@ class Casesheets extends Component {
                 }
             }
              
-             
+            var sadmin =  sessionStorage.getItem('sadmin');
               console.log("aseg", student.aseg);
              
             return (
@@ -215,7 +215,18 @@ class Casesheets extends Component {
                      }
                   })()}
                   <Td><a className="btn btn-success btn-sm" title="edit casesheet" href={"/Editcasesheet/"+this.state.pid+"/"+student._key+"/"+student.aseg+"/"+student.pseg}><i className="fa fa-edit"></i></a></Td>
-                  <Td><button className="btn btn-danger btn-sm" title="delete casesheet" onClick={this.deletecasesheet.bind(this, student._key)}><i className="fa fa-trash-alt" aria-hidden="true"></i></button></Td>
+                  {(() => {
+                     if(sadmin == "2"){
+                        return (
+                           <Td><button className="btn btn-danger btn-sm" title="delete casesheet" onClick={this.deletecasesheet.bind(this, student._key)}><i className="fa fa-trash-alt" aria-hidden="true"></i></button></Td>
+                        );
+                     } else {
+                        return (
+                           <Td></Td>
+                        );
+                     }
+                  })()}
+                  
                </Tr>
             )
          })
@@ -286,6 +297,7 @@ class Casesheets extends Component {
                      </Table>
                      </div>
                      </div>
+                    
                      </div>
             )
              } else {
@@ -392,6 +404,9 @@ class Casesheets extends Component {
         })()}
             </div>
             </div>
+            <div className="float-right mt-2 mr-2">
+                   <a className="btn btn-danger mr-1" href="/Patientlist">Back</a>
+                    </div>
             <div className="row" style={{marginTop:"100px"}}>
             </div>
             </Container>
