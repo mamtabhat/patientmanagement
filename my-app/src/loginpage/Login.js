@@ -150,9 +150,10 @@ class Bodydata extends Component {
            <Row>
            <Col md="3"></Col>
            <Col md="6" style={{marginTop:"20px"}}>
-           <div  class="input-group margin-bottom-sm">
-
-           <span > <i  className="fa fa-envelope form-control spandata"></i></span>
+            <div  className="input-group">
+             
+           <span><a className="spandata form-control rounded-0 "><i  className="fa fa-envelope  text-primary"></i></a></span>
+         
            <input
            type="number"
            name="phone"
@@ -170,8 +171,9 @@ class Bodydata extends Component {
          <Col md="3"></Col>
          <Col md="3"></Col>
          <Col md="6" style={{marginTop:"20px"}}>
-         <div  class="input-group margin-bottom-sm">
-           <span > <i  className="fa fa-lock form-control spandata"></i></span>
+        <div  className="input-group">
+
+           <span > <a className="spandata form-control rounded-0"><i  className="fa fa-lock text-primary"></i></a></span>
            <input
           type={isPasswordShown ? "text" : "password"}
            name="password"

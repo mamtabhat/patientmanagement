@@ -223,7 +223,20 @@ class Datalist1 extends Component {
                
                  <Td>{person.address}</Td>
                  <Td>{person.pin}</Td>
-                 <Td>{new Date(person.rdate).toLocaleString()}</Td>
+                 {(() => {
+                   if(person.edate === undefined || person.edate === null){
+                     return(
+                      <Td>{new Date(person.rdate).toLocaleString()}</Td>
+                     )
+                   }
+                   else{
+                     return(
+                      <Td>{new Date(person.edate).toLocaleString()}</Td>
+                     )
+                   }
+                
+                  })()}
+
                  <Td> <a title="Edit" id="Editopt" href={"/Editpatient/"+person._key + "/" + person.gender } className="btn btn-sm btn-success mr-1"><i title='Edit Patient' className="fas fa-edit "></i></a></Td>
                 
                 

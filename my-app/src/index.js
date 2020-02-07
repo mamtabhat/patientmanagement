@@ -39,7 +39,7 @@ import Edittemplate from './discharge-templates/edittemplate'
 import createdischarge from './discharge-sheets/createdischarge'
 import editdischarge from './discharge-sheets/modifydischarge'
 import changename from './loginpage/changeusername'
-
+import Createappweb from './Appoinmentpage/CreateAppoinmentweb';
 
 const routs = (
    <Router>
@@ -73,6 +73,7 @@ const routs = (
          <Route path="/Casesheets/:pid" component={Casesheets} />
          <Route path="/Createcasesheets/:pid" component={Createcasesheets} />
          <Route path="/Editcasesheet/:pid/:cid/:aseg/:pseg" component={Editcasesheetdata} />
+         <Route path="/Createappweb/:id/" component={Createappweb} />
    </Router>
 );
 ReactDOM.render(routs, document.getElementById('root'));

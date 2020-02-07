@@ -8,15 +8,7 @@ import $ from 'jquery';
 import axios from 'axios';
 import config from '../config/config';
 import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table'
-const getDateTime = () => {
-   let tempDate = new Date();
-   let date = tempDate.getFullYear() + '-' + (tempDate.getMonth()+1) + '-' + tempDate.getDate() +' '+ tempDate.getHours()+':'+ tempDate.getMinutes()+':'+ tempDate.getSeconds(); 
-   const currDate = "Current Date= "+date;
-   this.setState({ reportStartDate: currDate})
- }
 
-
-  
 class Datalist1 extends Component {
     
   
@@ -46,7 +38,7 @@ class Datalist1 extends Component {
          this.state = { 
             startdate:`${new Date().getFullYear()}-${`${new Date().getMonth()+1}`.padStart(2,0)}-${`${new Date().getDate()}`.padStart(2,0)}T${`${new Date().getHours()}`.padStart(2,0)}:${`${new Date().getMinutes()}`.padStart(2, 0)}`,
             enddate:`${new Date().getFullYear()}-${`${new Date().getMonth()+1}`.padStart(2,0)}-${`${new Date().getDate()}`.padStart(2,0)}T${`${new Date().getHours()}`.padStart(2,0)}:${`${new Date().getMinutes()}`.padStart(2, 0)}`,
-            type:'',
+            type:0,
             ref:'',
             active:1,
             datalist:[],
@@ -219,7 +211,6 @@ class Datalist1 extends Component {
      
       var customdiv = document.getElementById('customdiv');
          $(customdiv).hide();
-     
       this.Appointmentdata(active);
      
       
@@ -231,7 +222,6 @@ class Datalist1 extends Component {
     
       var customdiv = document.getElementById('customdiv');
       $(customdiv).hide();
-      
       var active = 2;
       this.setState({active:active});
       this.Appointmentdata(active);
@@ -243,8 +233,8 @@ class Datalist1 extends Component {
     
 
      var active = this.state.active;
-   
-      this.Appointmentdata(active);
+     var type = 0;
+      this.Appointmentdata(active,type);
 
    }
   
