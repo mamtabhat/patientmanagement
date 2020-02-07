@@ -1088,7 +1088,7 @@ class Createcasesheets extends Component {
      }
 
      downarrowdis = () => {
-
+      $("#dischargediv").css("height","500px")
       $('#downarrow-dis').hide();
       $('#uparrow-dis').show();
       $('#patient-dis').hide();
@@ -1096,9 +1096,11 @@ class Createcasesheets extends Component {
      }
     
      uparrowdis = () => {
+      $("#dischargediv").css("height","auto")
       $('#downarrow-dis').show();
       $('#uparrow-dis').hide();
       $('#patient-dis').show();
+      
      }
 
 
@@ -2265,7 +2267,7 @@ class Createcasesheets extends Component {
               </div>
 
             </div>
-             <div id="createpres" className="mt-2">
+             <div id="createpres" className="mt-2" style={{width:"100%"}}>
             <table className="table" border="1"> 
               <thead>
                 <tr>
@@ -2756,7 +2758,7 @@ class Createcasesheets extends Component {
           <a id="downarrow-dis" style={{display:"none"}} data-toggle="collapse" onClick={this.downarrowdis} ><i class="fa fa-angle-double-down"></i></a>
             <a id="uparrow-dis"  onClick={this.uparrowdis}><i class="fa fa-angle-double-up"></i></a>
            </div>
-                      <div className="col-md-5">
+                      <div className="col-md-5 mt-2">
                       <div id="patient-dis" style={{display:"none"}}>
             <h6>Patient details</h6>
             <input
@@ -2841,8 +2843,8 @@ class Createcasesheets extends Component {
                     ></textarea>
                     <br></br>
                     <div className="float-right">
-                    <button className="btn btn-danger mr-1" onClick={this.Goback}>Cancel</button>
-                    <button className="btn btn-success" onClick={this.createdischarge}>Create</button>
+                    <button className="btn btn-danger mr-1 mb-1" onClick={this.Goback}>Cancel</button>
+                    <button className="btn btn-success mb-1" onClick={this.createdischarge}>Create</button>
                     </div>
                    
                    </div>

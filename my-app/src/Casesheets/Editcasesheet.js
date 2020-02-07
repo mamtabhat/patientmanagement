@@ -2534,7 +2534,7 @@ $('#printopticalbutton').hide();
 
 
  downarrowdis = () => {
-
+  $("#dischargediv").css("height","500px")
   $('#downarrow-dis').hide();
   $('#uparrow-dis').show();
   $('#patient-dis').hide();
@@ -2542,6 +2542,7 @@ $('#printopticalbutton').hide();
  }
 
  uparrowdis = () => {
+  $("#dischargediv").css("height","auto")
   $('#downarrow-dis').show();
   $('#uparrow-dis').hide();
   $('#patient-dis').show();
@@ -3404,7 +3405,7 @@ render(){
                    <div className="col-md-12">
                   <div  className="card mt-4" style={{width:"100%"}}>
                   <div className="table-responsive">
-                 <Table className="table">
+                 <Table className="table tabledata">
                  
                     <Thead className="table-dark">
                      <Tr>
@@ -3416,7 +3417,6 @@ render(){
                      </Tr>
                    </Thead>
                     
-                   
                     <Tbody>
                        {this.renderTableData()}
                    </Tbody>
@@ -4017,7 +4017,7 @@ onChange={this.typesdata}
                         <div className="col-md-12 col-xs-12">
                        <div  className="card mt-4" style={{width:"100%"}}>
                              
-                      <Table className="table">
+                      <Table className="table tabledata">
                      
                     <Thead className="table-dark">
                      <Tr>
@@ -4689,7 +4689,7 @@ onChange={this.typesdata}
           <a id="downarrow-dis" style={{display:"none"}} data-toggle="collapse" onClick={this.downarrowdis} ><i class="fa fa-angle-double-down"></i></a>
             <a id="uparrow-dis"  onClick={this.uparrowdis}><i class="fa fa-angle-double-up"></i></a>
            </div>
-                      <div className="col-md-5">
+                      <div className="col-md-5 mt-2">
                       <div id="patient-dis" style={{display:"none"}}>
             <h6>Patient details</h6>
             <input
@@ -4784,8 +4784,8 @@ onChange={this.typesdata}
                     ></textarea>
                     <br></br>
                     <div className="float-right">
-                    <a className="btn btn-danger mr-1" href={"/Casesheets/"+this.state.patientid}>Cancel</a>
-                    <button className="btn btn-success" onClick={this.updatedischarge}>Update</button>
+                    <a className="btn btn-danger mr-1 mb-1" href={"/Casesheets/"+this.state.patientid}>Cancel</a>
+                    <button className="btn btn-success mb-1" onClick={this.updatedischarge}>Update</button>
                     </div>
                    
                    </div>
@@ -4818,8 +4818,8 @@ onChange={this.typesdata}
                    </div>
                     <br></br>
                     <div className="float-right">
-                    <a className="btn btn-danger mr-1" href={"/Casesheets/"+this.state.patientid}>Cancel</a>
-                    <button className="btn btn-success" onClick={this.createdischarge}>Create</button>
+                    <a className="btn btn-danger mr-1 mb-1" href={"/Casesheets/"+this.state.patientid}>Cancel</a>
+                    <button className="btn btn-success mb-1" onClick={this.createdischarge}>Create</button>
                     </div>
                    
                    </div>
