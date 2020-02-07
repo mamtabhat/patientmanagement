@@ -250,7 +250,7 @@ class Header extends Component {
 
         </Col>
            <Col md="6">
-           <div  style={{marginTop:"90px",marginBottom:"100px"}}>
+           <div  style={{marginTop:"90px",marginBottom:"150px"}}>
            <form onSubmit={this.handleSubmit}>
            <div className="form-group">
            <Container>

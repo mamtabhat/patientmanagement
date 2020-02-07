@@ -1079,6 +1079,7 @@ $('#opticalbutton').hide();
 $('#createoptical').css('height', "auto");
 $('#createid').hide();
 $('#modifyid').show();
+$('#printopticalbutton').show();
 
 }
 
@@ -1091,7 +1092,7 @@ $('#opticalbutton').hide();
 $('#createoptical').css('height', "auto");
 $('#createid').show();
 $('#modifyid').hide();
-
+$('#printopticalbutton').hide();
 
       this.setState({instruction: ''})
       this.setState({ossph: ''})
@@ -1274,7 +1275,7 @@ $('#modifyid').hide();
   
 
      console.log(response);
-
+     $("#printopticalbutton").show();
 
      $("#divsucessalert").show();
      $("#spansucess").html('Optical Created successfully');
@@ -1282,7 +1283,7 @@ $('#modifyid').hide();
      setTimeout( () => {
 
       $("#divsucessalert").hide();
-      this.Optical();
+      //this.Optical();
        
       }, 1000 )
 
@@ -1439,7 +1440,7 @@ $('#modifyid').hide();
 
       $("#divsucessalert").hide();
 
-      this.Optical();
+      //this.Optical();
        
       }, 1000 )
 
@@ -1684,7 +1685,7 @@ $('#modifyid').hide();
    this.setState({Time10:  ''})
    this.setState({Day10:  ''})
 
-
+   $('#printbutton-pres').hide();
     $('#casesheetdiv').hide();
     $('#opticaldiv').hide();
     $('#Prescriptiondiv').show(); 
@@ -1706,6 +1707,7 @@ $('#modifyid').hide();
 
   createpres = () => {
     var auth =  sessionStorage.getItem('auth');
+
 
     var medicines = [];
 
@@ -1876,13 +1878,15 @@ $('#modifyid').hide();
 
          console.log(response);
 
+         $("#printbutton-pres").show();
+
          $("#divsucessalert").show();
          $("#spansucess").html('Prescription Created successfully');
 
          setTimeout( () => {
 
         $("#divsucessalert").hide();
-       // this.Prescription();
+        //this.Prescription();
          
         }, 1000 )
 
@@ -1930,6 +1934,7 @@ $('#modifyid').hide();
     $('#Prescriptionid').css("color", "black");
     $('#Dischargeid').css("color", "white");
     $('#Prescriptiondiv').css("height", "auto");
+    $("#printbutton-pres").show();
 
     var auth =  sessionStorage.getItem('auth');
     var presarr = [];
@@ -1953,11 +1958,6 @@ $('#modifyid').hide();
       .then( (response) => {
           //handle success
       this.setState({prescriptionid:  presid})
-
-      console.log("prescriptionid", this.state.prescriptionid);
-
-       console.log(response.data.data);
-
        response.data.data.map((pres)=>{
 
         this.setState({Review:  pres.review})
@@ -1974,7 +1974,7 @@ $('#modifyid').hide();
            }
            if(medicine.le === 1){
             document.getElementById('Le1').checked = true
-            this.setState({Le1:  medicine.re})
+            this.setState({Le1:  medicine.le})
           }
 
           this.setState({Time1:  medicine.times})
@@ -1989,7 +1989,7 @@ $('#modifyid').hide();
             }
             if(medicine.le === 1){
              document.getElementById('Le2').checked = true
-             this.setState({Le2:  medicine.re})
+             this.setState({Le2:  medicine.le})
            }
  
            this.setState({Time2:  medicine.times})
@@ -2036,7 +2036,7 @@ $('#modifyid').hide();
             }
             if(medicine.le === 1){
              document.getElementById('Le5').checked = true
-             this.setState({Le5:  medicine.re})
+             this.setState({Le5:  medicine.le})
            }
  
            this.setState({Time5:  medicine.times})
@@ -2050,7 +2050,7 @@ $('#modifyid').hide();
             }
             if(medicine.le === 1){
              document.getElementById('Le6').checked = true
-             this.setState({Le6:  medicine.re})
+             this.setState({Le6:  medicine.le})
            }
  
            this.setState({Time6:  medicine.times})
@@ -2064,7 +2064,7 @@ $('#modifyid').hide();
             }
             if(medicine.le === 1){
              document.getElementById('Le7').checked = true
-             this.setState({Le7:  medicine.re})
+             this.setState({Le7:  medicine.le})
            }
  
            this.setState({Time7:  medicine.times})
@@ -2078,7 +2078,7 @@ $('#modifyid').hide();
             }
             if(medicine.le === 1){
              document.getElementById('Le8').checked = true
-             this.setState({Le8:  medicine.re})
+             this.setState({Le8:  medicine.le})
            }
  
            this.setState({Time8:  medicine.times})
@@ -2092,7 +2092,7 @@ $('#modifyid').hide();
             }
             if(medicine.le === 1){
              document.getElementById('Le9').checked = true
-             this.setState({Le9:  medicine.re})
+             this.setState({Le9:  medicine.le})
            }
  
            this.setState({Time9:  medicine.times})
@@ -2106,7 +2106,7 @@ $('#modifyid').hide();
             }
             if(medicine.le === 1){
              document.getElementById('Le10').checked = true
-             this.setState({Le10:  medicine.re})
+             this.setState({Le10:  medicine.le})
            }
  
            this.setState({Time10:  medicine.times})
@@ -2307,7 +2307,7 @@ $('#modifyid').hide();
            setTimeout( () => {
 
           $("#divsucessalert").hide();
-          this.Prescription();
+          //this.Prescription();
           }, 1000 )
 
        
@@ -2642,7 +2642,11 @@ $('#modifyid').hide();
 
     dischargeoption = () => {
       var auth =  sessionStorage.getItem('auth');
-  
+
+      var sadmin =  sessionStorage.getItem('sadmin');
+
+      if(sadmin == "2"){
+
      axios({
     method: 'get',
     url: config.url+'discharge/ctk/listtemplates',
@@ -2685,7 +2689,8 @@ $('#modifyid').hide();
       $("#diverroralert").show();
       $("#spanerror").html(error.response.data.error);
   });
-    }
+}
+}
 
 
     createdischarge = () => {
@@ -2824,75 +2829,69 @@ $('#modifyid').hide();
 
 
     printcasesheet = () => {
-      //window.print();
-
-      // var printContent = document.getElementById('casesheetdata');
-      // window.print(printContent);
-
-      var printContents = document.getElementById('printdisc').innerHTML;
-      //var patientdetail = document.getElementById('patientdetail').innerHTML;
-			var originalContents = document.body.innerHTML;
-
-      document.body.innerHTML = printContents;
-     
+          
       window.onafterprint = function(e){
-        $(window).off('mousemove', window.onafterprint);
+      
         console.log('Print Dialog Closed..');
-        window.location.reload(true);
-
-       // presdata.Prescription();
+       
+        $('#printdisc').hide();
+        $('#casesheetdata').show();
+        $('#footerdatacheck').show();
+     
     };
 
-			window.print();
+    $('#printdisc').show();
+    $('#casesheetdata').hide();
+    $('#footerdatacheck').hide();
 
-			document.body.innerHTML = originalContents;
+      window.print();
+
+     
       
     }
 
 
     printpresdata = () => {
-     // window.print();
-
-      // var printContent = document.getElementById('casesheetdata');
-      // window.print(printContent);
-
-      var printContents = document.getElementById('printpres').innerHTML;
-      //var patientdetail = document.getElementById('patientdetail').innerHTML;
-			var originalContents = document.body.innerHTML;
-
-      document.body.innerHTML = printContents;
-      var presdata = this;
+    
       window.onafterprint = function(e){
-        $(window).off('mousemove', window.onafterprint);
+       
         console.log('Print Dialog Closed..');
-        window.location.reload(true);
-       // presdata.Prescription();
+        $('#printpres').hide();
+        $('#casesheetdata').show();
+        $('#footerdatacheck').show();
+        
     };
 
-			window.print();
+    $('#printpres').show();
+    $('#casesheetdata').hide();
+    $('#footerdatacheck').hide();
 
-			document.body.innerHTML = originalContents;
+      window.print();
+
+     
       
     }
 
     printoptical = () => {
-
-      var printContents = document.getElementById('printoptical').innerHTML;
-      //var patientdetail = document.getElementById('patientdetail').innerHTML;
-			var originalContents = document.body.innerHTML;
-
-      document.body.innerHTML = printContents;
-      var optical = this;
+    
       window.onafterprint = function(e){
-        $(window).off('mousemove', window.onafterprint);
-        console.log('Print Dialog Closed..');
-        window.location.reload(true);
-        
-    };
+       
+     console.log('Print Dialog Closed..');
+     
 
-			window.print();
+      $('#printoptical').hide();
+      $('#casesheetdata').show();
+      $('#footerdatacheck').show();
+   };
+   
+   $('#printoptical').show();
+   $('#casesheetdata').hide();
+   $('#footerdatacheck').hide();
+   
 
-			document.body.innerHTML = originalContents;
+   window.print();
+
+
 
     }
 
@@ -2918,19 +2917,19 @@ $('#modifyid').hide();
                      }
                   })()}
            
-           {(() => {
-              if(sadmin == "2"){
-                return (
+           
                   <Td><button className="btn btn-success btn-sm" name="opticalid" value={optical._key} onClick={this.editoptical.bind(this, optical._key)}><i class="fa fa-edit"></i></button></Td>
-                );
-             }
-            })()}
+              
              {(() => {
              if(sadmin == "2"){
               return (
                 <Td><button className="btn btn-danger btn-sm" onClick={this.deleteoptical.bind(this, optical._key)}><i className="fa fa-trash-alt" aria-hidden="true"></i></button></Td>
               );
-           }
+           } else {
+            return(
+              <Td></Td>
+            );
+          }
            
           })()}
         </Tr>
@@ -2961,18 +2960,18 @@ renderPresData() {
                   })()}
            
          
-           {(() => {
-             if(sadmin == "2"){
-              return (
+          
                 <Td><button className="btn btn-success btn-sm" name="opticalid" value={pres._key} onClick={this.editpres.bind(this, pres._key,'aaaaa')}><i class="fa fa-edit"></i></button></Td>
-              );
-           }
-          })()}
+             
            {(() => {
              if(sadmin == "2"){
               return (
                 <Td><button className="btn btn-danger btn-sm" onClick={this.deletepres.bind(this, pres._key)}><i className="fa fa-trash-alt" aria-hidden="true"></i></button></Td>
               );
+           } else {
+             return(
+               <Td></Td>
+             );
            }
           })()}
          
@@ -3026,24 +3025,47 @@ render(){
         <div>
         <Headerdata/>
         <Container fluid={true} style={{marginBottom:"150px"}}>
-        <div className="cardstyle margindata" style={{border:"1px solid grey",height:"auto"}}>
+        <div id="casesheetdata" className="cardstyle margindata" style={{border:"1px solid grey",height:"auto"}}>
        <div className="col-md-12 col-sm-12 col-lg-12 col-xs-12">
       
-            <div className="row" style={styledata}>
-             <div className="col-md-3 col-xs-12">
-               <center><h5 id="Casesheetid" onClick={this.Casesheet}>Casesheet</h5></center>
-             </div>
-             <div className="col-md-3 col-xs-12">
-             <center><h5 id="Opticalid" style={{color:"white"}} onClick={this.Optical}>Optical</h5></center>
-             </div>
-             <div className="col-md-3 col-xs-12">
-             <center><h5 id="Prescriptionid" style={{color:"white"}} onClick={this.Prescription}>Prescription</h5></center>
-             </div>
-             <div className="col-md-3 col-xs-12">
-             <center><h5 id="Dischargeid" style={{color:"white"}} onClick={this.dischargeoption}>Discharge</h5></center>
-             </div>
-           
-        </div>
+       {(() => {
+            if(sadmin == "2"){
+             return(
+              <div className="row" style={styledata}>
+              <div className="col-md-3">
+                <center><h5 id="Casesheetid" style={{cursor:"pointer"}} onClick={this.Casesheet}>Casesheet</h5></center>
+              </div>
+              <div className="col-md-3">
+              <center><h5 id="Opticalid" style={{color:"white",cursor:"pointer"}} onClick={this.Optical}>Optical</h5></center>
+              </div>
+              <div className="col-md-3">
+              <center><h5 id="Prescriptionid" style={{color:"white",cursor:"pointer"}} onClick={this.Prescription}>Prescription</h5></center>
+              </div>
+              <div className="col-md-3">
+              <center><h5 id="Dischargeid" style={{color:"white",cursor:"pointer"}} onClick={this.dischargeoption}>Discharge</h5></center>
+              </div>
+            
+         </div>
+             );
+            } else {
+              return(
+                <div className="row" style={styledata}>
+                <div className="col-md-4">
+                  <center><h5 id="Casesheetid" style={{cursor:"pointer"}} onClick={this.Casesheet}>Casesheet</h5></center>
+                </div>
+                <div className="col-md-4">
+                <center><h5 id="Opticalid" style={{color:"white",cursor:"pointer"}} onClick={this.Optical}>Optical</h5></center>
+                </div>
+                <div className="col-md-4">
+                <center><h5 id="Prescriptionid" style={{color:"white",cursor:"pointer"}} onClick={this.Prescription}>Prescription</h5></center>
+                </div>
+              
+           </div>
+              );
+            }
+
+
+            })()}
 
         <div id="diverroralert" className="modalalert">
                   <div className="modal-contentalert alert alert-danger" role="alert">
@@ -3175,7 +3197,7 @@ render(){
 
 
 <select id="va" name="va" value={this.state.va} onChange={this.prelistdata} className="form-control mt-1">
-<option defaultValue>Select va </option>
+<option defaultValue>Select V/A </option>
     <option>6/60</option>
     <option>6/36</option>
     <option>6/24</option>
@@ -3381,11 +3403,9 @@ render(){
                       <div  className="row">
                    <div className="col-md-12">
                   <div  className="card mt-4" style={{width:"100%"}}>
-                        
+                  <div className="table-responsive">
                  <Table className="table">
-                 {(() => {
-                  if(sadmin == "2"){
-                     return(
+                 
                     <Thead className="table-dark">
                      <Tr>
                         <Th>Sno</Th>
@@ -3395,26 +3415,13 @@ render(){
                         <Th></Th>
                      </Tr>
                    </Thead>
-                     );
-                  } else {
-                    return(
-                      <Thead className="table-dark">
-                       <Tr>
-                          <Th>Sno</Th>
-                          <Th>instruction</Th>
-                          <Th>Date and Time</Th>
-                       </Tr>
-                     </Thead>
-                       );
-                  }
-
-                  })()}
+                    
                    
                     <Tbody>
                        {this.renderTableData()}
                    </Tbody>
                  </Table>
-                 
+                 </div>
                   </div>
                   </div>
                     </div>
@@ -3430,13 +3437,69 @@ render(){
                   <div className="row">
                    
                    
-                   <div class="col-md-4">
-                    
+                   <div class="col-md-1">
+                   <a id="downarrow-optical" style={{display:"none"}} data-toggle="collapse" onClick={this.downarrowoptical} ><i class="fa fa-angle-double-down"></i></a>
+                      <a id="uparrow-optical"  onClick={this.uparrowoptical}><i class="fa fa-angle-double-up"></i></a>
                      </div>
-                    <div class="col-md-4">
-                    
+                    <div class="col-md-5">
+                    <div id="patient-optical" style={{display:"none"}}>
+            <h6>Patient details</h6>
+            <input
+           type="text"
+           name="username"
+           className="form-control"
+           placeholder="username"
+           value={this.state.username }
+           onChange={this.prelistdata}
+           disabled
+         />
+         <input
+           type="number"
+           name="phone"
+           className="form-control mt-1"
+           placeholder="Phone number"
+           value={this.state.phone }
+           onChange={this.prelistdata}
+           disabled
+         />
+         <input
+           type="number"
+           name="age"
+           className="form-control mt-1"
+           placeholder="Age"
+           value={this.state.age }
+           onChange={this.prelistdata}
+           disabled
+         />
+         <input
+           type="text"
+           name="gender"
+           className="form-control mt-1"
+           placeholder="gender"
+           value={this.state.gender }
+           onChange={this.prelistdata}
+           disabled
+         />
+         <textarea
+       name="address"
+      className="form-control mt-1"
+      value={this.state.address}
+      onChange={this.prelistdata}
+      placeholder="address"
+      disabled
+    ></textarea>
+     <input
+           type="text"
+           name="pincode"
+           className="form-control mt-1"
+           placeholder="pincode"
+           value={this.state.pincode }
+           onChange={this.prelistdata}
+           disabled
+         />
+          </div>
                      </div>
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                     <div className="float-right mt-3">
                     <button className="btn mr-2 btn-primary rounded-circle" title="create optical" onClick={this.createoptical}><i class="fa fa-plus" aria-hidden="true"></i></button>
                     </div>
@@ -3444,6 +3507,9 @@ render(){
                   
                     </div>
                     <h2 style={{textAlign:"center"}} className="mt-5">Click Create Optical icon to Create Opticals</h2>
+                    <div className="float-right mt-2">
+                    <a className="btn btn-danger mr-1" onClick={this.Goback} href="#">Back</a>
+                    </div>
                     </div>
                    );
                  }
@@ -3465,7 +3531,7 @@ render(){
               <div className="row">
                 <div className="col-md-12">
                 <div className="float-right">
-            <button title="print" onClick={this.printoptical} className="btn btn-info"><i class="fa fa-print" aria-hidden="true"></i></button>
+            <button id="printopticalbutton" style={{display:"none"}} title="print optical" onClick={this.printoptical} className="btn btn-info"><i class="fa fa-print" aria-hidden="true"></i></button>
             </div>
                 </div>
               
@@ -3848,12 +3914,20 @@ onChange={this.typesdata}
            </div>
 
            <div id="createid" className="float-right" style={{display:"none"}}>
-          <a className="btn btn-danger mr-1" href="#" onClick={this.Goback}>Cancel</a>
+          <a className="btn btn-danger mr-1" href="#" onClick={this.Optical}>Cancel</a>
  <button className="btn btn-success mt-2 mb-2" onClick={this.create}>Create</button>
          </div>
          <div id="modifyid" className="float-right" style={{display:"none"}}>
-         <a className="btn btn-danger mr-1" href="#" onClick={this.Goback}>Cancel</a>
-  <button className="btn btn-success mt-2 mb-2" onClick={this.modifyopticaldata}>Update</button>
+         <a className="btn btn-danger  mt-2 mb-2 mr-1" href="#" onClick={this.Optical}>Cancel</a>
+
+
+         {(() => {
+       if(sadmin == "2"){
+       return(
+      <button className="btn btn-success mt-2 mb-2" onClick={this.modifyopticaldata}>Update</button>
+       );
+       }
+     })()}
          </div>
            
 
@@ -3944,9 +4018,7 @@ onChange={this.typesdata}
                        <div  className="card mt-4" style={{width:"100%"}}>
                              
                       <Table className="table">
-                      {(() => {
-                  if(sadmin == "2"){
-                     return(
+                     
                     <Thead className="table-dark">
                      <Tr>
                         <Th>Sno</Th>
@@ -3956,21 +4028,7 @@ onChange={this.typesdata}
                         <Th></Th>
                      </Tr>
                    </Thead>
-                     );
-                  } else {
-                    return(
-                      <Thead className="table-dark">
-                       <Tr>
-                          <Th>Sno</Th>
-                          <Th>instruction</Th>
-                          <Th>Date and Time</Th>
-                       </Tr>
-                     </Thead>
-                       );
-                  }
-
-                  })()}
-                         <Tbody>
+                    <Tbody>
                             {this.renderPresData()}
                         </Tbody>
                       </Table>
@@ -3991,13 +4049,70 @@ onChange={this.typesdata}
           
           <div className="row">
            
-           <div class="col-md-4">
-            
+           <div class="col-md-1">
+           <a id="downarrow-pres" style={{display:"none"}} data-toggle="collapse" onClick={this.downarrowpres} ><i class="fa fa-angle-double-down"></i></a>
+            <a id="uparrow-pres"  onClick={this.uparrowpres}><i class="fa fa-angle-double-up"></i></a>
              </div>
-            <div class="col-md-4">
-            
+            <div class="col-md-5">
+            <div id="patient-pres" style={{display:"none"}}>
+            <h6>Patient details</h6>
+            <input
+           type="text"
+           name="username"
+           className="form-control"
+           placeholder="username"
+           value={this.state.username }
+           onChange={this.prelistdata}
+           disabled
+         />
+         <input
+           type="number"
+           name="phone"
+           className="form-control mt-1"
+           placeholder="Phone number"
+           value={this.state.phone }
+           onChange={this.prelistdata}
+           disabled
+         />
+         <input
+           type="number"
+           name="age"
+           className="form-control mt-1"
+           placeholder="Age"
+           value={this.state.age }
+           onChange={this.prelistdata}
+           disabled
+         />
+         <input
+           type="text"
+           name="gender"
+           className="form-control mt-1"
+           placeholder="gender"
+           value={this.state.gender }
+           onChange={this.prelistdata}
+           disabled
+         />
+         <textarea
+       name="address"
+      className="form-control mt-1"
+      value={this.state.address}
+      onChange={this.prelistdata}
+      placeholder="address"
+      disabled
+    ></textarea>
+     <input
+           type="text"
+           name="pincode"
+           className="form-control mt-1"
+           placeholder="pincode"
+           value={this.state.pincode }
+           onChange={this.prelistdata}
+           disabled
+         />
+          </div>
+
              </div>
-            <div class="col-md-4">
+            <div class="col-md-6">
             <div className="float-right mt-3">
             <button className="btn btn-primary mr-2 rounded-circle" title="create prescription" onClick={this.createprescription}><i class="fa fa-plus" aria-hidden="true"></i></button>
             </div>
@@ -4005,6 +4120,9 @@ onChange={this.typesdata}
           
             </div>
             <h2 style={{textAlign:"center"}} className="mt-5">Click Create Prescription icon to Create Prescriptions</h2>
+            <div className="float-right mt-2">
+                <a className="btn btn-danger mr-1" href="#" onClick={this.Goback}>Back</a>
+              </div>
             </div>
           );
         }
@@ -4018,7 +4136,7 @@ onChange={this.typesdata}
        <div className="row">
                 <div className="col-md-12">
                 <div className="float-right">
-            <button title="print" onClick={this.printpresdata} className="btn btn-info"><i class="fa fa-print" aria-hidden="true"></i></button>
+            <button id="printbutton-pres" style={{display:"none"}} title="print prescription" onClick={this.printpresdata} className="btn btn-info"><i class="fa fa-print" aria-hidden="true"></i></button>
             </div>
                 </div>
               
@@ -4547,12 +4665,18 @@ onChange={this.typesdata}
               ></textarea>
        
               <div id="createpresid" className="float-right" style={{display:"none"}}>
-            <a className="btn btn-danger mr-1" href="#" onClick={this.Goback}>Cancel</a>   
- <button className="btn btn-success mt-2 mb-2" onClick={this.createpres}>Create</button>
+            <a className="btn btn-danger mr-1" href="#" onClick={this.Prescription}>Cancel</a>   
+        <button className="btn btn-success mt-2 mb-2" onClick={this.createpres}>Create</button>
              </div>
              <div id="modifypresid" className="float-right" style={{display:"none"}}>
-              <a className="btn btn-danger mr-1" href="#" onClick={this.Goback}>Cancel</a>
-  <button className="btn btn-success mt-2 mb-2" onClick={this.editpresdata}>Update</button>
+              <a className="btn btn-danger mt-2 mb-2 mr-1" href="#" onClick={this.Prescription}>Cancel</a>
+              {(() => {
+    if(sadmin == "2"){
+    return(     
+    <button className="btn btn-success mt-2 mb-2" onClick={this.editpresdata}>Update</button>
+      );
+      }
+  })()}
              </div>
 
              </div>
@@ -4625,9 +4749,16 @@ onChange={this.typesdata}
 
                       </div>
                       <div className="col-md-6 mt-3">
-                      <div className="float-right">
-             <button title="print" onClick={this.printcasesheet} className="btn btn-info"><i class="fa fa-print" aria-hidden="true"></i></button>
-         </div>
+                      {(() => {
+                        if(this.state.didid != ""){
+                          return(
+                        <div className="float-right">
+                        <button title="print" onClick={this.printcasesheet} className="btn btn-info"><i class="fa fa-print" aria-hidden="true"></i></button>
+                       </div>
+                          );
+                        }
+                      
+               })()}
                       </div>
            
                        </div>
@@ -4781,6 +4912,7 @@ onChange={this.typesdata}
            }
           })()} 
           {(() => {
+          
            if(this.state.Le1 === 1){
              return(
            <Td><i class="fa fa-check" aria-hidden="true"></i></Td>
@@ -4809,6 +4941,7 @@ onChange={this.typesdata}
            }
           })()} 
           {(() => {
+              console.log("Le2", this.state.Le2);
            if(this.state.Le2 === 1){
              return(
            <Td><i class="fa fa-check" aria-hidden="true"></i></Td>
@@ -5001,13 +5134,13 @@ onChange={this.typesdata}
                 </Tr>
                 <Tr>
                   <Td>NV</Td>
-                  <Td>{this.state.ossph}</Td>
-                  <Td colspan="2">{this.state.ossph}</Td>
-                  <Td>{this.state.osva}</Td>
+                  <Td></Td>
+                  <Td colspan="2"></Td>
+                  <Td></Td>
 
-                  <Td>{this.state.ossph}</Td>
-                  <Td colspan="2">{this.state.ossph}</Td>
-                  <Td>{this.state.osva}</Td>
+                  <Td></Td>
+                  <Td colspan="2"></Td>
+                  <Td></Td>
                 </Tr>
                </Tbody>
              </Table>
@@ -5374,9 +5507,11 @@ value={this.state.ophthalmologist}
               </div>
               <div className="col-md-5 mt-2">
                 <div className="float-right">
-                <p> Jansons MRI Opposite, Perunduari Road, Erode - 638 011</p>
+                <p> Jansons MRI Opposite, Perunduari Road,</p>
+                <p> Erode - 638011</p>
               <p> Ph: 86820 00055</p>
-              <p>Consulting Time 10.00 am to 2.00 pm, 4.00 pm to 8.00 pm</p>
+              <p>Consulting Time: 10.00 am to 2.00 pm, </p>
+              <p> 4.00 pm to 8.00 pm</p>
                 </div>
               
               </div>
@@ -5411,7 +5546,9 @@ value={this.state.ophthalmologist}
        </div>
      
     </Container>
-        <Footerdata/>
+    <div id="footerdatacheck">
+        <Footerdata />
+        </div>
       
         </div>
         

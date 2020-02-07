@@ -159,7 +159,8 @@ class Createcasesheets extends Component {
                 Day9: null,
                 Day10: null,
                 Review: '',
-                distext: ''
+                distext: '',
+                reportStartDate: `${`${new Date().getDate()}`.padStart(2,0)}-${`${new Date().getMonth()+1}`.padStart(2,0)}-${new Date().getFullYear()}`
               
         }
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -358,6 +359,7 @@ class Createcasesheets extends Component {
      }
          var data = {
           pid : this.state.patientid,
+          dm: this.state.dm,
           ht: this.state.ht,
           ihd: this.state.ihd,
           allergy: this.state.allergy,
@@ -773,6 +775,8 @@ class Createcasesheets extends Component {
 
          console.log(response);
 
+         $("#printopticalbutton").show();
+
          $("#divsucessalert").show();
          $("#spansucess").html('Optical Created successfully');
 
@@ -997,6 +1001,8 @@ class Createcasesheets extends Component {
   
            console.log(response);
 
+           $("#printbutton-pres").show();
+
            $("#divsucessalert").show();
            $("#spansucess").html('Prescription Created successfully');
 
@@ -1186,16 +1192,22 @@ class Createcasesheets extends Component {
 
 
         dischargeoption = () => {
+
+          var sadmin =  sessionStorage.getItem('sadmin');
+
+         
+            $('#casesheetdiv').hide();
+            $('#opticaldiv').hide();
+            $('#createid').hide();
+            $('#Prescriptiondiv').hide();
+            $('#dischargediv').show();
+            $('#Casesheetid').css("color", "white");
+            $('#Opticalid').css("color", "white");
+            $('#Prescriptionid').css("color", "white");
+            $('#Dischargeid').css("color", "black");
           
-          $('#casesheetdiv').hide();
-          $('#opticaldiv').hide();
-          $('#createid').hide();
-          $('#Prescriptiondiv').hide();
-          $('#dischargediv').show();
-          $('#Casesheetid').css("color", "white");
-          $('#Opticalid').css("color", "white");
-          $('#Prescriptionid').css("color", "white");
-          $('#Dischargeid').css("color", "black");
+          
+          
 
 
         }
@@ -1263,7 +1275,7 @@ class Createcasesheets extends Component {
             
           
                console.log(response);
-          
+               $("#printbutton-disc").show();
             
                $("#divsucessalert").show();
                $("#spansucess").html('Discharge sheet created');
@@ -1299,80 +1311,65 @@ class Createcasesheets extends Component {
     
 
         printcasesheet = () => {
-          //window.print();
-    
-          // var printContent = document.getElementById('casesheetdata');
-          // window.print(printContent);
-    
-          var printContents = document.getElementById('printdisc').innerHTML;
-          //var patientdetail = document.getElementById('patientdetail').innerHTML;
-          var originalContents = document.body.innerHTML;
-    
-          document.body.innerHTML = printContents;
-         
+          
           window.onafterprint = function(e){
-            $(window).off('mousemove', window.onafterprint);
+          
             console.log('Print Dialog Closed..');
-            window.location.reload(true);
-    
-           // presdata.Prescription();
+           
+            $('#printdisc').hide();
+            $('#casesheetdata').show();
+            $('#footerdatacheck').show();
+         
         };
     
+        $('#printdisc').show();
+        $('#casesheetdata').hide();
+        $('#footerdatacheck').hide();
+
           window.print();
     
-          document.body.innerHTML = originalContents;
+         
           
         }
     
     
         printpresdata = () => {
-         // window.print();
-    
-          // var printContent = document.getElementById('casesheetdata');
-          // window.print(printContent);
-    
-          var printContents = document.getElementById('printpres').innerHTML;
-          //var patientdetail = document.getElementById('patientdetail').innerHTML;
-          var originalContents = document.body.innerHTML;
-    
-          document.body.innerHTML = printContents;
-          var presdata = this;
+        
           window.onafterprint = function(e){
-            $(window).off('mousemove', window.onafterprint);
+           
             console.log('Print Dialog Closed..');
-            window.location.reload(true);
-           // presdata.Prescription();
+            $('#printpres').hide();
+            $('#casesheetdata').show();
+            $('#footerdatacheck').show();
+            
         };
     
+        $('#printpres').show();
+        $('#casesheetdata').hide();
+        $('#footerdatacheck').hide();
+
           window.print();
     
-          document.body.innerHTML = originalContents;
+         
           
         }
     
         printoptical = () => {
-          //var windowdata =  window.open("http://localhost:3000/Createcasesheets/10496525");
-         
-          var printContents = document.getElementById('printoptical').innerHTML;
-
-          var originalContents = document.body.innerHTML;
-    
-          document.body.innerHTML = printContents;
-          var optical = this;
+        
           window.onafterprint = function(e){
-            //(window).off('mousemove', window.onafterprint);
-            console.log('Print Dialog Closed..');
-            document.body.innerHTML = originalContents;
-            window.open();
-           // window.close();
-            //window.location.reload(true);
-
            
+         console.log('Print Dialog Closed..');
+         
 
-            
+          $('#printoptical').hide();
+          $('#casesheetdata').show();
+          $('#footerdatacheck').show();
        };
        
-
+       $('#printoptical').show();
+       $('#casesheetdata').hide();
+       $('#footerdatacheck').hide();
+       
 
        window.print();
 
@@ -1434,24 +1431,47 @@ class Createcasesheets extends Component {
             <div>
             <Headerdata/>
             <Container fluid={true} style={{marginBottom:"100px"}}>
-            <div className="cardstyle margindata" style={{border:"1px solid grey",height:"auto"}}>
+            <div id="casesheetdata" className="cardstyle margindata" style={{border:"1px solid grey",height:"auto"}}>
            <div className="col-md-12 col-sm-12 col-lg-12 col-xs-12">
-          
+           {(() => {
+            if(sadmin == "2"){
+             return(
+              <div className="row" style={styledata}>
+              <div className="col-md-3">
+                <center><h5 id="Casesheetid" style={{cursor:"pointer"}} onClick={this.Casesheet}>Casesheet</h5></center>
+              </div>
+              <div className="col-md-3">
+              <center><h5 id="Opticalid" style={{color:"white",cursor:"pointer"}} onClick={this.Optical}>Optical</h5></center>
+              </div>
+              <div className="col-md-3">
+              <center><h5 id="Prescriptionid" style={{color:"white",cursor:"pointer"}} onClick={this.Prescription}>Prescription</h5></center>
+              </div>
+              <div className="col-md-3">
+              <center><h5 id="Dischargeid" style={{color:"white",cursor:"pointer"}} onClick={this.dischargeoption}>Discharge</h5></center>
+              </div>
+            
+         </div>
+             );
+            } else {
+              return(
                 <div className="row" style={styledata}>
-                 <div className="col-md-3">
-                   <center><h5 id="Casesheetid" onClick={this.Casesheet}>Casesheet</h5></center>
-                 </div>
-                 <div className="col-md-3">
-                 <center><h5 id="Opticalid" style={{color:"white"}} onClick={this.Optical}>Optical</h5></center>
-                 </div>
-                 <div className="col-md-3">
-                 <center><h5 id="Prescriptionid" style={{color:"white"}} onClick={this.Prescription}>Prescription</h5></center>
-                 </div>
-                 <div className="col-md-3">
-                 <center><h5 id="Dischargeid" style={{color:"white"}} onClick={this.dischargeoption}>Discharge</h5></center>
-                 </div>
-               
-            </div>
+                <div className="col-md-4">
+                  <center><h5 id="Casesheetid" style={{cursor:"pointer"}} onClick={this.Casesheet}>Casesheet</h5></center>
+                </div>
+                <div className="col-md-4">
+                <center><h5 id="Opticalid" style={{color:"white",cursor:"pointer"}} onClick={this.Optical}>Optical</h5></center>
+                </div>
+                <div className="col-md-4">
+                <center><h5 id="Prescriptionid" style={{color:"white",cursor:"pointer"}} onClick={this.Prescription}>Prescription</h5></center>
+                </div>
+              
+           </div>
+              );
+            }
+
+
+            })()}
+                
 
             
          
@@ -1778,11 +1798,10 @@ class Createcasesheets extends Component {
               <div className="col-md-3">
              
                 <div className="float-right">
-            <button title="print optical" onClick={this.printoptical} className="btn btn-info"><i class="fa fa-print" aria-hidden="true"></i></button>
+            <button id="printopticalbutton" style={{display:"none"}} title="print optical" onClick={this.printoptical} className="btn btn-info"><i class="fa fa-print" aria-hidden="true"></i></button>
             </div>
                 </div>
-             
-
+          
             </div>
 
                 <div id="createoptical" className="row">
@@ -1842,7 +1861,7 @@ class Createcasesheets extends Component {
                   onChange={this.opticllistdata}
                 /></td>
             <td><select id="va" name="osva" value = {this.state.osva} onChange={this.opticllistdata} className="form-control mt-1">
-                  <option defaultValue>Select va </option>
+                  <option defaultValue>Select V/A </option>
                   <option>6/60</option>
                   <option>6/36</option>
                   <option>6/24</option>
@@ -1878,7 +1897,7 @@ class Createcasesheets extends Component {
                               onChange={this.opticllistdata}
                               /></td>
             <td><select id="va" name="odva"  value={this.state.odva} onChange={this.opticllistdata} className="form-control mt-1">
-                                 <option defaultValue>Select va </option>
+                                 <option defaultValue>Select V/A </option>
                                      <option>6/60</option>
                                      <option>6/36</option>
                                      <option>6/24</option>
@@ -1904,7 +1923,7 @@ class Createcasesheets extends Component {
                                    placeholder="AXIS"
                  
                                     /></td>
-                                     <td><select id="va" name="odva"  value={this.state.odva} className="form-control mt-1">
+                                     <td><select id="va" name="odva" className="form-control mt-1">
                                  <option defaultValue>Select va </option>
                                      <option>6/60</option>
                                      <option>6/36</option>
@@ -1927,7 +1946,7 @@ class Createcasesheets extends Component {
                                      className="form-control mt-1"
                                      placeholder="AXIS"
                                       /></td>
-                                     <td><select id="va" name="odva"  value={this.state.odva} className="form-control mt-1">
+                                     <td><select id="va" name="odva" className="form-control mt-1">
                                  <option defaultValue>Select va </option>
                                      <option>6/60</option>
                                      <option>6/36</option>
@@ -2241,7 +2260,7 @@ class Createcasesheets extends Component {
               </div>
               <div className="col-md-3">
               <div className="float-right">
-            <button title="print" onClick={this.printpresdata} className="btn btn-info"><i class="fa fa-print" aria-hidden="true"></i></button>
+            <button id="printbutton-pres" style={{display:"none"}} title="print" onClick={this.printpresdata} className="btn btn-info"><i class="fa fa-print" aria-hidden="true"></i></button>
             </div>
               </div>
 
@@ -2798,7 +2817,7 @@ class Createcasesheets extends Component {
                       </div>
                       <div className="col-md-6 mt-3">
                       <div className="float-right">
-             <button title="print" onClick={this.printcasesheet} className="btn btn-info"><i class="fa fa-print" aria-hidden="true"></i></button>
+             <button id="printbutton-disc" style={{display:"none"}} title="print" onClick={this.printcasesheet} className="btn btn-info"><i class="fa fa-print" aria-hidden="true"></i></button>
                    </div>
                       </div>
            
@@ -3541,7 +3560,10 @@ value={this.state.ophthalmologist}
        </Container>
        </div>
         </Container>
-            <Footerdata/>
+        <div id="footerdatacheck">
+        <Footerdata />
+        </div>
+            
           
             </div>
             
