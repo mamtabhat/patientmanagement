@@ -217,7 +217,7 @@ class Header extends Component {
             
           
                setTimeout(function () {
-                    //window.location='/'
+                    window.location='/'
                 },1000)
 
              

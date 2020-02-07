@@ -65,14 +65,8 @@ class Datalist1 extends Component {
         var auth =  sessionStorage.getItem('auth');
         var data ;
 
-
         if(this.state.patientname.match("^[a-zA-Z ]*$")!=null) {
-        
-        
-
           data = {
-
-
             name: this.state.patientname,
         }
         }
@@ -81,12 +75,11 @@ class Datalist1 extends Component {
           data = {
             phone:parseInt(this.state.patientname),
           }
-
-          
         }
 
 
         var postdata = JSON.stringify(data);
+        console.log(postdata)
       
         axios({
             method: 'Post',
