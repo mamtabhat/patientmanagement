@@ -322,7 +322,7 @@ class Header extends Component {
               <div id='divsearch'   class="input-group margin-bottom-sm custle">
               
               <input
-              type="text"
+              type="number"
               name="patientname"
               className="form-control class2"
               placeholder="Enter Patient Phone number"
