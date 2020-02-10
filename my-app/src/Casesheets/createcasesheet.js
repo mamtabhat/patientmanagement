@@ -1507,61 +1507,68 @@ class Createcasesheets extends Component {
      </div>
 
        <div className="col-md-4 col-lg-4">
-         <div id="patientdetail">
-       <h6>Patient details</h6>
-       <input
-           type="text"
-           name="username"
-           className="form-control"
-           placeholder="username"
-           value={this.state.username }
-           onChange={this.prelistdata}
-           disabled
-         />
-         <input
-           type="number"
-           name="phone"
-           className="form-control mt-1"
-           placeholder="Phone number"
-           value={this.state.phone }
-           onChange={this.prelistdata}
-           disabled
-         />
-         <input
-           type="number"
-           name="age"
-           className="form-control mt-1"
-           placeholder="Age"
-           value={this.state.age }
-           onChange={this.prelistdata}
-           disabled
-         />
-         <input
-           type="text"
-           name="gender"
-           className="form-control mt-1"
-           placeholder="gender"
-           value={this.state.gender }
-           onChange={this.prelistdata}
-           disabled
-         />
-         <textarea
-       name="address"
-      className="form-control mt-1"
-      value={this.state.address}
-      onChange={this.prelistdata}
-      placeholder="address"
-      disabled
-    ></textarea>
-     <input
-           type="text"
-           name="pincode"
-           className="form-control mt-1"
-           placeholder="pincode"
-           value={this.state.pincode }
-           onChange={this.prelistdata}
-           disabled
-         />
+       
+         <div id="patientdetail" className="cardstyle">
+         <div className="card-header">
+         <h6>Patient details</h6>
+         </div>
+           <div className="col-md-12">
+        
+          <div className="row">
+            <div className="col-md-4">
+                <p><strong>Name</strong></p>
+            </div>
+            <div className="col-md-8">
+               <p>: {this.state.username}</p>
+            </div>
+
+          </div>
+          <div className="row">
+            <div className="col-md-4">
+                <p><strong>Phone</strong></p>
+            </div>
+            <div className="col-md-8">
+               <p>: {this.state.phone}</p>
+            </div>
+
+          </div>
+          <div className="row">
+            <div className="col-md-4">
+                <p><strong>Age</strong></p>
+            </div>
+            <div className="col-md-8">
+               <p>: {this.state.age}</p>
+            </div>
+
+          </div>
+          <div className="row">
+            <div className="col-md-4">
+                <p><strong>Gender</strong></p>
+            </div>
+            <div className="col-md-8">
+               <p>: {this.state.gender}</p>
+            </div>
+
+          </div>
+          <div className="row">
+            <div className="col-md-4">
+                <p><strong>Address</strong></p>
+            </div>
+            <div className="col-md-8">
+               <p>: {this.state.address}</p>
+            </div>
+
+          </div>
+          <div className="row">
+            <div className="col-md-4">
+                <p><strong>Pincode</strong></p>
+            </div>
+            <div className="col-md-8">
+               <p>: {this.state.pincode}</p>
+            </div>
+
+          </div>
+          </div>
         </div>
         </div>
       <div className="col-md-6 col-lg-6">
@@ -1736,65 +1743,71 @@ class Createcasesheets extends Component {
             <a id="downarrow-optical" style={{display:"none"}} data-toggle="collapse" onClick={this.downarrowoptical} ><i class="fa fa-angle-double-down"></i></a>
             <a id="uparrow-optical"  onClick={this.uparrowoptical}><i class="fa fa-angle-double-up"></i></a>
                </div>
-              <div className="col-md-5">
-            <div id="patient-optical" style={{display:"none"}}>
-            <h6>Patient details</h6>
-            <input
-           type="text"
-           name="username"
-           className="form-control"
-           placeholder="username"
-           value={this.state.username }
-           onChange={this.prelistdata}
-           disabled
-         />
-         <input
-           type="number"
-           name="phone"
-           className="form-control mt-1"
-           placeholder="Phone number"
-           value={this.state.phone }
-           onChange={this.prelistdata}
-           disabled
-         />
-         <input
-           type="number"
-           name="age"
-           className="form-control mt-1"
-           placeholder="Age"
-           value={this.state.age }
-           onChange={this.prelistdata}
-           disabled
-         />
-         <input
-           type="text"
-           name="gender"
-           className="form-control mt-1"
-           placeholder="gender"
-           value={this.state.gender }
-           onChange={this.prelistdata}
-           disabled
-         />
-         <textarea
-       name="address"
-      className="form-control mt-1"
-      value={this.state.address}
-      onChange={this.prelistdata}
-      placeholder="address"
-      disabled
-    ></textarea>
-     <input
-           type="text"
-           name="pincode"
-           className="form-control mt-1"
-           placeholder="pincode"
-           value={this.state.pincode }
-           onChange={this.prelistdata}
-           disabled
-         />
+              <div className="col-md-4">
+            <div id="patient-optical" className="cardstyle" style={{display:"none"}}>
+            <div className="card-header">
+         <h6>Patient details</h6>
+         </div>
+           <div className="col-md-12">
+        
+          <div className="row">
+            <div className="col-md-4">
+                <p><strong>Name</strong></p>
+            </div>
+            <div className="col-md-8">
+               <p>: {this.state.username}</p>
+            </div>
+
+          </div>
+          <div className="row">
+            <div className="col-md-4">
+                <p><strong>Phone</strong></p>
+            </div>
+            <div className="col-md-8">
+               <p>: {this.state.phone}</p>
+            </div>
+
+          </div>
+          <div className="row">
+            <div className="col-md-4">
+                <p><strong>Age</strong></p>
+            </div>
+            <div className="col-md-8">
+               <p>: {this.state.age}</p>
+            </div>
+
+          </div>
+          <div className="row">
+            <div className="col-md-4">
+                <p><strong>Gender</strong></p>
+            </div>
+            <div className="col-md-8">
+               <p>: {this.state.gender}</p>
+            </div>
+
+          </div>
+          <div className="row">
+            <div className="col-md-4">
+                <p><strong>Address</strong></p>
+            </div>
+            <div className="col-md-8">
+               <p>: {this.state.address}</p>
+            </div>
+
+          </div>
+          <div className="row">
+            <div className="col-md-4">
+                <p><strong>Pincode</strong></p>
+            </div>
+            <div className="col-md-8">
+               <p>: {this.state.pincode}</p>
+            </div>
+
           </div>
           </div>
-              <div className="col-md-3">
+          </div>
+          </div>
+              <div className="col-md-4">
 
               </div>
               <div className="col-md-3">
@@ -2199,62 +2212,69 @@ class Createcasesheets extends Component {
             <a id="downarrow-pres" style={{display:"none"}} data-toggle="collapse" onClick={this.downarrowpres} ><i class="fa fa-angle-double-down"></i></a>
             <a id="uparrow-pres"  onClick={this.uparrowpres}><i class="fa fa-angle-double-up"></i></a>
                </div>
-              <div className="col-md-5">
-            <div id="patient-pres" style={{display:"none"}}>
-            <h6>Patient details</h6>
-            <input
-           type="text"
-           name="username"
-           className="form-control"
-           placeholder="username"
-           value={this.state.username }
-           onChange={this.prelistdata}
-           disabled
-         />
-         <input
-           type="number"
-           name="phone"
-           className="form-control mt-1"
-           placeholder="Phone number"
-           value={this.state.phone }
-           onChange={this.prelistdata}
-           disabled
-         />
-         <input
-           type="number"
-           name="age"
-           className="form-control mt-1"
-           placeholder="Age"
-           value={this.state.age }
-           onChange={this.prelistdata}
-           disabled
-         />
-         <input
-           type="text"
-           name="gender"
-           className="form-control mt-1"
-           placeholder="gender"
-           value={this.state.gender }
-           onChange={this.prelistdata}
-           disabled
-         />
-         <textarea
-       name="address"
-      className="form-control mt-1"
-      value={this.state.address}
-      onChange={this.prelistdata}
-      placeholder="address"
-      disabled
-    ></textarea>
-     <input
-           type="text"
-           name="pincode"
-           className="form-control mt-1"
-           placeholder="pincode"
-           value={this.state.pincode }
-           onChange={this.prelistdata}
-           disabled
-         />
+              <div className="col-md-4">
+            <div id="patient-pres" className="cardstyle" style={{display:"none"}}>
+            <div className="card-header">
+         <h6>Patient details</h6>
+         </div>
+           <div className="col-md-12">
+        
+          <div className="row">
+            <div className="col-md-4">
+                <p><strong>Name</strong></p>
+            </div>
+            <div className="col-md-8">
+               <p>: {this.state.username}</p>
+            </div>
+
+          </div>
+          <div className="row">
+            <div className="col-md-4">
+                <p><strong>Phone</strong></p>
+            </div>
+            <div className="col-md-8">
+               <p>: {this.state.phone}</p>
+            </div>
+
+          </div>
+          <div className="row">
+            <div className="col-md-4">
+                <p><strong>Age</strong></p>
+            </div>
+            <div className="col-md-8">
+               <p>: {this.state.age}</p>
+            </div>
+
+          </div>
+          <div className="row">
+            <div className="col-md-4">
+                <p><strong>Gender</strong></p>
+            </div>
+            <div className="col-md-8">
+               <p>: {this.state.gender}</p>
+            </div>
+
+          </div>
+          <div className="row">
+            <div className="col-md-4">
+                <p><strong>Address</strong></p>
+            </div>
+            <div className="col-md-8">
+               <p>: {this.state.address}</p>
+            </div>
+
+          </div>
+          <div className="row">
+            <div className="col-md-4">
+                <p><strong>Pincode</strong></p>
+            </div>
+            <div className="col-md-8">
+               <p>: {this.state.pincode}</p>
+            </div>
+
+          </div>
+          </div>
+
           </div>
           </div>
               <div className="col-md-3">
@@ -2758,63 +2778,69 @@ class Createcasesheets extends Component {
           <a id="downarrow-dis" style={{display:"none"}} data-toggle="collapse" onClick={this.downarrowdis} ><i class="fa fa-angle-double-down"></i></a>
             <a id="uparrow-dis"  onClick={this.uparrowdis}><i class="fa fa-angle-double-up"></i></a>
            </div>
-                      <div className="col-md-5 mt-2">
-                      <div id="patient-dis" style={{display:"none"}}>
-            <h6>Patient details</h6>
-            <input
-           type="text"
-           name="username"
-           className="form-control"
-           placeholder="username"
-           value={this.state.username }
-           onChange={this.prelistdata}
-           disabled
-         />
-         <input
-           type="number"
-           name="phone"
-           className="form-control mt-1"
-           placeholder="Phone number"
-           value={this.state.phone }
-           onChange={this.prelistdata}
-           disabled
-         />
-         <input
-           type="number"
-           name="age"
-           className="form-control mt-1"
-           placeholder="Age"
-           value={this.state.age }
-           onChange={this.prelistdata}
-           disabled
-         />
-         <input
-           type="text"
-           name="gender"
-           className="form-control mt-1"
-           placeholder="gender"
-           value={this.state.gender }
-           onChange={this.prelistdata}
-           disabled
-         />
-         <textarea
-       name="address"
-      className="form-control mt-1"
-      value={this.state.address}
-      onChange={this.prelistdata}
-      placeholder="address"
-      disabled
-    ></textarea>
-     <input
-           type="text"
-           name="pincode"
-           className="form-control mt-1"
-           placeholder="pincode"
-           value={this.state.pincode }
-           onChange={this.prelistdata}
-           disabled
-         />
+                      <div className="col-md-4 mt-2">
+                      <div id="patient-dis" className="cardstyle" style={{display:"none"}}>
+                      <div className="card-header">
+               <h6>Patient details</h6>
+              </div>
+           <div className="col-md-12">
+        
+          <div className="row">
+            <div className="col-md-4">
+                <p><strong>Name</strong></p>
+            </div>
+            <div className="col-md-8">
+               <p>: {this.state.username}</p>
+            </div>
+
           </div>
+          <div className="row">
+            <div className="col-md-4">
+                <p><strong>Phone</strong></p>
+            </div>
+            <div className="col-md-8">
+               <p>: {this.state.phone}</p>
+            </div>
+
+          </div>
+          <div className="row">
+            <div className="col-md-4">
+                <p><strong>Age</strong></p>
+            </div>
+            <div className="col-md-8">
+               <p>: {this.state.age}</p>
+            </div>
+
+          </div>
+          <div className="row">
+            <div className="col-md-4">
+                <p><strong>Gender</strong></p>
+            </div>
+            <div className="col-md-8">
+               <p>: {this.state.gender}</p>
+            </div>
+
+          </div>
+          <div className="row">
+            <div className="col-md-4">
+                <p><strong>Address</strong></p>
+            </div>
+            <div className="col-md-8">
+               <p>: {this.state.address}</p>
+            </div>
+
+          </div>
+          <div className="row">
+            <div className="col-md-4">
+                <p><strong>Pincode</strong></p>
+            </div>
+            <div className="col-md-8">
+               <p>: {this.state.pincode}</p>
+            </div>
+
+          </div>
+          </div>
+                    </div>
 
                       </div>
                       <div className="col-md-6 mt-3">
