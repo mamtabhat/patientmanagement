@@ -54,7 +54,7 @@ Appointmentdata = () =>{
 
       
          const datalist = response.data.data;
-
+         datalist.sort((a, b) => new Date(a.adate) - new Date(b.adate));
          this.setState({datalist: datalist})
          
       
@@ -205,7 +205,7 @@ deletecasesheet = (casesheetid) => {
 
    }
 
-componentWillMount(){
+componentDidMount(){
     this.Appointmentdata();
     this.Patientdata();
     this.casesheetdata()
@@ -303,7 +303,7 @@ render(){
                  </div>
                  </div>
                
-                    <div className="cardstyle">
+                    <div style={{cursor:"pointer"}} className="cardstyle">
                     
                    
                      
@@ -394,9 +394,9 @@ render(){
                      return(
 
 
-                   <div className= "container row">
+                   <div style={{cursor:"pointer"}} className= "container">
                      
-
+                   <div className= "row">
                    {this.state.datalist.map((patientlist,index) => (
                    <div className="col-lg-4">
                  
@@ -442,7 +442,7 @@ render(){
                      </div>
                       ))}
                      </div>
-                    
+                     </div>
                      )
                     }
                        })()}
@@ -505,7 +505,7 @@ render(){
            
             </div>
             <div className="float-right">
-            <a className="btn btn-danger m-5" href="#" onClick={this.Goback} >Back</a>
+            <a className="btn btn-danger m-5" href="/Patientlist"  >Back</a>
             </div>
         </Container>
         <Footerdata/>

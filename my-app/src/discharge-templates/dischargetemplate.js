@@ -72,7 +72,7 @@ class Templatedata extends Component {
         $(modal).hide();
     }
 
-    componentWillMount(){
+    componentDidMount(){
         this.Alltemplates()
     }
 

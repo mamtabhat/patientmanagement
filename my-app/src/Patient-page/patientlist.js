@@ -115,7 +115,7 @@ class Datalist1 extends Component {
         window.location = '/Createappointment';
       }
 
-      componentWillMount(){
+      componentDidMount(){
         this.Searchpatient();
     }
 
@@ -196,7 +196,7 @@ class Datalist1 extends Component {
 
                  <Tr>
                  <Td>{index + 1 }</Td>
-                 <Td onClick={this.Viewpatient.bind(null, person._key)} title="Click to View Patient Details">{person.name}</Td>
+                 <Td style={{cursor:"pointer"}} onClick={this.Viewpatient.bind(null, person._key)} title="Click to View Patient Details">{person.name}</Td>
                  <Td>{person.phone}</Td>
 
                  {(() => {

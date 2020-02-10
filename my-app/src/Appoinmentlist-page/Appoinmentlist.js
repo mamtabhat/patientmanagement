@@ -42,6 +42,9 @@ class Datalist1 extends Component {
             ref:'',
             active:1,
             datalist:[],
+            datalist1:[],
+           
+          
          }
          this.handleChange = this.handleChange.bind(this);
          this.Optionchange = this.Optionchange.bind(this);
@@ -67,7 +70,7 @@ class Datalist1 extends Component {
 
         var type = parseInt(event.target.value);
 
-       console.log(event.target.value)
+     
 
        var active = this.state.active;
 
@@ -79,12 +82,12 @@ class Datalist1 extends Component {
        Appointmentdata =(active,type) =>{
 
            
-            
+           
             var strmillisecs ;
             var endmillisecs ;
             
             var ref = this.state.ref;
-           
+            var self = this;   
          
             var auth =  sessionStorage.getItem('auth');
 
@@ -148,7 +151,7 @@ class Datalist1 extends Component {
             
     
            var postdata = JSON.stringify(data);
-           console.log(postdata);
+           console.log(postdata)
            axios({
                method: 'Post',
                url: config.url+'ap/ctk/getallappointment',
@@ -159,23 +162,70 @@ class Datalist1 extends Component {
                }
                })
                .then( (response) => {
-                   //handle success
-             
-     
-                console.log(response.data.data);
-     
+                  
                 const datalist = response.data.data;
-    
-                this.setState({datalist: datalist})
+               var data1 =[];
+                datalist.map(function(value,index){
+
+                  var pid = value.pid;
+                
               
-     
-     
+                axios({
+                  method: 'post',
+                  url: config.url+'patient/ctk/getpatient',
+                  data: {"pid":pid},
+                  headers: {
+                    'Content-Type': 'application/json',
+                    'auth': auth
+                    }
+                  })
+                  .then( (response) => {
+         
+                  
+                    var datalist1 = response.data.data;
+                    
+                    console.log(datalist1)
+                
+                      for (let i =0 ;i<datalist1.length; i++){
+
+                        var Phone = datalist1[i].phone;
+                        var Name = datalist1[i].name;
+ 
+                         datalist[index].phone = Phone;
+                         datalist[index].name = Name;
+
+                         data1.push(datalist1[i])
+
+                         self.setState({datalist1:data1})
+
+                      } 
+                    
+                  })
+                  .catch( (response) => {
+                      //handle error
+                      console.log(response);
+                     
+                  });
+         
+                
+                
+                 
+                 })
+
+                 datalist.sort((a, b) => new Date(a.adate) - new Date(b.adate));
+                
+                 this.setState({datalist: datalist})
+                
+                
+               
+                 
                })
+            
                .catch( (response) => {
                    //handle error
                    console.log(response);
                });
-
+           
        }
 
        SearchAppointment = (event) => {
@@ -186,6 +236,8 @@ class Datalist1 extends Component {
         this.Appointmentdata(active);
 
      }
+
+    
 
      Customonclick = (event) => {
         
@@ -239,14 +291,18 @@ class Datalist1 extends Component {
    }
   
   
-   componentWillMount(){
+   componentDidMount(){
       this.todayAppointment();
+      
   }
 
 
    render() {
-           
-            return (
+
+      
+     
+
+          return (
                <Container style={{marginBottom:"150px"}} className="margindata">
                
                <div className="col-md-12 col-lg-12">
@@ -267,7 +323,7 @@ class Datalist1 extends Component {
                  value={this.state.ref}
                  onChange={this.handleChange}
                  />
-                 <div  onClick={this.RefAppointment}><i  className="fa fa-search  class3"></i></div>
+                 <div style={{cursor:"pointer"}} onClick={this.RefAppointment}><i  className="fa fa-search  class3"></i></div>
                    </div>
 
     
@@ -336,6 +392,8 @@ class Datalist1 extends Component {
                         <Thead className="thead-dark" >
                         <Tr>
                            <Th>S.No</Th>
+                           <Th>Name</Th>
+                           <Th>Phone</Th>
                            <Th>Type</Th>
                            <Th>Date and Time</Th>
                            <Th>Reference</Th>
@@ -346,6 +404,10 @@ class Datalist1 extends Component {
                          {this.state.datalist.map((person,index) => (
                             <Tr>
                              <Td>{index+1}</Td>
+                           
+                              <Td>{person.name}</Td>
+                             
+                             <Td>{person.phone}</Td>
                              {(() => {
                                  if (person.type === 1) {
                                     return (  

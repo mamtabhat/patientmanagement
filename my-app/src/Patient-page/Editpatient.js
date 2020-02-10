@@ -175,7 +175,7 @@ class Editpatient extends Component {
       window.history.back();
   }
   
-    componentWillMount(){
+    componentDidMount(){
       this.Editpatientdata()
     }
 
