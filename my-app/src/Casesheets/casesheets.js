@@ -214,7 +214,7 @@ class Casesheets extends Component {
                      );
                      }
                   })()}
-                  <Td><a className="btn btn-success btn-sm" title="edit casesheet" href={"/Editcasesheet/"+this.state.pid+"/"+student._key+"/"+student.aseg+"/"+student.pseg}><i className="fa fa-edit"></i></a></Td>
+                  <Td><a className="btn btn-success btn-sm" title="edit casesheet" href={"/Editcasesheet/"+this.state.pid+"/"+student._key+"/"+student.aseg+"/"+student.pseg + "/" + "casesheet"+"/" + '1' }><i className="fa fa-edit"></i></a></Td>
                   {(() => {
                      if(sadmin == "2"){
                         return (
@@ -273,7 +273,7 @@ class Casesheets extends Component {
            <div className="col-md-6">
            <div className="float-right mt-3">
 
-             <a className="btn btn-primary mr-2 rounded-circle" title="create casesheet" href={"/Createcasesheets/"+this.state.pid}><i class="fa fa-plus" aria-hidden="true"></i></a>
+             <a className="btn btn-primary mr-2 rounded-circle" title="create casesheet" href={"/Createcasesheets/"+this.state.pid + "/" + "casesheet" + "/" + '1'}><i class="fa fa-plus" aria-hidden="true"></i></a>
            </div> 
            </div>
 
@@ -313,7 +313,7 @@ class Casesheets extends Component {
                   <div class="col-md-4">
                   <div className="float-right mt-3">
 
-                 <a title="create casesheets" className="btn btn-primary rounded-circle" href={"/Createcasesheets/"+this.state.pid}><i class="fa fa-plus" aria-hidden="true"></i></a>
+                  <a title="create casesheets" className="btn btn-primary rounded-circle" href={"/Createcasesheets/"+this.state.pid+ "/" + "casesheet" + "/" + '1'}><i class="fa fa-plus" aria-hidden="true"></i></a>
 
                   </div> 
        
@@ -351,7 +351,7 @@ class Casesheets extends Component {
                <div class="col-md-4">
                <div className="float-right mt-3">
 
-               <a style={{margin:"20px"}} className="btn btn-success" href={"/Createcasesheets/"+this.state.pid}>Create</a>
+               <a style={{margin:"20px"}} className="btn btn-success" href={"/Createcasesheets/"+this.state.pid + "/" + "casesheet" + "/" + '1'}>Create</a>
 
               </div> 
               
@@ -390,7 +390,7 @@ class Casesheets extends Component {
        <div class="col-md-4">
        <div className="float-right mt-3">
 
-               <a style={{margin:"20px"}} className="btn btn-success" href={"/Createcasesheets/"+this.state.pid}>Create</a>
+           <a style={{margin:"20px"}} className="btn btn-success" href={"/Createcasesheets/"+this.state.pid +  "/" + "casesheet" + "/" + '1'}>Create</a>
 
               </div> 
 

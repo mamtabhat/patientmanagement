@@ -48,8 +48,11 @@ class Createcasesheets extends Component {
         super(props) 
 
           var piddata = props.match.params.pid;
-
+           var pagedata =  props.match.params.page
+           var pagedata1 =  props.match.params.page1
         this.state = { 
+                page:pagedata, 
+                page1:pagedata1, 
                 dm: '',
                 ht: '',
                 ihd: '',
@@ -808,9 +811,17 @@ class Createcasesheets extends Component {
   
     
      }
-     Goback(){
+     Goback =() => {
    
-      window.history.back();
+     // window.history.back();
+    if(this.state.page === "viewpatient"){
+      
+      window.location = "/Viewpatient" + "/" + this.state.patientid + "/" + this.state.page1;
+
+     }
+     else{
+      window.location = "/Casesheets" + "/" + this.state.patientid;
+     }
   }
 
      createpres = () => {

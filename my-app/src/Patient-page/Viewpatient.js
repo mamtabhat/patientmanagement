@@ -22,6 +22,7 @@ constructor(props) {
       datalist:[],
       datalist1:[],
       datalist2: [],
+      page:match.params.page
      
      
   };
@@ -211,25 +212,21 @@ componentDidMount(){
     this.casesheetdata()
 }
 
-Goback(){
-   
-    window.history.back();
-}
 
-Editappointment(id,type,date,Reference,event){
+Editappointment=(id,type,date,Reference,pid,event)=>{
      
     event.preventDefault();
    
   
-    window.location = '/Editappointment' + "/"+ id + "/" + type + "/" + date + "/" + Reference;
+    window.location = '/Editappointment' + "/"+ id + "/" + type + "/" + date + "/" + Reference + "/" + pid +  "/" +  "viewpatient" + "/" + this.state.page;
 
   }
-  Editpatient(id,gender,event){
+  Editpatient = (id,gender,event)=>{
      
     event.preventDefault();
    
   
-    window.location = '/Editpatient' + "/"+ id + "/" + gender ;
+    window.location = '/Editpatient' + "/"+ id + "/" + gender + "/" + "viewpatient" + "/" + this.state.page ;
 
   }
   renderTableData() {
@@ -262,7 +259,7 @@ Editappointment(id,type,date,Reference,event){
                    }
                 
                 })()}
-             <Td><a className="btn btn-success btn-sm" title="edit casesheet" href={"/Editcasesheet/"+this.state.pid+"/"+student._key+"/"+student.aseg+"/"+student.pseg}><i class="fa fa-edit"></i></a></Td>
+             <Td><a className="btn btn-success btn-sm" title="edit casesheet" href={"/Editcasesheet/"+this.state.pid+"/"+student._key+"/"+student.aseg+"/"+student.pseg + "/" + "viewpatient" + "/" + this.state.page  }><i class="fa fa-edit"></i></a></Td>
              <Td><button className="btn btn-danger btn-sm" title="delete casesheet" onClick={this.deletecasesheet.bind(this, student._key)}><i className="fa fa-trash-alt" aria-hidden="true"></i></button></Td>
           </Tr>
        )
@@ -374,7 +371,7 @@ render(){
                 
                  <h5 id='title'>Appointment List</h5>
                  
-                 <a style={{marginTop:"-4.5rem"}} href={"/Createappointment/"+ this.state.pid } className="btn btn-primary float-right mr-2 rounded-circle  "> <i title='Create Appointment'  className="fa fa-plus"></i></a>
+                 <a style={{marginTop:"-4.5rem"}} href={"/Createappointment/"+ this.state.pid + "/" + "viewpatient" } className="btn btn-primary float-right mr-2 rounded-circle  "> <i title='Create Appointment'  className="fa fa-plus"></i></a>
                 
                  </div>
                     {(() => {
@@ -401,7 +398,7 @@ render(){
                    <div className="col-lg-4">
                  
                   
-                     <div onClick={this.Editappointment.bind(null, patientlist._key,patientlist.type,patientlist.adate,patientlist.ref)} title="Click to Edit Appointment" className="cardmy" style={{padding:"10px",margin:"10px"}}>
+                     <div onClick={this.Editappointment.bind(null, patientlist._key,patientlist.type,patientlist.adate,patientlist.ref,patientlist.pid)} title="Click to Edit Appointment" className="cardmy" style={{padding:"10px",margin:"10px"}}>
                     
                          
                       
@@ -456,7 +453,7 @@ render(){
                <div >
               <h5 id='title' className="mt-3">Casesheets list</h5>
 
-              <a style={{marginTop:"-3.5rem"}} className="btn btn-primary mr-2  rounded-circle float-right" title="create casesheet" href={"/Createcasesheets/"+this.state.pid}><i class="fa fa-plus" aria-hidden="true"></i></a>
+              <a style={{marginTop:"-3.5rem"}} className="btn btn-primary mr-2  rounded-circle float-right" title="create casesheet" href={"/Createcasesheets/" + this.state.pid + "/" + "viewpatient" + "/" + this.state.page }><i class="fa fa-plus" aria-hidden="true"></i></a>
           
           
 
@@ -489,7 +486,7 @@ render(){
                  
                
                  
-                  <a style={{marginTop:"-3.5rem"}} className="btn btn-primary mr-2  rounded-circle float-right" title="create casesheet" href={"/Createcasesheets/"+this.state.pid}><i class="fa fa-plus" aria-hidden="true"></i></a>
+                 <a style={{marginTop:"-3.5rem"}} className="btn btn-primary mr-2  rounded-circle float-right" title="create casesheet" href={"/Createcasesheets/"+this.state.pid +  "/" + "viewpatient" + "/" + this.state.page}><i class="fa fa-plus" aria-hidden="true"></i></a>
                   <div >
                   <h2 style={{textAlign:"center"}} className="mt-5">Click Create Casesheet icon to Create a Casesheets for this patient</h2>
                 </div>
@@ -505,7 +502,20 @@ render(){
            
             </div>
             <div className="float-right">
-            <a className="btn btn-danger m-5" href="/Patientlist"  >Back</a>
+            {(() => {
+           if(this.state.page === '2'){
+             return(
+              <a className="btn btn-danger mr-5" href="/Appoinmentlist" >Back</a>
+             )
+           }
+           else{
+             return(
+              <a className="btn btn-danger mr-5" href="/Patientlist" >Back</a>
+             )
+           }
+      
+        })()}
+           
             </div>
         </Container>
         <Footerdata/>

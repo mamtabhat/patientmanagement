@@ -57,13 +57,13 @@ const routs = (
          <Route path="/createuser" component={createuser} />
          <Route path="/Edituser/:id/:phone/:name/:sadmin" component={Edituser} />
          <Route path="/userdata" component={userdata} />
-         <Route path="/Createappointment/:id/" component={Createappointment} />
-         <Route path="/Editappointment/:id/:type/:adate/:reference" component={Editappointment} />
+         <Route path="/Createappointment/:id/:page/" component={Createappointment} />
+         <Route path="/Editappointment/:id/:type/:adate/:reference/:pid/:page/:page1/" component={Editappointment} />
          <Route path="/Patientlist" component={Patientlist} />
          <Route path="/Createpatient" component={Createpatient} />
          <Route path="/changepassword" component={changepassword} />
-         <Route path="/Editpatient/:id/:gender/" component={Editpatient } />
-         <Route path="/Viewpatient/:id/" component={Viewpatient } />
+         <Route path="/Editpatient/:id/:gender/:page/:page1/" component={Editpatient } />
+         <Route path="/Viewpatient/:id/:page/" component={Viewpatient } />
          <Route path="/dischargetemplate/" component={dischargetemplate } />
          <Route path="/createtemplate/" component={createtemplate } />
          <Route path="/Edittemplate/:id/:name/:content/" component={Edittemplate } />
@@ -71,8 +71,8 @@ const routs = (
          <Route path="/createdischarge/" component={createdischarge}></Route>
          <Route path="/changename/" component={changename} />
          <Route path="/Casesheets/:pid" component={Casesheets} />
-         <Route path="/Createcasesheets/:pid" component={Createcasesheets} />
-         <Route path="/Editcasesheet/:pid/:cid/:aseg/:pseg" component={Editcasesheetdata} />
+         <Route path="/Createcasesheets/:pid/:page/:page1/" component={Createcasesheets} />
+         <Route path="/Editcasesheet/:pid/:cid/:aseg/:pseg/:page/:page1/" component={Editcasesheetdata} />
          <Route path="/Createappweb/:id/" component={Createappweb} />
    </Router>
 );

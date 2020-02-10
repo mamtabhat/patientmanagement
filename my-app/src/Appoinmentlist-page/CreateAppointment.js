@@ -18,6 +18,7 @@ import $ from 'jquery';
            type: 0, 
            reference: '',
            pid:match.params.id,
+           page:match.params.page,
            reportStartDate: `${new Date().getFullYear()}-${`${new Date().getMonth()+1}`.padStart(2,0)}-${`${new Date().getDate()}`.padStart(2,0)}T${`${new Date().getHours()}`.padStart(2,0)}:${`${new Date().getMinutes()}`.padStart(2, 0)}`,
          
              
@@ -51,10 +52,7 @@ import $ from 'jquery';
 
     }
 
-    Goback(){
    
-      window.history.back();
-  }
 
     closedtaperror(event){
       event.preventDefault();
@@ -188,7 +186,19 @@ else{
         
          <br></br>
          <div className="float-right">
-         <a className="btn btn-danger mr-1" href="#" onClick={this.Goback}>Cancel</a>
+        {(() => {
+           if(this.state.page === "viewpatient"){
+             return(
+              <a className="btn btn-danger mr-1" href={"/Viewpatient/"  + this.state.pid} >Cancel</a>
+             )
+           }
+           else{
+             return(
+              <a className="btn btn-danger mr-1" href="/Patientlist" >Cancel</a>
+             )
+           }
+      
+        })()}
          <button className="btn btn-success">Create</button>
         
          </div>

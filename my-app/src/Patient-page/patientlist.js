@@ -125,7 +125,7 @@ class Datalist1 extends Component {
      
       
 
-      window.location = '/Viewpatient' + "/"+ id;
+      window.location = '/Viewpatient' + "/"+ id + "/" + 1;
 
     }
        render() {
@@ -230,10 +230,10 @@ class Datalist1 extends Component {
                 
                   })()}
 
-                 <Td> <a title="Edit" id="Editopt" href={"/Editpatient/"+person._key + "/" + person.gender } className="btn btn-sm btn-success mr-1"><i title='Edit Patient' className="fas fa-edit "></i></a></Td>
+                 <Td> <a title="Edit" id="Editopt" href={"/Editpatient/"+person._key + "/" + person.gender + "/" + "patientlist" + "/" + "1" } className="btn btn-sm btn-success mr-1"><i title='Edit Patient' className="fas fa-edit "></i></a></Td>
                 
                 
-                 <Td><a href={"/Createappointment/"+person._key } className="btn btn-sm btn-primary mr-1"> <i title='Create Appointment' id={person._key} className="fa fa-plus "></i></a></Td>
+                 <Td><a href={"/Createappointment/"+person._key + "/" + "patientlist"} className="btn btn-sm btn-primary mr-1"> <i title='Create Appointment' id={person._key} className="fa fa-plus "></i></a></Td>
                  <Td><a className="btn btn-primary btn-sm  mr-1" href={"/Casesheets/"+person._key}>Casesheet</a></Td>
                  </Tr>
                 ))}

@@ -52,7 +52,9 @@ class Editcasesheetdata extends Component {
 
      console.log("props", props.match.params);
 
-    this.state = { 
+    this.state = {
+            page:props.match.params.page, 
+            page1:props.match.params.page1, 
             dm: '',
             ht: '',
             ihd: '',
@@ -1596,9 +1598,20 @@ $('#printopticalbutton').hide();
     });
     
  }
- Goback(){
+
+Goback = () =>{
    
-      window.history.back();
+     // window.history.back();
+
+     if(this.state.page === "viewpatient"){
+      
+      window.location = "/Viewpatient" + "/" + this.state.patientid + "/" + this.state.page1;
+
+     }
+     else{
+      window.location = "/Casesheets" + "/" + this.state.patientid
+     }
+  
   }
 
   createprescription = () => {

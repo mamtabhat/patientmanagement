@@ -295,7 +295,15 @@ class Datalist1 extends Component {
       this.todayAppointment();
       
   }
+  Viewpatient(id,event){
+     
+   event.preventDefault();
+  
+   
 
+   window.location = '/Viewpatient' + "/"+ id + "/" + 2;
+
+ }
 
    render() {
 
@@ -405,7 +413,7 @@ class Datalist1 extends Component {
                             <Tr>
                              <Td>{index+1}</Td>
                            
-                              <Td>{person.name}</Td>
+                             <Td style={{cursor:"pointer"}} onClick={this.Viewpatient.bind(null, person.pid)} title="Click to View Patient Details">{person.name}</Td>
                              
                              <Td>{person.phone}</Td>
                              {(() => {
@@ -427,7 +435,7 @@ class Datalist1 extends Component {
                               })()}
                              <Td>{new Date(person.adate).toLocaleString()}</Td>
                              <Td>{person.ref}</Td>
-                             <Td><a href={"/Editappointment/"+ person._key + "/" + person.type + "/" + person.adate + "/" + person.ref } className="btn btn-sm btn-success mr-1"> <i title='Edit Appointment' id={person._key} className="fa fa-edit"></i></a></Td>
+                             <Td><a href={"/Editappointment/"+ person._key + "/" + person.type + "/" + person.adate + "/" + person.ref + "/"+ person.pid + "/" + "Appointmentlist" + "/" + '1' } className="btn btn-sm btn-success mr-1"> <i title='Edit Appointment' id={person._key} className="fa fa-edit"></i></a></Td>
                             </Tr>
                             ))}
                          </Tbody>

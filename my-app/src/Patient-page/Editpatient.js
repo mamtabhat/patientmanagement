@@ -34,7 +34,9 @@ class Editpatient extends Component {
           pid:match.params.id,
           male:'',
           female:'',
-          datalist:[]
+          datalist:[],
+          page:match.params.page,
+          page1:match.params.page1
       };
     
       this.handleChange = this.handleChange.bind(this);
@@ -170,11 +172,7 @@ class Editpatient extends Component {
         var modal = document.getElementById('diverroralert');
         $(modal).hide();
     }
-    Goback(){
    
-      window.history.back();
-  }
-  
     componentDidMount(){
       this.Editpatientdata()
     }
@@ -448,7 +446,19 @@ class Editpatient extends Component {
               Enter Reference
            </div>
          <div className="float-right">
-         <a className="btn btn-danger mr-1" href="#" onClick={this.Goback}>Cancel</a>
+         {(() => {
+           if(this.state.page === "viewpatient"){
+             return(
+              <a className="btn btn-danger mr-1" href={"/Viewpatient/"  + this.state.pid + "/" + this.state.page1} >Cancel</a>
+             )
+           }
+           else{
+             return(
+              <a className="btn btn-danger mr-1" href="/Patientlist" >Cancel</a>
+             )
+           }
+      
+        })()}
          <button className="btn btn-success">Update</button>
          </div>
        

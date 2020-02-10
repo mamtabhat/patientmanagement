@@ -25,6 +25,9 @@ class Editappointment extends Component {
           reference : match.params.reference,
           type : match.params.type,
           aid:match.params.id,
+          pid:match.params.pid,
+          page:match.params.page,
+          page1:match.params.page1,
           reportStartDate: `${new Date(appdate).getFullYear()}-${`${new Date(appdate).getMonth()+1}`.padStart(2,0)}-${`${new Date(appdate).getDate()}`.padStart(2,0)}T${`${new Date(appdate).getHours()}`.padStart(2,0)}:${`${new Date(appdate).getMinutes()}`.padStart(2, 0)}`,
       };
       this.handleChange = this.handleChange.bind(this);
@@ -42,11 +45,7 @@ class Editappointment extends Component {
       })
       }
 
-      Goback(){
    
-        window.history.back();
-    }
-    
       Optionchange(event){
   
         this.setState({
@@ -186,7 +185,19 @@ class Editappointment extends Component {
          <br></br>
          <div className="float-right">
        
-            <a className="btn btn-danger mr-1" href="#" onClick={this.Goback}>Cancel</a>
+             {(() => {
+           if(this.state.page === "viewpatient"){
+             return(
+              <a className="btn btn-danger mr-1" href={"/Viewpatient/"  + this.state.pid + "/" + this.state.page1} >Cancel</a>
+             )
+           }
+           else{
+             return(
+              <a className="btn btn-danger mr-1" href="/Appoinmentlist" >Cancel</a>
+             )
+           }
+      
+        })()}
            
          <button className="btn btn-success">Update</button>
          </div>
