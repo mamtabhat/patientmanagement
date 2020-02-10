@@ -19,6 +19,7 @@ import $ from 'jquery';
            reference: '',
            pid:match.params.id,
            page:match.params.page,
+           page1:match.params.page1,
            reportStartDate: `${new Date().getFullYear()}-${`${new Date().getMonth()+1}`.padStart(2,0)}-${`${new Date().getDate()}`.padStart(2,0)}T${`${new Date().getHours()}`.padStart(2,0)}:${`${new Date().getMinutes()}`.padStart(2, 0)}`,
          
              
@@ -189,7 +190,7 @@ else{
         {(() => {
            if(this.state.page === "viewpatient"){
              return(
-              <a className="btn btn-danger mr-1" href={"/Viewpatient/"  + this.state.pid} >Cancel</a>
+              <a className="btn btn-danger mr-1" href={"/Viewpatient/"  + this.state.pid + "/" + this.state.page1} >Cancel</a>
              )
            }
            else{

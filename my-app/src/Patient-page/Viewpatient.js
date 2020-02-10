@@ -371,7 +371,7 @@ render(){
                 
                  <h5 id='title'>Appointment List</h5>
                  
-                 <a style={{marginTop:"-4.5rem"}} href={"/Createappointment/"+ this.state.pid + "/" + "viewpatient" } className="btn btn-primary float-right mr-2 rounded-circle  "> <i title='Create Appointment'  className="fa fa-plus"></i></a>
+                 <a style={{marginTop:"-4.5rem"}} href={"/Createappointment/"+ this.state.pid + "/" + "viewpatient" + "/" + this.state.page } className="btn btn-primary float-right mr-2 rounded-circle  "> <i title='Create Appointment'  className="fa fa-plus"></i></a>
                 
                  </div>
                     {(() => {
