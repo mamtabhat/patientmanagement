@@ -299,31 +299,31 @@ class Bodydata extends Component {
            <div style={{marginTop:"30px"}}>
             <Row>
                 <Col md="3" className="addstyledata">
-                    <div style={{height:"200px"}} className="card text-center">
+                    <div style={{height:"300px"}} className="card text-center">
                     <span  className="fa fa-wheelchair stylelogin2" aria-hidden="true"></span>
                     <h5 className="addstyledata">Modern Equipment</h5>
-                    <p style={{textAlign:"justify" , padding:"5px"}}>Porta semper lacus cursus, feugiat primis ultrice in ligula risus auctor tempus feugiat dolor lacinia</p>
+                    <p style={{textAlign:"justify" , padding:"5px"}}>Avy Eye Care hospital is well-equipped with state-of-the-art surgical and diagnostic equipment, Sterile operation theatres and total productivity systems with emphasis on patient satisfaction</p>
                     </div>
                 </Col>
                 <Col md="3" className="addstyledata">
-                <div style={{height:"200px"}} className="card text-center">
+                <div style={{height:"300px"}} className="card text-center">
                 <span  className="fa fa-user-md stylelogin2" aria-hidden="true"></span>
                 <h5 className="addstyledata">Famous Doctors</h5>
-                <p style={{textAlign:"justify",padding:"5px"}}>Porta semper lacus cursus, feugiat primis ultrice in ligula risus auctor tempus feugiat dolor lacinia</p>
+                <p style={{textAlign:"justify",padding:"5px"}}>we have a dedicated team of specialist ophthalmologists, nursing staffs and administrative staffs and support staffs and expert trained eye care professionals and clinical & non clinical staffs</p>
               </div>
                 </Col>
                 <Col md="3" className="addstyledata">
-                <div style={{height:"200px"}} className="card text-center">
+                <div style={{height:"300px"}} className="card text-center">
                 <span  className="fa fa-life-ring stylelogin2" aria-hidden="true"></span>
                 <h5 className="addstyledata">Health Monitoring</h5>
-                <p style={{textAlign:"justify",padding:"5px"}}>Porta semper lacus cursus, feugiat primis ultrice in ligula risus auctor tempus feugiat dolor lacinia</p>
+                <p style={{textAlign:"justify",padding:"5px"}}>We offer both out-patient services and in-patient services at our hospitals. We have a dedicated team of Specialist Ophthalmologists, nursing staff, administrative staff and support staff to ensure that all our patients receive excellent treatment.</p>
                 </div>
                 </Col>
                 <Col md="3" className="addstyledata">
-                <div style={{height:"200px"}} className="card text-center">
+                <div style={{height:"300px"}} className="card text-center">
                 <span  className="far fa-folder-open stylelogin2" aria-hidden="true"></span>
                  <h5 className="addstyledata">Booking a Visit</h5>
-                 <p style={{textAlign:"justify",padding:"5px"}}>Porta semper lacus cursus, feugiat primis ultrice in ligula risus auctor tempus feugiat dolor lacinia</p>
+                 <p style={{textAlign:"justify",padding:"5px"}}>Now fix your appointment with our expert professional online and experience hassle-free consultation</p>
                 </div>
                 </Col>
             </Row>

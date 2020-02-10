@@ -156,7 +156,7 @@ export default class Footer extends Component {
         <Row>
         <Col md="6" lg="6" xs="12" sm="8" >
 
-        <p style={{color:"#cccccc",marginTop:"10px"}}>@Copyright 2019. All Rights Reserved by validthemes</p>
+        <p style={{color:"#cccccc",marginTop:"10px"}}>@Copyright 2020. All Rights Reserved By AVY EYE CARE & OPTICALS</p>
 
         </Col>
 

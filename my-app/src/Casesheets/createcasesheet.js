@@ -1497,7 +1497,7 @@ class Createcasesheets extends Component {
           </div>
           </div>
                </div>
-            <Container>
+            <Container fluid={true}>
             <div id="casesheetdiv" className="col-md-12 col-sm-12 col-lg-12 col-xs-12">
          <Row className="mt-3">
          
@@ -1743,7 +1743,7 @@ class Createcasesheets extends Component {
             <a id="downarrow-optical" style={{display:"none"}} data-toggle="collapse" onClick={this.downarrowoptical} ><i class="fa fa-angle-double-down"></i></a>
             <a id="uparrow-optical"  onClick={this.uparrowoptical}><i class="fa fa-angle-double-up"></i></a>
                </div>
-              <div className="col-md-4">
+              <div className="col-md-5">
             <div id="patient-optical" className="cardstyle" style={{display:"none"}}>
             <div className="card-header">
          <h6>Patient details</h6>
@@ -1807,7 +1807,7 @@ class Createcasesheets extends Component {
           </div>
           </div>
           </div>
-              <div className="col-md-4">
+              <div className="col-md-3">
 
               </div>
               <div className="col-md-3">
@@ -2212,7 +2212,7 @@ class Createcasesheets extends Component {
             <a id="downarrow-pres" style={{display:"none"}} data-toggle="collapse" onClick={this.downarrowpres} ><i class="fa fa-angle-double-down"></i></a>
             <a id="uparrow-pres"  onClick={this.uparrowpres}><i class="fa fa-angle-double-up"></i></a>
                </div>
-              <div className="col-md-4">
+              <div className="col-md-5">
             <div id="patient-pres" className="cardstyle" style={{display:"none"}}>
             <div className="card-header">
          <h6>Patient details</h6>
@@ -2778,7 +2778,7 @@ class Createcasesheets extends Component {
           <a id="downarrow-dis" style={{display:"none"}} data-toggle="collapse" onClick={this.downarrowdis} ><i class="fa fa-angle-double-down"></i></a>
             <a id="uparrow-dis"  onClick={this.uparrowdis}><i class="fa fa-angle-double-up"></i></a>
            </div>
-                      <div className="col-md-4 mt-2">
+                      <div className="col-md-5 mt-2">
                       <div id="patient-dis" className="cardstyle" style={{display:"none"}}>
                       <div className="card-header">
                <h6>Patient details</h6>

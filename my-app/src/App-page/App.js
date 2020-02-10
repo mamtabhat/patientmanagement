@@ -144,7 +144,7 @@ class Bodydata extends Component {
                          <h3 style={{color:"chocolate"}}>BUILDING THE RELATIONSHIP FOR A</h3>
                          <h1  style={{color:"coral"}}>LIFETIME OF EYECARE</h1>
                          <div>
-                          <button className="btn btn-success"><a style={{textDecoration:"none",color:"white"}} href={"/Appoinment"}>Make Appointment</a></button>
+                         <a className="btn btn-success" style={{textDecoration:"none",color:"white"}} href={"/Appoinment"}>Book Appointment</a>
                          </div>
                       </div>
                   </Container>
@@ -167,7 +167,7 @@ class Bodydata extends Component {
                          </p>
 
                          <div>
-                       <button className="btn btn-success"><a style={{textDecoration:"none",color:"white"}} href={"/Appoinment"}>Make Appointment</a></button>
+                       <a className="btn btn-success" style={{textDecoration:"none",color:"white"}} href={"/Appoinment"}>Book Appointment</a>
                         </div>
                          
                       </Col>
@@ -184,7 +184,7 @@ class Bodydata extends Component {
       <h1>Online Appointments & Prescriptions</h1>
       <p style={{textAlign:"justify"}}>You can now book a limited amount of doctors’ appointments online</p>
       <div>
-       <button className="btn btn-success"><a style={{textDecoration:"none",color:"white"}} href={"/Appoinment"}>Make Appointment</a></button>
+      <a className="btn btn-success" style={{textDecoration:"none",color:"white"}} href={"/Appoinment"}>Book Appointment</a>
       </div>
       
       </div>
@@ -244,7 +244,7 @@ class Bodydata extends Component {
                      <Container fluid={true}>
                          <h5 style={{marginTop:"15px"}}>Emergency Cases</h5>
                          <h5 style={{marginTop:"15px"}}><i class="fas fa-phone">  1-800-123-4560</i></h5>
-                         <p style={{marginTop:"15px",textAlign:"justify"}}>An magnis nulla dolor at sapien augue erat iaculis purus tempor magna ipsum and vitae a purus primis ipsum magna ipsum</p>
+                         <p style={{marginTop:"15px",textAlign:"justify"}}> Specialist Emergency and trauma crew are well-trained medical specialists and response crew, ever-ready to handle emergencies effectively and efficiently.</p>
                          </Container> 
                      </div>
                      </Col>
@@ -288,31 +288,31 @@ class Bodydata extends Component {
            <div style={{marginTop:"30px"}}>
             <Row>
                 <Col md="3">
-                    <div style={{height:"200px"}} className="card text-center">
+                    <div style={{height:"300px"}} className="card text-center">
                     <span style={style3} className="fa fa-wheelchair" aria-hidden="true"></span>
                     <h5 style={{marginTop:"10px"}}>Modern Equipment</h5>
-                    <p style={{textAlign:"justify",padding:"5px"}}>Porta semper lacus cursus, feugiat primis ultrice in ligula risus auctor tempus feugiat dolor lacinia</p>
+                    <p style={{textAlign:"justify",padding:"5px"}}> Avy Eye Care hospital is well-equipped with state-of-the-art surgical and diagnostic equipment, Sterile operation theatres and total productivity systems with emphasis on patient satisfaction</p>
                     </div>
                 </Col>
                 <Col md="3">
-                <div style={{height:"200px"}} className="card text-center">
+                <div style={{height:"300px"}} className="card text-center">
                 <span style={style3} className="fa fa-user-md" aria-hidden="true"></span>
                 <h5 style={{marginTop:"10px"}}>Famous Doctors</h5>
-                <p style={{textAlign:"justify",padding:"5px"}}>Porta semper lacus cursus, feugiat primis ultrice in ligula risus auctor tempus feugiat dolor lacinia</p>
+                <p style={{textAlign:"justify",padding:"5px"}}>we have a dedicated team of specialist ophthalmologists, nursing staffs and administrative staffs and support staffs and expert trained eye care professionals and clinical & non clinical staffs</p>
               </div>
                 </Col>
                 <Col md="3">
-                <div style={{height:"200px"}} className="card text-center">
+                <div style={{height:"300px"}} className="card text-center">
                 <span style={style3} className="fa fa-life-ring" aria-hidden="true"></span>
                 <h5 style={{marginTop:"10px"}}>Health Monitoring</h5>
-                <p style={{textAlign:"justify",padding:"5px"}}>Porta semper lacus cursus, feugiat primis ultrice in ligula risus auctor tempus feugiat dolor lacinia</p>
+                <p style={{textAlign:"justify",padding:"5px"}}>We offer both out-patient services and in-patient services at our hospitals. We have a dedicated team of Specialist Ophthalmologists, nursing staff, administrative staff and support staff to ensure that all our patients receive excellent treatment.</p>
                 </div>
                 </Col>
                 <Col md="3">
-                <div style={{height:"200px"}} className="card text-center">
+                <div style={{height:"300px"}} className="card text-center">
                 <span style={style3} className="far fa-folder-open" aria-hidden="true"></span>
                  <h5 style={{marginTop:"10px"}}>Booking a Visit</h5>
-                 <p style={{textAlign:"justify",padding:"5px"}}>Porta semper lacus cursus, feugiat primis ultrice in ligula risus auctor tempus feugiat dolor lacinia</p>
+                 <p style={{textAlign:"justify",padding:"5px"}}>Now fix your appointment with our expert professional online and experience hassle-free consultation</p>
                 </div>
                 </Col>
             </Row>
