@@ -184,14 +184,9 @@ class Casesheets extends Component {
 
 
     
-   
-
-
-
-      componentWillMount(){
-          this.casesheetdata()
-      }
-
+   componentDidMount(){
+      this.casesheetdata();
+   }
 
       renderTableData() {
          return this.state.datalist.map((student, index) => {
