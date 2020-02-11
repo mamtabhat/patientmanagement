@@ -146,7 +146,7 @@ class Editappointment extends Component {
               var adate;
               var aid = this.state.aid;
               console.log(this.state.aid)
-              datalist.map(function(value){
+              datalist.map((value) =>{
 
                 var appid = value._key;
 

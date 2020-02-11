@@ -3714,7 +3714,7 @@ if(this.state.page == "viewpatient"){
                                placeholder="AXIS"
              
                                 /></td>
-                                 <td><select id="va" name="odva"  value={this.state.odva} className="form-control mt-1">
+                                 <td><select id="va" name="odva"   className="form-control mt-1">
                              <option defaultValue>Select va </option>
                                  <option>6/60</option>
                                  <option>6/36</option>
@@ -3737,7 +3737,7 @@ if(this.state.page == "viewpatient"){
                                  className="form-control mt-1"
                                  placeholder="AXIS"
                                   /></td>
-                                 <td><select id="va" name="odva"  value={this.state.odva} className="form-control mt-1">
+                                 <td><select id="va" name="odva"  className="form-control mt-1">
                              <option defaultValue>Select va </option>
                                  <option>6/60</option>
                                  <option>6/36</option>

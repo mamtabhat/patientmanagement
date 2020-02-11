@@ -287,7 +287,7 @@ class Header extends Component {
   render() {
     
      return (
-      <React.Fragment>
+   
         <Container>
         <div className="margindata">
                 <ol className="breadcrumb bg-white">
@@ -295,7 +295,7 @@ class Header extends Component {
                    <li className="breadcrumb-item active ml-1"><strong>Appointment Booking</strong></li>
                 </ol>
              </div>
-        </Container>
+      
         
            <Row>
            <div id="diverroralert" className="modalalert">
@@ -327,7 +327,7 @@ class Header extends Component {
            <div  style={{marginBottom:"100px"}}>
            <form onSubmit={this.handleSubmit}>
            <div className="form-group">
-           <Container>
+          
               <h2 className="text-center">Appointment Booking</h2>
                
               <div id='divsearch'   class="input-group margin-bottom-sm custle">
@@ -540,7 +540,7 @@ class Header extends Component {
                
                 
              </div>
-          </Container>   
+        
            </div>
            </form>
            </div>
@@ -550,9 +550,7 @@ class Header extends Component {
            
            </Col>
            </Row>
-            
-        
-       </React.Fragment>
+          </Container>
         
         
      );

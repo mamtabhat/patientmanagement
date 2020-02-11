@@ -185,21 +185,16 @@ class Datalist1 extends Component {
                   
                     var datalist1 = response.data.data;
                     
-                    console.log(datalist1)
+                   
                 
-                      for (let i =0 ;i<datalist1.length; i++){
+                     datalist1.map((patient) => {
+                      value.phone = patient.phone;
+                      value.name = patient.name;
 
-                        var Phone = datalist1[i].phone;
-                        var Name = datalist1[i].name;
- 
-                         datalist[index].phone = Phone;
-                         datalist[index].name = Name;
+                      data1.push(patient)
 
-                         data1.push(datalist1[i])
-
-                         self.setState({datalist1:data1})
-
-                      } 
+                      self.setState({datalist1:data1})
+                    })
                     
                   })
                   .catch( (response) => {

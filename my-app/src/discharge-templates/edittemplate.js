@@ -122,7 +122,7 @@ else{
              
               var name;
               var content;
-              datalist.map(function(value){
+              datalist.map((value)=>{
                
                 var temid = value._key;
 

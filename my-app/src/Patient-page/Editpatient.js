@@ -78,7 +78,7 @@ class Editpatient extends Component {
            var pincode;
            var address;
            var reference;
-           datalist.map(function(value){
+           datalist.map((value) =>{
  
               name = value.name;
               phone = value.phone;
