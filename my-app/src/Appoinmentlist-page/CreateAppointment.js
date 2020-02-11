@@ -101,7 +101,7 @@ else{
     })
     .then( (response) => {
         //handle success
-        console.log(response);
+       
         if (response.data.success === true) {
           $("#divsucessalert").show();
           $("#spansucess").html('Created successfully');

@@ -79,7 +79,6 @@ class Datalist1 extends Component {
 
 
         var postdata = JSON.stringify(data);
-        console.log(postdata)
       
         axios({
             method: 'Post',
@@ -201,7 +200,7 @@ class Datalist1 extends Component {
 
             {this.state.datalist.map((person,index) => (
 
-                 <Tr>
+                 <Tr key={index}>
                  <Td>{index + 1 }</Td>
                  <Td style={{cursor:"pointer"}} onClick={this.Viewpatient.bind(null, person._key)} title="Click to View Patient Details">{person.name}</Td>
                  <Td>{person.phone}</Td>

@@ -19,10 +19,6 @@ class Editpatient extends Component {
     
         var match = props.match;
     
-    
-         console.log("match", match.params);
-    
-      
          this.state = {
           name : '',
           phone: '',
@@ -66,7 +62,7 @@ class Editpatient extends Component {
          })
          .then( (response) => {
              //handle success
-             console.log(response.data.data);
+            
             
              var datalist = response.data.data;
  
@@ -97,8 +93,7 @@ class Editpatient extends Component {
            this.setState({reference:reference});
           
  
-           console.log(this.state.gender)
- 
+          
           
  
          })
@@ -186,8 +181,7 @@ class Editpatient extends Component {
 
         var gender = '';
 
-        console.log(this.state.male,"malewchg")
-        console.log(this.state.female,"femalewchg")
+        
         
 
         if (this.state.male === null || this.state.male === "") {
@@ -221,7 +215,7 @@ class Editpatient extends Component {
     
         var postdata = JSON.stringify(data);
  
-        console.log(postdata);
+      
 
         var auth =  sessionStorage.getItem('auth');
         if (this.state.name === "" || this.state.name === null ) {
@@ -255,7 +249,7 @@ class Editpatient extends Component {
             })
             .then( (response) => {
                 //handle success
-                console.log(response);
+              
                
                 if (response.data.success === true) {
                   $("#divsucessalert").show();

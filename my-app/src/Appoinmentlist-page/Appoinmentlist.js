@@ -89,7 +89,7 @@ class Datalist1 extends Component {
             
             var ref = this.state.ref;
             var self = this;   
-         
+          
             var auth =  sessionStorage.getItem('auth');
 
             var data;
@@ -152,7 +152,6 @@ class Datalist1 extends Component {
             
     
            var postdata = JSON.stringify(data);
-           console.log(postdata)
            axios({
                method: 'Post',
                url: config.url+'ap/ctk/getallappointment',
@@ -167,6 +166,8 @@ class Datalist1 extends Component {
                 const datalist = response.data.data;
                var data1 =[];
                 datalist.map(function(value,index){
+
+               
 
                   var pid = value.pid;
                 
@@ -184,17 +185,35 @@ class Datalist1 extends Component {
          
                   
                     var datalist1 = response.data.data;
-                    
+
+                    value.phone = datalist1[0].phone
+                    value.name = datalist1[0].name
+
+                   self.setState({datalist1:data1})
+
                    
-                
-                     datalist1.map((patient) => {
-                      value.phone = patient.phone;
-                      value.name = patient.name;
+                    
+                     //  for (let i =0 ;i<datalist1.length; i++){
 
-                      data1.push(patient)
+                     //    value.phone = Phone;
 
-                      self.setState({datalist1:data1})
-                    })
+                     //    console.log("value", value);
+
+                        
+
+                     //    var Phone = datalist1[i].phone;
+                     //    var Name = datalist1[i].name;
+ 
+                       
+
+                     //     datalist[index].phone = Phone;
+                     //     datalist[index].name = Name;
+
+                     //     data1.push(datalist1[i])
+
+                     //     self.setState({datalist1:data1})
+
+                     //  } 
                     
                   })
                   .catch( (response) => {
@@ -412,7 +431,7 @@ class Datalist1 extends Component {
                         </Thead>
                          <Tbody>
                          {this.state.datalist.map((person,index) => (
-                            <Tr>
+                            <Tr key={index}>
                              <Td>{index+1}</Td>
                            
                              <Td style={{cursor:"pointer"}} onClick={this.Viewpatient.bind(null, person.pid)} title="Click to View Patient Details">{person.name}</Td>

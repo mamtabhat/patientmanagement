@@ -15,7 +15,7 @@ class Editappointment extends Component {
         var match = props.match;
     
     
-         console.log("match", match.params);
+       
     
         // var appdate=parseInt(match.params.adate);
 
@@ -52,7 +52,7 @@ class Editappointment extends Component {
           [event.target.name]: event.target.value
       })
   
-      console.log(event.target.value,"options1")
+     
   
       }
 
@@ -68,7 +68,7 @@ class Editappointment extends Component {
         var date = this.state.reportStartDate;
         var millisecs = new Date(date).getTime();
 
-        console.log(millisecs,"millisecs");
+       
 
         var data = {
           adate :parseInt(millisecs),
@@ -80,7 +80,7 @@ class Editappointment extends Component {
         var postdata = JSON.stringify(data);
         var auth =  sessionStorage.getItem('auth');
       
-        console.log(postdata)
+  
          if (this.state.reference === "" || this.state.reference === null  ) {
           $('#refalert').show();
         
@@ -135,17 +135,17 @@ class Editappointment extends Component {
           })
           .then( (response) => {
            
-              console.log(response);
+            
              
               var datalist = response.data.data;
 
-              console.log(datalist)
+             
 
               var type;
               var reference;
               var adate;
               var aid = this.state.aid;
-              console.log(this.state.aid)
+             
               datalist.map((value) =>{
 
                 var appid = value._key;

@@ -42,7 +42,7 @@ class Formdata extends Component {
 
       handleChange(event) {
         
-        console.log(event.target.name)
+        
 
         if (event.target.name === 'name') {
           $('#namealert').hide();
@@ -141,7 +141,7 @@ class Formdata extends Component {
     
         var postdata = JSON.stringify(data);
  
-        console.log(postdata);
+   
 
         var auth =  sessionStorage.getItem('auth');
      
@@ -180,7 +180,7 @@ class Formdata extends Component {
             })
             .then( (response) => {
                 //handle success
-                console.log(response);
+                
                
                
                   $("#divsucessalert").show();
