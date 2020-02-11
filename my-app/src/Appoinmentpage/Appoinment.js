@@ -6,6 +6,7 @@ import Headerdata from '../Templates/Header';
 import axios from 'axios';
 import config from '../config/config'
 import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table'
+import  '../Appoinmentlist-page/Appoinmentlist.css'; 
 const submitbutton = {
   marginTop: "20px",
   marginBottom:"20px",
@@ -287,6 +288,15 @@ class Header extends Component {
     
      return (
       <React.Fragment>
+        <Container>
+        <div className="margindata">
+                <ol className="breadcrumb bg-white">
+                
+                   <li className="breadcrumb-item active ml-1"><strong>Appointment Booking</strong></li>
+                </ol>
+             </div>
+        </Container>
+        
            <Row>
            <div id="diverroralert" className="modalalert">
                   <div className="modal-contentalert alert alert-danger" role="alert">
@@ -306,6 +316,7 @@ class Header extends Component {
         </div>
     </div>
 </div>
+      
      <Col md="3">
      
         <div style={{display:"none"}}>{this.state.reportStartDate}</div>
@@ -313,7 +324,7 @@ class Header extends Component {
 
         </Col>
            <Col md="6">
-           <div  style={{marginTop:"90px",marginBottom:"100px"}}>
+           <div  style={{marginBottom:"100px"}}>
            <form onSubmit={this.handleSubmit}>
            <div className="form-group">
            <Container>

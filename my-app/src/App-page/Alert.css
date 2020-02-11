@@ -24,3 +24,7 @@
     height: 10%;
     border: 1px solid #888;
   }
+
+  .breadcrumb > li + li:before {
+    content: "> ";
+  }

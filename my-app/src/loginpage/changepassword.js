@@ -138,7 +138,12 @@ class Changepassword extends Component {
           const isPasswordShownold = this.state.isPasswordShownold;
           const isPasswordShownnew = this.state.isPasswordShownnew;
             return (
-                <Container className="margindata">
+                <Container >
+                  <div className="margindata">
+                <ol className="breadcrumb bg-white">
+                   <li className="breadcrumb-item active ml-1"><strong>Change Password</strong></li>
+                </ol>
+             </div>
                 <h3 class="text-center">Change Password</h3>
                 <Row className="mt-3">
 

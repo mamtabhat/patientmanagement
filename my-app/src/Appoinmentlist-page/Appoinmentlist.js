@@ -8,6 +8,7 @@ import $ from 'jquery';
 import axios from 'axios';
 import config from '../config/config';
 import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table'
+import '../App-page/Alert.css'
 
 class Datalist1 extends Component {
     
@@ -311,7 +312,13 @@ class Datalist1 extends Component {
      
 
           return (
-               <Container style={{marginBottom:"150px"}} className="margindata">
+               <Container style={{marginBottom:"150px"}}>
+                   <div className="margindata">
+                <ol className="breadcrumb margindata bg-white">
+                   
+                   <li className="breadcrumb-item active ml-1"><strong>Appointment List</strong></li>
+                </ol>
+               </div>
                
                <div className="col-md-12 col-lg-12">
                <div className="cardstyle">

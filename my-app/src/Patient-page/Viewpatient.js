@@ -5,7 +5,7 @@ import Footerdata from '../Templates/footer1';
 import Headerdata from '../Templates/header1';
 import axios from 'axios';
 import config from '../config/config'
-import '../Patient-page/patient.css';
+import '../App-page/Alert.css'
 import '../Patient-page/Viewpatient.css';
 import bootbox from 'bootbox';
 import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
@@ -274,6 +274,35 @@ render(){
        
      
         <Container className='margindata' style={{marginBottom:"200px"}}>
+
+        {(() => {
+          if(this.state.page == "1"){
+            
+            return(
+              <div className="margindata">
+                <ol className="breadcrumb bg-white">
+                   <li><a className="breadcrumb-item text-decoration-none text-muted" href="/Patientlist">Patient List</a></li>
+                   <li className="breadcrumb-item active ml-1"><strong>View Patient</strong></li>
+                </ol>
+           
+            
+            </div>
+            );
+
+
+          } else {
+            return(
+              <div className="margindata">
+                <ol className="breadcrumb bg-white">
+                   <li><a className="breadcrumb-item text-decoration-none text-muted" href="/Appoinmentlist">Appointment List</a></li>
+                   <li className="breadcrumb-item active ml-1"><strong>View Patient</strong></li>
+                </ol>
+            </div>
+            );
+          }
+
+        })()}
+
 
             
         <div className="col-md-12 col-lg-12 row">

@@ -126,7 +126,31 @@ else{
         return (
           <div>
           <Headerdata/>
-            <Container  className="margindata" style={{marginBottom:"150px"}}>
+            <Container style={{marginBottom:"150px"}}>
+
+
+            {(() => {
+              if(this.state.page == "viewpatient"){
+                return(
+                  <div className="margindata">
+                <ol className="breadcrumb bg-white">
+                <li><a className="breadcrumb-item text-decoration-none text-muted" href={"/Viewpatient/"+this.state.pid+"/1"}>View Patient</a></li>
+                   <li className="breadcrumb-item active ml-1"><strong>Create Appointment</strong></li>
+                </ol>
+                </div>
+                );
+              } else {
+                return(
+                  <div className="margindata">
+                  <ol className="breadcrumb bg-white">
+                  <li><a className="breadcrumb-item text-decoration-none text-muted" href="/Patientlist">Patient List</a></li>
+                     <li className="breadcrumb-item active ml-1"><strong>Create Appointment</strong></li>
+                  </ol>
+                  </div>
+                );
+              }
+
+             })()}
                  
                  <h3 class="text-center">Create Appointment</h3>
 

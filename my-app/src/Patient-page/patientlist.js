@@ -134,7 +134,14 @@ class Datalist1 extends Component {
 
           return (
            
-             <div className="container margindata" style={{marginBottom:"150px"}} >
+             <div className="container" style={{marginBottom:"150px"}} >
+
+                <div className="margindata">
+                <ol className="breadcrumb bg-white">
+                
+                   <li className="breadcrumb-item active ml-1"><strong>Patient List</strong></li>
+                </ol>
+             </div>
              
              <div className="col-md-12 col-lg-12">
              <div className="cardstyle">

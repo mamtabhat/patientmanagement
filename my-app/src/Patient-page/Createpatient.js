@@ -208,7 +208,14 @@ class Formdata extends Component {
     render(){
         
         return (
-            <Container className="margindata" style={{marginBottom:"150px"}}>
+            <Container style={{marginBottom:"150px"}}>
+
+               <div className="margindata">
+                <ol className="breadcrumb margindata bg-white">
+                <li><a className="breadcrumb-item text-decoration-none text-muted" href="/Patientlist">Patient List</a></li>
+                   <li className="breadcrumb-item active ml-1"><strong>Create Patient</strong></li>
+                </ol>
+                </div>
                  
                  <h3 class="text-center">Create Patient</h3>
 

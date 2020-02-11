@@ -263,7 +263,9 @@ class Editdata extends Component {
             <div className="row">
            
            <div class="col-md-4">
-            
+           <ol className="breadcrumb bg-white">
+                   <li className="breadcrumb-item active"><strong>Users</strong></li>
+                </ol>
            </div>
            <div class="col-md-7">
 

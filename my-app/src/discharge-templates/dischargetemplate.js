@@ -148,7 +148,13 @@ class Templatedata extends Component {
 
 
         if(this.state.datalist.length === 0){
-            var body= <div className='container margindata' style={{marginBottom:"150px"}}>
+            var body= <div className='container' style={{marginBottom:"150px"}}>
+                <div className="margindata">
+                <ol className="breadcrumb bg-white">
+                
+                   <li className="breadcrumb-item active ml-1"><strong>Discharge Templates</strong></li>
+                </ol>
+             </div>
                 <div  className="col-md-12 col-lg-12" >
                 <div className="cardstyle">
               
@@ -163,7 +169,13 @@ class Templatedata extends Component {
                  </div>
         }
         else {
-            var body= <div className='container margindata' style={{marginBottom:"150px"}}>
+            var body= <div className='container' style={{marginBottom:"150px"}}>
+                <div className="margindata">
+                <ol className="breadcrumb bg-white">
+                
+                   <li className="breadcrumb-item active ml-1"><strong>Discharge Templates</strong></li>
+                </ol>
+             </div>
                  <div  className="col-md-12 col-lg-12" >
                  <div id="diverroralert" className="modalalert">
                   <div className="modal-contentalert alert alert-danger" role="alert">

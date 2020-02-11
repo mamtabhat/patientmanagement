@@ -3039,7 +3039,33 @@ render(){
         <div>
         <Headerdata/>
         <Container fluid={true} style={{marginBottom:"150px"}}>
-        <div id="casesheetdata" className="cardstyle margindata" style={{border:"1px solid grey",height:"auto"}}>
+
+        {(() => {
+
+if(this.state.page == "viewpatient"){
+  return(
+  <div className="margindata">
+  <ol className="breadcrumb bg-white">
+     <li><a className="breadcrumb-item text-decoration-none text-muted" href={"/Viewpatient/"+this.state.patientid+"/1"}>View Patient</a></li>
+     <li className="breadcrumb-item active ml-1"><strong>Edit Case sheet</strong></li>
+  </ol>
+</div>
+);
+} else {
+  return(
+    <div className="margindata">
+    <ol className="breadcrumb bg-white">
+       <li><a className="breadcrumb-item text-decoration-none text-muted" href={"/Patientlist"}>Patient List</a></li>
+       <li className="ml-1"><a className="breadcrumb-item text-decoration-none text-muted" href={"/Casesheets/"+this.state.patientid}>Case sheet list</a></li>
+       <li className="breadcrumb-item active ml-1"><strong>Edit Case sheet</strong></li>
+    </ol>
+  </div>
+  );
+}
+
+})()}
+
+        <div id="casesheetdata" className="cardstyle" style={{border:"1px solid grey",height:"auto"}}>
        <div className="col-md-12 col-sm-12 col-lg-12 col-xs-12">
       
        {(() => {

@@ -107,7 +107,14 @@ else{
         return (
           <div>
           <Headerdata/>
-            <Container className="margindata" style={{marginBottom:"150px"}}>
+            <Container style={{marginBottom:"150px"}}>
+
+            <div className="margindata">
+                <ol className="breadcrumb bg-white">
+                <li><a className="breadcrumb-item text-decoration-none text-muted" href="/dischargetemplate">Discharge Templates</a></li>
+                   <li className="breadcrumb-item active ml-1"><strong>Edit Template</strong></li>
+                </ol>
+             </div>
                  
                  <h3 class="text-center">Edit Template</h3>
 

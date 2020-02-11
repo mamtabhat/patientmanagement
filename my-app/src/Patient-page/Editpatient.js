@@ -5,7 +5,7 @@ import Headerdata from '../Templates/header1';
 import $ from 'jquery';
 import axios from 'axios';
 import config from '../config/config'
-import '../Patient-page/patient.css'
+import '../App-page/Alert.css'
 
 class Editpatient extends Component {
 
@@ -283,7 +283,32 @@ class Editpatient extends Component {
             <div>
                  <Headerdata/>
            
-            <Container className="margindata" style={{marginBottom:"150px"}}>
+            <Container style={{marginBottom:"150px"}}>
+
+            {(() => {
+              if(this.state.page == "viewpatient"){
+                 return(
+                  <div className="margindata">
+                  <ol className="breadcrumb bg-white">
+                  <li><a className="breadcrumb-item text-decoration-none text-muted" href={"/Viewpatient/"+this.state.pid+"/1"}>View Patient</a></li>
+                     <li className="breadcrumb-item active ml-1"><strong>Edit Patient</strong></li>
+                  </ol>
+                  </div>
+                 );
+              } else {
+                return(
+                  <div className="margindata">
+                  <ol className="breadcrumb bg-white">
+                  <li><a className="breadcrumb-item text-decoration-none text-muted" href="/Patientlist">Patient List</a></li>
+                     <li className="breadcrumb-item active ml-1"><strong>Edit Patient</strong></li>
+                  </ol>
+                  </div>
+                 );
+              }
+
+            })()}
+
+            
                  
                  <h3 class="text-center">Edit Patient</h3>
 
