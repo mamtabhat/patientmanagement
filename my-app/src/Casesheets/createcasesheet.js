@@ -1495,7 +1495,7 @@ class Createcasesheets extends Component {
               return(
                 <div className="row" style={styledata}>
                 <div className="col-md-4">
-                  <center><h5 id="Casesheetid" style={{cursor:"pointer"}} onClick={this.Casesheet}>Casesheet</h5></center>
+                  <center><h5 id="Casesheetid" style={{cursor:"pointer"}} onClick={this.Casesheet}>Case sheet</h5></center>
                 </div>
                 <div className="col-md-4">
                 <center><h5 id="Opticalid" style={{color:"white",cursor:"pointer"}} onClick={this.Optical}>Optical</h5></center>

@@ -1285,7 +1285,7 @@ $('#printopticalbutton').hide();
      setTimeout( () => {
 
       $("#divsucessalert").hide();
-      //this.Optical();
+      this.Optical();
        
       }, 1000 )
 
@@ -1442,7 +1442,7 @@ $('#printopticalbutton').hide();
 
       $("#divsucessalert").hide();
 
-      //this.Optical();
+      this.Optical();
        
       }, 1000 )
 
@@ -1899,7 +1899,7 @@ Goback = () =>{
          setTimeout( () => {
 
         $("#divsucessalert").hide();
-        //this.Prescription();
+        this.Prescription();
          
         }, 1000 )
 
@@ -2320,7 +2320,7 @@ Goback = () =>{
            setTimeout( () => {
 
           $("#divsucessalert").hide();
-          //this.Prescription();
+          this.Prescription();
           }, 1000 )
 
        
@@ -2865,9 +2865,277 @@ Goback = () =>{
     }
 
 
-    printpresdata = () => {
-    
-      window.onafterprint = function(e){
+    printpresdata = (presid) => {
+
+      var auth =  sessionStorage.getItem('auth');
+
+      this.setState({Review:  ''})
+    this.setState({Tablet1:  ''})
+    document.getElementById('Re1').checked = false
+    document.getElementById('Le1').checked = false
+    this.setState({Re1:  0})
+    this.setState({Le1:  0})
+    this.setState({Time1:  ''})
+    this.setState({Day1:  ''})
+
+    this.setState({Tablet2:  ''})
+    document.getElementById('Re2').checked = false
+    document.getElementById('Le2').checked = false
+    this.setState({Re2:  0})
+    this.setState({Le2:  0})
+    this.setState({Time2:  ''})
+    this.setState({Day2:  ''})
+
+    this.setState({Tablet3:  ''})
+    document.getElementById('Re3').checked = false
+    document.getElementById('Le3').checked = false
+    this.setState({Re3:  0})
+    this.setState({Le3:  0})
+    this.setState({Time3:  ''})
+    this.setState({Day3:  ''})
+
+    this.setState({Tablet4:  ''})
+    document.getElementById('Re4').checked = false
+    document.getElementById('Le4').checked = false
+    this.setState({Re4:  0})
+    this.setState({Le4:  0})
+    this.setState({Time4:  ''})
+    this.setState({Day4:  ''})
+
+    this.setState({Tablet5:  ''})
+    document.getElementById('Re5').checked = false
+    document.getElementById('Le5').checked = false
+    this.setState({Re5:  0})
+    this.setState({Le5:  0})
+    this.setState({Time5:  ''})
+    this.setState({Day5:  ''})
+
+
+   this.setState({Tablet6:  ''})
+   document.getElementById('Re6').checked = false
+   document.getElementById('Le6').checked = false
+   this.setState({Re6:  0})
+   this.setState({Le6:  0})
+   this.setState({Time6: ''})
+   this.setState({Day6:  ''})
+
+   this.setState({Tablet7:  ''})
+   document.getElementById('Re7').checked = false
+   document.getElementById('Le7').checked = false
+   this.setState({Re7:  0})
+   this.setState({Le7:  0})
+   this.setState({Time7:  ''})
+   this.setState({Day7:  ''})
+
+  this.setState({Tablet8:  ''})
+  document.getElementById('Re8').checked = false
+  document.getElementById('Le8').checked = false
+  this.setState({Re8:  0})
+  this.setState({Le8:  0})
+  this.setState({Time8:  ''})
+  this.setState({Day8:  ''})
+
+  this.setState({Tablet9:  ''})
+  document.getElementById('Re9').checked = false
+  document.getElementById('Le9').checked = false
+  this.setState({Re9:  0})
+  this.setState({Le9:  0})
+  this.setState({Time9:  ''})
+  this.setState({Day9:  ''})
+
+   this.setState({Tablet10:  ''})
+   document.getElementById('Re10').checked = false
+   document.getElementById('Le10').checked = false
+   this.setState({Re10:  0})
+   this.setState({Le10:  0})
+   this.setState({Time10:  ''})
+   this.setState({Day10:  ''})
+
+     
+
+     var presarr = [];
+
+     presarr.push(presid);
+     var data = {
+       "pids": presarr
+     }
+      
+
+     axios({
+      method: 'post',
+      url: config.url+'medicine/ctk/getprescriptions',
+      data: data,
+      headers: {
+          'Content-Type': 'application/json',
+          'auth': auth
+      }
+      })
+      .then( (response) => {
+          //handle success
+      this.setState({prescriptionid:  presid})
+       response.data.data.map((pres)=>{
+
+        this.setState({Review:  pres.review})
+        pres.medicines.map((medicine, index)=>{
+          console.log("medicine", medicine.med);
+          console.log("index", index);
+         
+          if(index === 0){
+            this.setState({Tablet1:  medicine.med})
+
+           if(medicine.re === 1){
+             document.getElementById('Re1').checked = true
+             this.setState({Re1:  medicine.re})
+           }
+           if(medicine.le === 1){
+            document.getElementById('Le1').checked = true
+            this.setState({Le1:  medicine.le})
+          }
+
+          this.setState({Time1:  medicine.times})
+          this.setState({Day1:  medicine.days})
+           
+          }
+          if(index === 1){
+            this.setState({Tablet2:  medicine.med})
+            if(medicine.re === 1){
+              document.getElementById('Re2').checked = true
+              this.setState({Re2:  medicine.re})
+            }
+            if(medicine.le === 1){
+             document.getElementById('Le2').checked = true
+             this.setState({Le2:  medicine.le})
+           }
+ 
+           this.setState({Time2:  medicine.times})
+           this.setState({Day2:  medicine.days})
+          }
+          if(index === 2){
+            this.setState({Tablet3:  medicine.med})
+            if(medicine.re === 1){
+              document.getElementById('Re3').checked = true
+              this.setState({Re3:  medicine.re})
+            }
+
+           
+
+            if(medicine.le === 1){
+             document.getElementById('Le3').checked = true
+             this.setState({Le3:  medicine.le})
+           }
+           
+
+           this.setState({Time3:  medicine.times})
+           this.setState({Day3:  medicine.days})
+
+          }
+          if(index === 3){
+            this.setState({Tablet4:  medicine.med})
+            if(medicine.re === 1){
+              document.getElementById('Re4').checked = true
+              this.setState({Re4:  medicine.re})
+            }
+            if(medicine.le === 1){
+             document.getElementById('Le4').checked = true
+             this.setState({Le4:  medicine.re})
+           }
+ 
+           this.setState({Time4:  medicine.times})
+           this.setState({Day4:  medicine.days})
+          }
+          if(index === 4){
+            this.setState({Tablet5:  medicine.med})
+            if(medicine.re === 1){
+              document.getElementById('Re5').checked = true
+              this.setState({Re5:  medicine.re})
+            }
+            if(medicine.le === 1){
+             document.getElementById('Le5').checked = true
+             this.setState({Le5:  medicine.le})
+           }
+ 
+           this.setState({Time5:  medicine.times})
+           this.setState({Day5:  medicine.days})
+          }
+          if(index === 5){
+            this.setState({Tablet6:  medicine.med})
+            if(medicine.re === 1){
+              document.getElementById('Re6').checked = true
+              this.setState({Re6:  medicine.re})
+            }
+            if(medicine.le === 1){
+             document.getElementById('Le6').checked = true
+             this.setState({Le6:  medicine.le})
+           }
+ 
+           this.setState({Time6:  medicine.times})
+           this.setState({Day6:  medicine.days})
+          }
+          if(index === 6){
+            this.setState({Tablet7:  medicine.med})
+            if(medicine.re === 1){
+              document.getElementById('Re7').checked = true
+              this.setState({Re7:  medicine.re})
+            }
+            if(medicine.le === 1){
+             document.getElementById('Le7').checked = true
+             this.setState({Le7:  medicine.le})
+           }
+ 
+           this.setState({Time7:  medicine.times})
+           this.setState({Day7:  medicine.days})
+          }
+          if(index === 7){
+            this.setState({Tablet8:  medicine.med})
+            if(medicine.re === 1){
+              document.getElementById('Re8').checked = true
+              this.setState({Re8:  medicine.re})
+            }
+            if(medicine.le === 1){
+             document.getElementById('Le8').checked = true
+             this.setState({Le8:  medicine.le})
+           }
+ 
+           this.setState({Time8:  medicine.times})
+           this.setState({Day8:  medicine.days})
+          }
+          if(index === 8){
+            this.setState({Tablet9:  medicine.med})
+            if(medicine.re === 1){
+              document.getElementById('Re9').checked = true
+              this.setState({Re9:  medicine.re})
+            }
+            if(medicine.le === 1){
+             document.getElementById('Le9').checked = true
+             this.setState({Le9:  medicine.le})
+           }
+ 
+           this.setState({Time9:  medicine.times})
+           this.setState({Day9:  medicine.days})
+          }
+          if(index === 9){
+            this.setState({Tablet10:  medicine.med})
+            if(medicine.re === 1){
+              document.getElementById('Re10').checked = true
+              this.setState({Re10:  medicine.re})
+            }
+            if(medicine.le === 1){
+             document.getElementById('Le10').checked = true
+             this.setState({Le10:  medicine.le})
+           }
+ 
+           this.setState({Time10:  medicine.times})
+           this.setState({Day10:  medicine.days})
+          }
+
+          
+
+        })
+
+
+       })
+      
+       window.onafterprint = function(e){
        
         console.log('Print Dialog Closed..');
         $('#printpres').hide();
@@ -2883,32 +3151,239 @@ Goback = () =>{
     $('#breadcrumb').hide();
 
       window.print();
+    
+      })
+      .catch( (error) => {
+      //handle error
+      console.log(error.response);
+      $("#diverroralert").show();
+      $("#spanerror").html(error.response.data.error);
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     
 
      
       
     }
 
-    printoptical = () => {
+    printoptical = (optid) => {
     
-      window.onafterprint = function(e){
-       
-     console.log('Print Dialog Closed..');
+      var auth =  sessionStorage.getItem('auth');
+
+
+      this.setState({instruction: ''})
+      this.setState({ossph: ''})
+      this.setState({oscyl: ''})
+      this.setState({osaxis: ''})
+      this.setState({osva: ''})
+      this.setState({odsph: ''})
+      this.setState({odcyl: ''})
+      this.setState({odaxis: ''})
+      this.setState({osva: ''})
+      this.setState({distre: ''})
+      this.setState({distle: ''})
+      this.setState({nearre: ''})
+      this.setState({nearle: ''})
+
+
+    
+       document.getElementById('kryptok').checked = false
+       this.setState({kryptok: 0})
      
-
-      $('#printoptical').hide();
-      $('#casesheetdata').show();
-      $('#footerdatacheck').show();
-      $('#breadcrumb').show();
-   };
+     
+      document.getElementById('unicvisd').checked = false
+      this.setState({unicvisd: 0})
    
-   $('#printoptical').show();
-   $('#casesheetdata').hide();
-   $('#footerdatacheck').hide();
-   $('#breadcrumb').hide();
+    
+      document.getElementById('hiindex').checked = false
+      this.setState({hiindex: 0})
+   
+   
+      document.getElementById('photochromic').checked = false
+      this.setState({photochromic: 0})
+ 
+      document.getElementById('progreesive').checked = false
+      this.setState({progreesive: 0})
+    
+   
+      document.getElementById('glass').checked = false
+      this.setState({glass: 0})
+ 
+   
+      document.getElementById('white').checked = false
+      this.setState({white: 0})
+   
+   
+      document.getElementById('arc').checked = false
+      this.setState({arc: 0})
+    
+      document.getElementById('executive').checked = false
+      this.setState({executive: 0})
+    
+      document.getElementById('plastic').checked = false
+      this.setState({plastic: 0})
+    
+      document.getElementById('tint').checked = false
+      this.setState({tint: 0})
+     
+      document.getElementById('ophthalmologist').checked = false
+      this.setState({ophthalmologist:0})
 
-   window.print();
 
 
+
+
+
+      var optarray = [];
+
+      optarray.push(optid);
+
+      var data = {
+        "oids": optarray
+      }
+    
+    
+     axios({
+        method: 'post',
+        url: config.url+'opticals/ctk/getopticals',
+        data: data,
+        headers: {
+            'Content-Type': 'application/json',
+            'auth': auth
+        }
+        })
+        .then( (response) => {
+            //handle success
+      
+           
+    
+           
+    
+         console.log(response.data.data);
+    
+         
+    
+         response.data.data.map((optdata) => {
+          this.setState({instruction: optdata.instruction})
+          this.setState({ossph: optdata.visiondata.OS.SPH})
+          this.setState({oscyl: optdata.visiondata.OS.CYL})
+          this.setState({osaxis: optdata.visiondata.OS.AXIS})
+          this.setState({osva: optdata.visiondata.OS.va})
+          this.setState({odsph: optdata.visiondata.OD.SPH})
+          this.setState({odcyl: optdata.visiondata.OD.CYL})
+          this.setState({odaxis: optdata.visiondata.OD.AXIS})
+          this.setState({odva: optdata.visiondata.OD.va})
+          this.setState({distre: optdata.dist.RE})
+          this.setState({distle: optdata.dist.LE})
+          this.setState({nearre: optdata.near.RE})
+          this.setState({nearle: optdata.near.LE})
+    
+         if(optdata.types[0] == 1){
+           document.getElementById('kryptok').checked = true
+           this.setState({kryptok: optdata.types[0]})
+         }  
+         if(optdata.types[1] == 1){
+          document.getElementById('unicvisd').checked = true
+          this.setState({unicvisd: optdata.types[1]})
+        } 
+        if(optdata.types[2] == 1){
+          document.getElementById('hiindex').checked = true
+          this.setState({hiindex: optdata.types[2]})
+        } 
+        if(optdata.types[3] == 1){
+          document.getElementById('photochromic').checked = true
+          this.setState({photochromic: optdata.types[3]})
+        } 
+        if(optdata.types[4] == 1){
+          document.getElementById('progreesive').checked = true
+          this.setState({progreesive: optdata.types[4]})
+        } 
+        if(optdata.types[5] == 1){
+          document.getElementById('glass').checked = true
+          this.setState({glass: optdata.types[5]})
+        } 
+        if(optdata.types[6] == 1){
+          document.getElementById('white').checked = true
+          this.setState({white: optdata.types[6]})
+        } 
+        if(optdata.types[7] == 1){
+          document.getElementById('arc').checked = true
+          this.setState({arc: optdata.types[7]})
+        } 
+        if(optdata.types[8] == 1){
+          document.getElementById('executive').checked = true
+          this.setState({executive: optdata.types[8]})
+        } 
+        if(optdata.types[9] == 1){
+          document.getElementById('plastic').checked = true
+          this.setState({plastic: optdata.types[9]})
+        }
+        if(optdata.types[10] == 1){
+          document.getElementById('tint').checked = true
+          this.setState({tint: optdata.types[10]})
+        }  
+        if(optdata.types[11] == 1){
+          document.getElementById('ophthalmologist').checked = true
+          this.setState({ophthalmologist: optdata.types[11]})
+        }  
+    
+          
+    
+    
+         })
+          
+    
+    
+
+         window.onafterprint = function(e){
+       
+          console.log('Print Dialog Closed..');
+          
+     
+           $('#printoptical').hide();
+           $('#casesheetdata').show();
+           $('#footerdatacheck').show();
+           $('#breadcrumb').show();
+        };
+        
+        $('#printoptical').show();
+        $('#casesheetdata').hide();
+        $('#footerdatacheck').hide();
+        $('#breadcrumb').hide();
+     
+        window.print();
+
+
+
+         //this.setState({oids: response.data.data})
+    
+       
+    
+         //const datalist = response.data.data;
+    
+         //this.setState({datalist: datalist})
+    
+    
+        })
+        .catch( (error) => {
+          //handle error
+          console.log(error.response);
+          $("#diverroralert").show();
+          $("#spanerror").html(error.response.data.error);
+      });
+    
 
     }
 
@@ -2934,9 +3409,23 @@ Goback = () =>{
                      }
                   })()}
            
+                    <Td><button title="print optical" onClick={this.printoptical.bind(this, optical._key)} className="btn btn-info btn-sm"><i class="fa fa-print" aria-hidden="true"></i></button></Td>
+                
+                  {(() => {
+             if(sadmin == "2"){
+              return (
+                <Td><button className="btn btn-success btn-sm" name="opticalid" value={optical._key} onClick={this.editoptical.bind(this, optical._key)}><i class="fa fa-edit"></i></button></Td>
+              );
+           } else {
+            return(
+              <Td></Td>
+            );
+          }
            
-                  <Td><button className="btn btn-success btn-sm" name="opticalid" value={optical._key} onClick={this.editoptical.bind(this, optical._key)}><i class="fa fa-edit"></i></button></Td>
-              
+          })()}
+
+
+
              {(() => {
              if(sadmin == "2"){
               return (
@@ -2976,10 +3465,22 @@ renderPresData() {
                      }
                   })()}
            
-         
+             <Td><button title="print prescription" onClick={this.printpresdata.bind(this, pres._key)} className="btn btn-info  btn-sm"><i class="fa fa-print" aria-hidden="true"></i></button></Td>
           
+                {(() => {
+             if(sadmin == "2"){
+              return (
                 <Td><button className="btn btn-success btn-sm" name="opticalid" value={pres._key} onClick={this.editpres.bind(this, pres._key,'aaaaa')}><i class="fa fa-edit"></i></button></Td>
-             
+              );
+           } else {
+             return(
+               <Td></Td>
+             );
+           }
+          })()}
+
+
+
            {(() => {
              if(sadmin == "2"){
               return (
@@ -3468,6 +3969,7 @@ if(this.state.page == "viewpatient"){
                         <Th>Date and Time</Th>
                         <Th></Th>
                         <Th></Th>
+                        <Th></Th>
                      </Tr>
                    </Thead>
                     
@@ -3589,14 +4091,6 @@ if(this.state.page == "viewpatient"){
 
 
             <div id="createoptical" style={{display:"none"}}>
-              <div className="row">
-                <div className="col-md-12">
-                <div className="float-right">
-            <button id="printopticalbutton" style={{display:"none"}} title="print optical" onClick={this.printoptical} className="btn btn-info"><i class="fa fa-print" aria-hidden="true"></i></button>
-            </div>
-                </div>
-              
-              </div>
             <div className="row">
             
                   <div className="col-md-12 col-xs-12">
@@ -4096,6 +4590,7 @@ onChange={this.typesdata}
                         <Th>Date and Time</Th>
                         <Th></Th>
                         <Th></Th>
+                        <Th></Th>
                      </Tr>
                    </Thead>
                     <Tbody>
@@ -4209,15 +4704,6 @@ onChange={this.typesdata}
 
 
        <div id="createpres" style={{display:"none"}} className="mt-4">
-       <div className="row">
-                <div className="col-md-12">
-                <div className="float-right">
-            <button id="printbutton-pres" style={{display:"none"}} title="print prescription" onClick={this.printpresdata} className="btn btn-info"><i class="fa fa-print" aria-hidden="true"></i></button>
-            </div>
-                </div>
-              
-              </div>
-             
             <table className="table mt-2" border="1"> 
               <thead>
                 <tr>
