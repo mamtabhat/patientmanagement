@@ -107,7 +107,7 @@ deletecasesheet = (casesheetid) => {
     var thisdata = this; 
 
     bootbox.confirm({
-       message: "Do you want to Delete this Casesheet?",
+       message: "Do you want to Delete this Case sheet?",
        buttons: {
       
           confirm: {
@@ -270,8 +270,8 @@ Editappointment=(id,pid,event)=>{
                    }
                 
                 })()}
-             <Td><a className="btn btn-success btn-sm" title="edit casesheet" href={"/Editcasesheet/"+this.state.pid+"/"+student._key+"/"+student.aseg+"/"+student.pseg + "/" + "viewpatient" + "/" + this.state.page  }><i class="fa fa-edit"></i></a></Td>
-             <Td><button className="btn btn-danger btn-sm" title="delete casesheet" onClick={this.deletecasesheet.bind(this, student._key)}><i className="fa fa-trash-alt" aria-hidden="true"></i></button></Td>
+             <Td><a className="btn btn-success btn-sm" title="edit case sheet" href={"/Editcasesheet/"+this.state.pid+"/"+student._key+"/"+student.aseg+"/"+student.pseg + "/" + "viewpatient" + "/" + this.state.page  }><i class="fa fa-edit"></i></a></Td>
+             <Td><button className="btn btn-danger btn-sm" title="delete case sheet" onClick={this.deletecasesheet.bind(this, student._key)}><i className="fa fa-trash-alt" aria-hidden="true"></i></button></Td>
           </Tr>
        )
     })
@@ -334,7 +334,7 @@ render(){
                  <div className='row p-2'>
                      <i className="fas fa-file-alt text-primary m-4"></i>
                      <div className="form-group ">
-                     <label>Total CaseSheets</label>
+                     <label>Total Case Sheets</label>
                      <h5 style={{textAlign:"center"}}>{this.state.datalist2.length}</h5>
                      </div>
                  </div>
@@ -491,9 +491,9 @@ render(){
             return (
             <div >   
                <div >
-              <h5 id='title' className="mt-3">Casesheets list</h5>
+              <h5 id='title' className="mt-3">Case sheet list</h5>
 
-              <a style={{marginTop:"-3.5rem"}} className="btn btn-primary mr-2  rounded-circle float-right" title="create casesheet" href={"/Createcasesheets/" + this.state.pid + "/" + "viewpatient" + "/" + this.state.page }><i class="fa fa-plus" aria-hidden="true"></i></a>
+              <a style={{marginTop:"-3.5rem"}} className="btn btn-primary mr-2  rounded-circle float-right" title="create case sheet" href={"/Createcasesheets/" + this.state.pid + "/" + "viewpatient" + "/" + this.state.page }><i class="fa fa-plus" aria-hidden="true"></i></a>
           
           
 
@@ -522,13 +522,13 @@ render(){
              } else {
                return (
                   <div>
-                   <h5 id='title' className="mt-3">Casesheets list</h5>
+                   <h5 id='title' className="mt-3">Case Sheet list</h5>
                  
                
                  
-                 <a style={{marginTop:"-3.5rem"}} className="btn btn-primary mr-2  rounded-circle float-right" title="create casesheet" href={"/Createcasesheets/"+this.state.pid +  "/" + "viewpatient" + "/" + this.state.page}><i class="fa fa-plus" aria-hidden="true"></i></a>
+                 <a style={{marginTop:"-3.5rem"}} className="btn btn-primary mr-2  rounded-circle float-right" title="create case sheet" href={"/Createcasesheets/"+this.state.pid +  "/" + "viewpatient" + "/" + this.state.page}><i class="fa fa-plus" aria-hidden="true"></i></a>
                   <div >
-                  <h2 style={{textAlign:"center"}} className="mt-5">Click Create Casesheet icon to Create a Casesheets for this patient</h2>
+                  <h2 style={{textAlign:"center"}} className="mt-5">Click Create Case sheet icon to Create a Case sheet for this patient</h2>
                 </div>
                 </div>
                 )

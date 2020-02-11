@@ -355,7 +355,7 @@ handleSubmit(event) {
     
       
          $("#divsucessalert").show();
-         $("#spansucess").html('Casesheet Updated successfully');
+         $("#spansucess").html('Case sheet Updated successfully');
     
          setTimeout( () => {
     
@@ -3076,7 +3076,7 @@ if(this.state.page == "viewpatient"){
              return(
               <div className="row" style={styledata}>
               <div className="col-md-3">
-                <center><h5 id="Casesheetid" style={{cursor:"pointer"}} onClick={this.Casesheet}>Casesheet</h5></center>
+                <center><h5 id="Casesheetid" style={{cursor:"pointer"}} onClick={this.Casesheet}>Case sheet</h5></center>
               </div>
               <div className="col-md-3">
               <center><h5 id="Opticalid" style={{color:"white",cursor:"pointer"}} onClick={this.Optical}>Optical</h5></center>
@@ -3094,7 +3094,7 @@ if(this.state.page == "viewpatient"){
               return(
                 <div className="row" style={styledata}>
                 <div className="col-md-4">
-                  <center><h5 id="Casesheetid" style={{cursor:"pointer"}} onClick={this.Casesheet}>Casesheet</h5></center>
+                  <center><h5 id="Casesheetid" style={{cursor:"pointer"}} onClick={this.Casesheet}>Case sheet</h5></center>
                 </div>
                 <div className="col-md-4">
                 <center><h5 id="Opticalid" style={{color:"white",cursor:"pointer"}} onClick={this.Optical}>Optical</h5></center>
@@ -3207,7 +3207,7 @@ if(this.state.page == "viewpatient"){
   <div className="col-md-6 col-lg-6 col-xs-12">
     <form onSubmit={this.handleSubmit}>
    
-      <h6 className="mt-2">Casesheet details</h6>  
+      <h6 className="mt-2">Case sheet details</h6>  
     <textarea
   name="dm"
   className="form-control mt-1"
@@ -3976,7 +3976,7 @@ onChange={this.typesdata}
 
            <div id="createid" className="float-right" style={{display:"none"}}>
           <a className="btn btn-danger mr-1" href="#" onClick={this.Optical}>Cancel</a>
- <button className="btn btn-success mt-2 mb-2" onClick={this.create}>Create</button>
+          <button className="btn btn-success mt-2 mb-2" onClick={this.create}>Create</button>
          </div>
          <div id="modifyid" className="float-right" style={{display:"none"}}>
          <a className="btn btn-danger  mt-2 mb-2 mr-1" href="#" onClick={this.Optical}>Cancel</a>

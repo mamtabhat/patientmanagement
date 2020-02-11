@@ -357,7 +357,7 @@ class Createcasesheets extends Component {
 
      if(this.state.cid != ""){
       $("#diverroralert").show();
-      $("#spanerror").html('Casesheet already created');
+      $("#spanerror").html('Case sheet already created');
       return false;
      }
          var data = {
@@ -404,7 +404,7 @@ class Createcasesheets extends Component {
            //this.setState({oids: response.data.data.optlist}) 
   
            $("#divsucessalert").show();
-           $("#spansucess").html('Casesheet Created successfully');
+           $("#spansucess").html('Case sheet Created successfully');
   
            setTimeout( () => {
   
@@ -645,7 +645,7 @@ class Createcasesheets extends Component {
         
           if(this.state.cid == ""){
             $("#diverroralert").show();
-            $("#spanerror").html('Create casesheet first');
+            $("#spanerror").html('Create case sheet first');
             return false;
           }
 
@@ -830,7 +830,7 @@ class Createcasesheets extends Component {
 
       if(this.state.cid == ""){
         $("#diverroralert").show();
-        $("#spanerror").html('Create casesheet first');
+        $("#spanerror").html('Create case sheet first');
         return false;
       }
 
@@ -1232,7 +1232,7 @@ class Createcasesheets extends Component {
       
           if(this.state.cid == ""){
             $("#diverroralert").show();
-            $("#spanerror").html('Create casesheet first');
+            $("#spanerror").html('Create case sheet first');
             return false;
           }
           console.log("didid", this.state.didid);
@@ -1477,7 +1477,7 @@ class Createcasesheets extends Component {
              return(
               <div className="row" style={styledata}>
               <div className="col-md-3">
-                <center><h5 id="Casesheetid" style={{cursor:"pointer"}} onClick={this.Casesheet}>Casesheet</h5></center>
+                <center><h5 id="Casesheetid" style={{cursor:"pointer"}} onClick={this.Casesheet}>Case sheet</h5></center>
               </div>
               <div className="col-md-3">
               <center><h5 id="Opticalid" style={{color:"white",cursor:"pointer"}} onClick={this.Optical}>Optical</h5></center>
@@ -1611,7 +1611,7 @@ class Createcasesheets extends Component {
       <div className="col-md-6 col-lg-6">
         <form onSubmit={this.handleSubmit}>
        
-          <h6 className="mt-2">Casesheet details</h6>  
+          <h6 className="mt-2">Case sheet details</h6>  
         <textarea
       name="dm"
       className="form-control mt-1"
