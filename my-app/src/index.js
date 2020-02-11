@@ -58,7 +58,7 @@ const routs = (
          <Route path="/Edituser/:id/:phone/:name/:sadmin" component={Edituser} />
          <Route path="/userdata" component={userdata} />
          <Route path="/Createappointment/:id/:page/:page1/" component={Createappointment} />
-         <Route path="/Editappointment/:id/:type/:adate/:reference/:pid/:page/:page1/" component={Editappointment} />
+         <Route path="/Editappointment/:id/:pid/:page/:page1/" component={Editappointment} />
          <Route path="/Patientlist" component={Patientlist} />
          <Route path="/Createpatient" component={Createpatient} />
          <Route path="/changepassword" component={changepassword} />
@@ -66,7 +66,7 @@ const routs = (
          <Route path="/Viewpatient/:id/:page/" component={Viewpatient } />
          <Route path="/dischargetemplate/" component={dischargetemplate } />
          <Route path="/createtemplate/" component={createtemplate } />
-         <Route path="/Edittemplate/:id/:name/:content/" component={Edittemplate } />
+         <Route path="/Edittemplate/:id/" component={Edittemplate } />
          <Route path="/editdischarge/:id/" component={editdischarge}></Route>
          <Route path="/createdischarge/" component={createdischarge}></Route>
          <Route path="/changename/" component={changename} />

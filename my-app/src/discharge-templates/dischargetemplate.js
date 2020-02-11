@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Row, Col, Container} from 'react-bootstrap';
 import Footerdata from '../Templates/footer1';
 import Headerdata from '../Templates/header1';
 import $ from 'jquery'; 
@@ -222,7 +221,7 @@ class Templatedata extends Component {
                       <Td>{index+1}</Td>
                       <Td>{value.name}</Td>
                       <Td style={{textAlign:"justify"}}>{value.content}</Td>
-                      <Td> <a  title="Edit"  href={"/Edittemplate" + "/" + value._key + "/" + value.name  + "/" + value.content} className="btn btn-sm btn-success mr-1"><i className="fa fa-edit" aria-hidden="true"></i></a></Td>
+                      <Td> <a  title="Edit"  href={"/Edittemplate" + "/" + value._key } className="btn btn-sm btn-success mr-1"><i className="fa fa-edit" aria-hidden="true"></i></a></Td>
                       <Td> <button onClick={this.deletetemplate.bind(this,value._key)} title="Delete" id="deleteid"  className="btn btn-sm btn-danger mr-1"><i className="fa fa-trash-alt" aria-hidden="true"></i></button></Td>
                    </Tr>
                      ))

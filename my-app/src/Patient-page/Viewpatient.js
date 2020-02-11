@@ -213,12 +213,12 @@ componentDidMount(){
 }
 
 
-Editappointment=(id,type,date,Reference,pid,event)=>{
+Editappointment=(id,pid,event)=>{
      
     event.preventDefault();
    
   
-    window.location = '/Editappointment' + "/"+ id + "/" + type + "/" + date + "/" + Reference + "/" + pid +  "/" +  "viewpatient" + "/" + this.state.page;
+    window.location = '/Editappointment' + "/"+ id + "/" + pid +  "/" +  "viewpatient" + "/" + this.state.page;
 
   }
   Editpatient = (id,gender,event)=>{
@@ -427,7 +427,7 @@ render(){
                    <div className="col-lg-4">
                  
                   
-                     <div onClick={this.Editappointment.bind(null, patientlist._key,patientlist.type,patientlist.adate,patientlist.ref,patientlist.pid)} title="Click to Edit Appointment" className="cardmy" style={{padding:"10px",margin:"10px"}}>
+                     <div onClick={this.Editappointment.bind(null, patientlist._key,patientlist.pid)} title="Click to Edit Appointment" className="cardmy" style={{padding:"10px",margin:"10px"}}>
                     
                          
                       

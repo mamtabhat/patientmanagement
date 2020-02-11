@@ -17,18 +17,18 @@ class Editappointment extends Component {
     
          console.log("match", match.params);
     
-         var appdate=parseInt(match.params.adate);
+        // var appdate=parseInt(match.params.adate);
 
          this.state = {
          
-          adate:match.params.adate,
-          reference : match.params.reference,
-          type : match.params.type,
+          adate:'',
+          reference : '',
+          type : '',
           aid:match.params.id,
           pid:match.params.pid,
           page:match.params.page,
           page1:match.params.page1,
-          reportStartDate: `${new Date(appdate).getFullYear()}-${`${new Date(appdate).getMonth()+1}`.padStart(2,0)}-${`${new Date(appdate).getDate()}`.padStart(2,0)}T${`${new Date(appdate).getHours()}`.padStart(2,0)}:${`${new Date(appdate).getMinutes()}`.padStart(2, 0)}`,
+          reportStartDate: '',
       };
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
@@ -117,6 +117,67 @@ class Editappointment extends Component {
         
           }
         //event.preventDefault();
+      }
+      EditAppoinmentdata () {
+        var data = {
+          pid:this.state.pid
+        }
+        var postdata = JSON.stringify(data);
+        var auth =  sessionStorage.getItem('auth');
+        axios({
+          method: 'post',
+          url: config.url+'ap/ctk/getallappointmentforpatient',
+          data: postdata,
+          headers: {
+            'Content-Type': 'application/json',
+            'auth': auth
+            }
+          })
+          .then( (response) => {
+           
+              console.log(response);
+             
+              var datalist = response.data.data;
+
+              console.log(datalist)
+
+              var type;
+              var reference;
+              var adate;
+              var aid = this.state.aid;
+              console.log(this.state.aid)
+              datalist.map(function(value){
+
+                var appid = value._key;
+
+
+                 if(appid === aid){
+
+                 type = value.type;
+                 adate = value.adate;
+                 reference = value.ref;
+                 adate = parseInt(adate)
+                
+                adate =  `${new Date(adate).getFullYear()}-${`${new Date(adate).getMonth()+1}`.padStart(2,0)}-${`${new Date(adate).getDate()}`.padStart(2,0)}T${`${new Date(adate).getHours()}`.padStart(2,0)}:${`${new Date(adate).getMinutes()}`.padStart(2, 0)}`
+                 }
+
+            
+              
+
+              })
+              this.setState({type:type});
+              this.setState({reportStartDate:adate});
+              this.setState({reference:reference});
+          })
+          .catch( (error) => {
+          
+        });
+
+      }
+
+      componentDidMount(){
+       this.EditAppoinmentdata();
+
       }
 
     render(){

@@ -16,8 +16,8 @@ class CreateForm extends Component {
 
         var match = props.match;
         this.state = { 
-           name: match.params.name,
-           content: match.params.content,
+           name: '',
+           content: '',
            id:match.params.id,
           
          
@@ -59,7 +59,7 @@ class CreateForm extends Component {
         var postdata = JSON.stringify(data);
         var auth =  sessionStorage.getItem('auth');
        
-        console.log(this.state.type)
+      
         //event.preventDefault();
         
  if (this.state.name === "" || this.state.name === null ) {
@@ -100,6 +100,55 @@ else{
       $("#spanerror").html(error.response.data.error);
   });
 }
+      }
+    
+      EditTemplatedata () {
+      
+      
+        var auth =  sessionStorage.getItem('auth');
+        axios({
+          method: 'get',
+          url: config.url+'discharge/ctk/listtemplates',
+          headers: {
+            'Content-Type': 'application/json',
+            'auth': auth
+            }
+          })
+          .then( (response) => {
+              //handle success
+              var tid = this.state.id;
+            
+              var datalist = response.data.data;
+             
+              var name;
+              var content;
+              datalist.map(function(value){
+               
+                var temid = value._key;
+
+                if(temid === tid)
+               {
+                name = value.name;
+                content = value.content
+                
+               }         
+                
+              })
+
+              this.setState({name:name})
+              this.setState({content:content}) 
+          })
+          .catch( (error) => {
+            //handle error
+            console.log(error.response);
+          
+        });
+         
+
+      }   
+      
+      componentDidMount(){
+        this.EditTemplatedata()
       }
       
     render(){

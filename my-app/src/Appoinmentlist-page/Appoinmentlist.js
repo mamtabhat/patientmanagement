@@ -442,7 +442,7 @@ class Datalist1 extends Component {
                               })()}
                              <Td>{new Date(person.adate).toLocaleString()}</Td>
                              <Td>{person.ref}</Td>
-                             <Td><a href={"/Editappointment/"+ person._key + "/" + person.type + "/" + person.adate + "/" + person.ref + "/"+ person.pid + "/" + "Appointmentlist" + "/" + '1' } className="btn btn-sm btn-success mr-1"> <i title='Edit Appointment' id={person._key} className="fa fa-edit"></i></a></Td>
+                             <Td><a href={"/Editappointment/"+ person._key + "/" + person.pid + "/" + "Appointmentlist" + "/" + '1' } className="btn btn-sm btn-success mr-1"> <i title='Edit Appointment' id={person._key} className="fa fa-edit"></i></a></Td>
                             </Tr>
                             ))}
                          </Tbody>
