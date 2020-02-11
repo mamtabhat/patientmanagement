@@ -15,28 +15,14 @@ class Edituserdata extends Component  {
     var match = props.match;
 
 
-     var sadmindata = match.params.sadmin;
-      if(sadmindata == "Admin-user"){
-        match.params.sadmin = 1;
-        var checkeddata = true;
-      } else {
-        match.params.sadmin = 0;
-        var checkeddata = false;
-      }
-
-
-   
-
-     console.log("match", match.params);
 
      this.state = {
-      username : match.params.name,
+      username : '',
       password: '',
-      phone: match.params.phone,
+      phone: '',
       sadmin : 0,
       uid : match.params.id,
-      checked: checkeddata,
- isPasswordShown:false
+     isPasswordShown:false
   };
 
   this.handleChange = this.handleChange.bind(this);
@@ -62,18 +48,17 @@ handleChange(event) {
 
 checkboxdata = event => {
   var data =document.getElementById('sadmin').checked;
-
- console.log("data", data);
  if(data){
   this.setState({
-      [event.target.name]: 1
+       sadmin: 1
   })
  } else {
   this.setState({
-      [event.target.name]: 0
+    sadmin: 0
   })
  }
 
+ 
  
 };
 
@@ -109,6 +94,8 @@ togglePasswordVisiblity = () =>{
     password: this.state.password,
     sadmin :  this.state.sadmin
   }
+
+ 
 
   var postdata = JSON.stringify(data);
 
@@ -161,6 +148,79 @@ closedtaperror(event){
   var modal = document.getElementById('diverroralert');
   $(modal).hide();
 }
+
+
+
+userdata = () => {
+
+  var auth =  sessionStorage.getItem('auth');
+
+  var uiddata = this.state.uid;
+
+  axios({
+    method: 'get',
+    url: config.url+'user/ctk/getalladmins',
+    headers: {
+      'Content-Type': 'application/json',
+      'auth': auth
+      }
+    })
+    .then( (response) => {
+        //handle success
+       
+
+       
+        var userdata = response.data.data;
+
+        console.log("userdata", userdata);
+        console.log("uid", uiddata);
+        userdata.map((data)=> {
+
+          console.log("data", data._key);
+        
+          if(data._key === uiddata){
+             console.log("data", data.uname);
+
+             this.setState({username: data.uname})
+             this.setState({phone: data.phone})
+             this.setState({sadmin: data.sadmin})
+
+             if(data.sadmin == 1){
+              document.getElementById("sadmin").checked = true;
+             } 
+           
+          }
+
+         
+
+        })
+        
+
+       
+
+    })
+    .catch( (error) => {
+      //handle error
+      console.log(error.response);
+      $("#diverroralert").show();
+      $("#spanerror").html(error.response.data.error);
+  });
+
+
+
+}
+
+
+
+
+
+   componentDidMount(){
+     this.userdata();
+   }
+
+
+
+
 
   render(){
       

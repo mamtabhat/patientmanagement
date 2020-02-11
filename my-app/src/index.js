@@ -55,7 +55,7 @@ const routs = (
          <Route path="/Appoinmentlist" component={Appoinmentlist} />
          <Route path="/doctordetails" component={doctordetails} />
          <Route path="/createuser" component={createuser} />
-         <Route path="/Edituser/:id/:phone/:name/:sadmin" component={Edituser} />
+         <Route path="/Edituser/:id" component={Edituser} />
          <Route path="/userdata" component={userdata} />
          <Route path="/Createappointment/:id/:page/:page1/" component={Createappointment} />
          <Route path="/Editappointment/:id/:pid/:page/:page1/" component={Editappointment} />

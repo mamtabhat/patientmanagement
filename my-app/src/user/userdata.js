@@ -308,7 +308,7 @@ class Editdata extends Component {
                    </div>
                    </div>
                    <div className="mb-1" style={{textAlign:"right"}}>
-                       <a title="Edit" id="Editopt" href={"/Edituser/"+person._key+"/"+person.phone+"/"+person.uname+"/"+person.sadmin} className="btn btn-sm btn-success mr-1"><i className="fa fa-edit" aria-hidden="true"></i></a>
+                       <a title="Edit" id="Editopt" href={"/Edituser/"+person._key} className="btn btn-sm btn-success mr-1"><i className="fa fa-edit" aria-hidden="true"></i></a>
                        <button title="Delete" id="deleteid" value={person._key} onClick={this.deteteuser.bind(this,person._key)} className="btn btn-sm btn-danger mr-1"><i className="fa fa-trash-alt" aria-hidden="true"></i></button>
                    </div>
                       </div>

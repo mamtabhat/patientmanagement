@@ -146,6 +146,18 @@ class Casesheets extends Component {
           console.log(response.data.data);
  
           const datalist = response.data.data;
+
+          datalist.map((date) =>{
+
+            if(date.edate){
+               datalist.sort((a, b) => new Date(b.edate) - new Date(a.edate));
+            } else {
+               datalist.sort((a, b) => new Date(b.cdate) - new Date(a.cdate));
+            }
+
+
+          })
+
       
          this.setState({datalist: datalist})
 

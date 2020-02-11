@@ -2851,13 +2851,13 @@ Goback = () =>{
         $('#printdisc').hide();
         $('#casesheetdata').show();
         $('#footerdatacheck').show();
-     
+        $('#breadcrumb').show();
     };
 
     $('#printdisc').show();
     $('#casesheetdata').hide();
     $('#footerdatacheck').hide();
-
+    $('#breadcrumb').hide();
       window.print();
 
      
@@ -2873,12 +2873,14 @@ Goback = () =>{
         $('#printpres').hide();
         $('#casesheetdata').show();
         $('#footerdatacheck').show();
+        $('#breadcrumb').show();
         
     };
 
     $('#printpres').show();
     $('#casesheetdata').hide();
     $('#footerdatacheck').hide();
+    $('#breadcrumb').hide();
 
       window.print();
 
@@ -2896,12 +2898,13 @@ Goback = () =>{
       $('#printoptical').hide();
       $('#casesheetdata').show();
       $('#footerdatacheck').show();
+      $('#breadcrumb').show();
    };
    
    $('#printoptical').show();
    $('#casesheetdata').hide();
    $('#footerdatacheck').hide();
-   
+   $('#breadcrumb').hide();
 
    window.print();
 
@@ -3044,7 +3047,7 @@ render(){
 
 if(this.state.page == "viewpatient"){
   return(
-  <div className="margindata">
+  <div id="breadcrumb" className="margindata">
   <ol className="breadcrumb bg-white">
      <li><a className="breadcrumb-item text-decoration-none text-muted" href={"/Viewpatient/"+this.state.patientid+"/1"}>View Patient</a></li>
      <li className="breadcrumb-item active ml-1"><strong>Edit Case sheet</strong></li>
@@ -3053,7 +3056,7 @@ if(this.state.page == "viewpatient"){
 );
 } else {
   return(
-    <div className="margindata">
+    <div id="breadcrumb" className="margindata">
     <ol className="breadcrumb bg-white">
        <li><a className="breadcrumb-item text-decoration-none text-muted" href={"/Patientlist"}>Patient List</a></li>
        <li className="ml-1"><a className="breadcrumb-item text-decoration-none text-muted" href={"/Casesheets/"+this.state.patientid}>Case sheet list</a></li>
@@ -4915,14 +4918,15 @@ onChange={this.typesdata}
                        
                        
                </Container>
-    </div>
+        </div>
 
        </div>
        </div>
        <div id="printpres" style={{display:"none"}}>
+         <Container>
        <div  className="card" style={{border:"1px solid grey",height:"auto"}}>
        <div className="row">
-        <div className="mt-1 ml-3 ">
+        <div className="mt-1 ml-3 col-md-2">
         <img style={{maxWidth:"400px",height:"55px"}} src={Logoimg}></img>
         </div>
         <div className="col-md-6 mt-1">
@@ -4951,6 +4955,7 @@ onChange={this.typesdata}
           <span>  {this.state.reportStartDate}</span>
          </div>
        </div>
+       <div className="col-md-12">
        <div className="row">
         <div className="col-md-6">
         <span>Patient Name:</span>
@@ -4964,6 +4969,7 @@ onChange={this.typesdata}
         <span>Sex:</span>
         <span>  {this.state.gender}</span>
         </div>
+       </div>
        </div>
        <Table className="table mt-2" border="1">
          <Thead>
@@ -5132,6 +5138,7 @@ onChange={this.typesdata}
          </div>
        </div>
       </div>
+      </Container>
       </div>
 
       <div id="printoptical" style={{display:"none"}}>

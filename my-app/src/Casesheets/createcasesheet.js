@@ -1332,13 +1332,13 @@ class Createcasesheets extends Component {
             $('#printdisc').hide();
             $('#casesheetdata').show();
             $('#footerdatacheck').show();
-         
+            $('#breadcrumb').show();
         };
     
         $('#printdisc').show();
         $('#casesheetdata').hide();
         $('#footerdatacheck').hide();
-
+        $('#breadcrumb').hide();
           window.print();
     
          
@@ -1354,13 +1354,13 @@ class Createcasesheets extends Component {
             $('#printpres').hide();
             $('#casesheetdata').show();
             $('#footerdatacheck').show();
-            
+            $('#breadcrumb').show();
         };
     
         $('#printpres').show();
         $('#casesheetdata').hide();
         $('#footerdatacheck').hide();
-
+        $('#breadcrumb').hide();
           window.print();
     
          
@@ -1377,11 +1377,13 @@ class Createcasesheets extends Component {
           $('#printoptical').hide();
           $('#casesheetdata').show();
           $('#footerdatacheck').show();
+          $('#breadcrumb').show();
        };
        
        $('#printoptical').show();
        $('#casesheetdata').hide();
        $('#footerdatacheck').hide();
+       $('#breadcrumb').hide();
        
 
        window.print();
@@ -1447,7 +1449,7 @@ class Createcasesheets extends Component {
             {(() => {
              if(this.state.page == "viewpatient") {
                return(
-               <div className="margindata">
+               <div id="breadcrumb" className="margindata">
                 <ol className="breadcrumb bg-white">
                    <li><a className="breadcrumb-item text-decoration-none text-muted" href={"/Viewpatient/"+this.state.patientid+"/1"}>View Patient</a></li>
                    <li className="breadcrumb-item active ml-1"><strong>Create Case sheet</strong></li>
@@ -1456,7 +1458,7 @@ class Createcasesheets extends Component {
                );
              } else {
               return(
-                <div className="margindata">
+                <div id="breadcrumb" className="margindata">
                  <ol className="breadcrumb bg-white">
                     <li><a className="breadcrumb-item text-decoration-none text-muted" href={"/Patientlist"}>Patient List</a></li>
                     <li className="ml-1"><a className="breadcrumb-item text-decoration-none text-muted" href={"/Casesheets/"+this.state.patientid}>Case sheet list</a></li>
@@ -2924,7 +2926,7 @@ class Createcasesheets extends Component {
         <div id="printpres" style={{display:"none"}}>
        <div  className="card" style={{border:"1px solid grey",height:"auto"}}>
        <div className="row">
-        <div className="mt-1 ml-3 ">
+        <div className="mt-1 ml-3 col-md-2">
         <img style={{maxWidth:"400px",height:"55px"}} src={Logoimg}></img>
         </div>
         <div className="col-md-6 mt-1">
@@ -2953,6 +2955,7 @@ class Createcasesheets extends Component {
           <span>  {this.state.reportStartDate}</span>
          </div>
        </div>
+       <div className="col-md-12">
        <div className="row">
         <div className="col-md-6">
         <span>Patient Name:</span>
@@ -2966,6 +2969,7 @@ class Createcasesheets extends Component {
         <span>Sex:</span>
         <span>  {this.state.gender}</span>
         </div>
+       </div>
        </div>
        <Table className="table mt-2" border="1">
          <Thead>
