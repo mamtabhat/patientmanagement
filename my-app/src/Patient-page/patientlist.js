@@ -164,7 +164,7 @@ class Datalist1 extends Component {
               type="text"
               name="patientname"
               className="form-control class2"
-              placeholder="Enter Patient Name or Phone number"
+              placeholder="Enter  Name or Phone number"
               value={this.state.patientname}
               onChange={this.handleChange}
                />

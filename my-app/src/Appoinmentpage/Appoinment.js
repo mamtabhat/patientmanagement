@@ -135,7 +135,7 @@ class Header extends Component {
       var date = this.state.reportStartDate;
       var millisecs = new Date(date).getTime();
       var gender = '';
-
+      var _this = this;
       if (this.state.male === null || this.state.male === '') {
           
           gender = this.state.female;
@@ -218,7 +218,7 @@ class Header extends Component {
             
           
                setTimeout(function () {
-                    window.location='/'
+                    window.location='/contactdetails/' + _this.state.name +"/" + _this.state.reportStartDate;
                 },1000)
 
              
@@ -291,7 +291,7 @@ class Header extends Component {
         <Container>
         <div className="margindata">
                 <ol className="breadcrumb bg-white">
-                
+                <li className="breadcrumb-item  ml-1"><a  className="breadcrumb-item text-decoration-none text-muted" href='/'>Home</a></li>
                    <li className="breadcrumb-item active ml-1"><strong>Appointment Booking</strong></li>
                 </ol>
              </div>
@@ -336,7 +336,7 @@ class Header extends Component {
               type="number"
               name="patientname"
               className="form-control class2"
-              placeholder="Enter Patient Phone number"
+              placeholder="Enter Phone number"
               value={this.state.patientname}
               onChange={this.handleChange}
                />
@@ -382,7 +382,7 @@ class Header extends Component {
                    }
                 
                 })()}
-                 <Td><a href={"/Createappweb/"+person._key } className="btn btn-sm btn-primary mr-1"> <i title='Create Appointment' id={person._key} className="fa fa-plus "></i></a></Td>
+                 <Td><a href={"/Createappweb/"+person._key + "/" + person.name} className="btn btn-sm btn-primary mr-1"> <i title='Create Appointment' id={person._key} className="fa fa-plus "></i></a></Td>
                
                  </Tr>
                 ))}
@@ -398,7 +398,7 @@ class Header extends Component {
           return (
             <div style={{marginBottom:"200px"}}>
           
-            <h5>There is no  patient data. Fill in the details below to book an appointment</h5>
+            <h5>There is no data. Fill in the details below to book an appointment</h5>
              <Row>
             <Col md="6">
             <label style={{marginTop:"8px"}}><strong>Name</strong></label>
@@ -406,7 +406,7 @@ class Header extends Component {
             type="text"
             name="name"
             className="form-control"
-            placeholder="Patient Name"
+            placeholder="Name"
             value={this.state.name}
             onChange={this.handleChange}
           />

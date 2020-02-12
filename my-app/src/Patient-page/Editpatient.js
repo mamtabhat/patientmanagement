@@ -215,7 +215,7 @@ class Editpatient extends Component {
     
         var postdata = JSON.stringify(data);
  
-      
+        var this_=this;
 
         var auth =  sessionStorage.getItem('auth');
         if (this.state.name === "" || this.state.name === null ) {
@@ -257,7 +257,15 @@ class Editpatient extends Component {
               }
             
               setTimeout(function () {
-                window.location = '/patientlist'
+              
+                if(this_.state.page === "viewpatient" ){
+             
+                  window.location="/Viewpatient/"  + this_.state.pid + "/" + this_.state.page1;
+      
+                 }
+                 else{
+                  window.location = '/patientlist'
+                 }
                 },1000)
         
             })

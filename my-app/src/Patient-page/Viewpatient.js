@@ -224,14 +224,6 @@ componentDidMount(){
 }
 
 
-Editappointment=(id,pid,event)=>{
-     
-    event.preventDefault();
-   
-  
-    window.location = '/Editappointment' + "/"+ id + "/" + pid +  "/" +  "viewpatient" + "/" + this.state.page;
-
-  }
   Editpatient = (id,gender,event)=>{
      
     event.preventDefault();
@@ -446,53 +438,44 @@ render(){
 
 
                    <div style={{cursor:"pointer"}} className= "container">
-                     
-                   <div className= "row">
-                   {this.state.datalist.map((patientlist,index) => (
-                   <div className="col-lg-4">
-                 
-                  
-                     <div onClick={this.Editappointment.bind(null, patientlist._key,patientlist.pid)} title="Click to Edit Appointment" className="cardmy" style={{padding:"10px",margin:"10px"}}>
-                    
-                         
-                      
-                        {(() => {
-                       
-                       if (patientlist.type === 1) {
-                       return(
-                        <h5 className = "typecls">General</h5>
-                       )
-                       }
-                       else if (patientlist.type === 2) {
-                        return(
-                        <h5 className = "typecls">Cataract</h5>
-                        )
-                       }  else {
-                        return(
-                        <h5 className = "typecls">All Surgery</h5>
-                        )
-                       }
-                      
-                        })()}
-                        
-                         
-                      
-                          <div className="form-group">
-                         <h6  >Date</h6>  
-                        <span >{new Date(patientlist.adate).toLocaleString() }</span>
-                       
-                       </div>
-                       <div className="form-group">
-                         <h6  >Reference</h6>  
-                        <span >{patientlist.ref}</span>
-                       
-                       </div>
-                          </div>
-                         
-                     
-                     </div>
-                      ))}
-                     </div>
+                     <Table  className="table table-hover"  >
+                        <Thead className="thead-dark" >
+                        <Tr>
+                           <Th>S.No</Th>
+                           <Th>Type</Th>
+                           <Th>Date and Time</Th>
+                           <Th>Reference</Th>
+                           <Th></Th>
+                        </Tr>
+                        </Thead>
+                        <Tbody>
+                         {this.state.datalist.map((patientlist,index) => (
+                            <Tr key={index}>
+                             <Td>{index+1}</Td>
+                             {(() => {
+                                 if (patientlist.type === 1) {
+                                    return (  
+                                    <Td>General</Td>
+                                    )
+                                 }
+                                else if (patientlist.type === 2) {
+                                    return (  
+                                    <Td>Cataract</Td>
+                                    )
+                                 }
+                                else {
+                                    return (  
+                                    <Td>All Surgery</Td>
+                                    )
+                                 }
+                              })()}
+                             <Td>{new Date(patientlist.adate).toLocaleString()}</Td>
+                             <Td>{patientlist.ref}</Td>
+                             <Td><a title='Edit Appointment' href={"/Editappointment/"+ patientlist._key + "/" + patientlist.pid + "/" + "viewpatient" + "/" + this.state.page } className="btn btn-sm btn-success mr-1"> <i  id={patientlist._key} className="fa fa-edit"></i></a></Td>
+                            </Tr>
+                            ))}
+                         </Tbody>
+                        </Table>
                      </div>
                      )
                     }

@@ -150,55 +150,55 @@ class Bodydata extends Component {
            <Row>
            <Col md="3"></Col>
            <Col md="6" style={{marginTop:"20px"}}>
-            <div  className="input-group">
-             
-           <span><a className="spandata form-control rounded-0 "><i  className="fa fa-envelope  text-primary"></i></a></span>
-         
+            
+
            <input
            type="number"
            name="phone"
-           className="form-control"
+           className="form-control pl-5 rounded-pill"
            placeholder="phone number"
            value={this.state.email}
            onChange={this.handleChange}
-           style={{borderRadius:"0px"}}
+          
          />
          
-         </div>
+         <span><a className="pass-icon1  float-left ml-3"><i  className="fa fa-phone-alt  text-primary"></i></a></span>
          <span id="phonevalid" style={{color: "red",display:"none"}}>Enter Phone number</span>
          </Col>
         
          <Col md="3"></Col>
          <Col md="3"></Col>
          <Col md="6" style={{marginTop:"20px"}}>
-        <div  className="input-group">
+       
 
-           <span > <a className="spandata form-control rounded-0"><i  className="fa fa-lock text-primary"></i></a></span>
+         
            <input
           type={isPasswordShown ? "text" : "password"}
            name="password"
-           className="form-control"
+           className="form-control pl-5 rounded-pill"
            placeholder="Password"
            value={this.state.password}
            onChange={this.handleChange}
-           style={{borderRadius:"0px"}}
+          
          />
         
-         </div>
+        <span className='pass-icon1  float-left ml-3' > <a ><i  className="fa fa-lock text-primary"></i></a></span>
          <i className={`fa ${isPasswordShown ? "fa-eye-slash" : "fa-eye"}   pass-icon  float-right`} onClick={ this.togglePasswordVisiblity}/>
          <span id="passvalid" style={{color: "red",display:"none"}}>Enter Password</span>
         </Col>
          <Col md="3"></Col>
          <Col md="3"></Col>
          <Col md="6">
-         <p style={{textAlign:"center",color:"#007bff"}}>Forgot Password?</p>
+        
          <div style={{marginTop:"20px"}}>
-         <input type="submit" style={{width: "100%"}} className="btn btn-primary text-center" value="Login" /> 
-         <ul className="spandata1"><li><a  href={"/Register"}>Sign up</a></li></ul>
+         <input type="submit" style={{width: "100%"}} className="btn btn-primary text-center rounded-pill" value="Login" /> 
+         <p style={{textAlign:"center",color:"#007bff"}}>Forgot Password?</p>
          </div>
          <span id="submitvalid" style={{color: "red",display:"none"}}></span>
          </Col>
          <Col md="3"></Col>
+
+         
          </Row>
        </Container>
 

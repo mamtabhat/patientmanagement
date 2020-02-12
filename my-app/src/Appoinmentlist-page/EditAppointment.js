@@ -61,14 +61,14 @@ class Editappointment extends Component {
         var modal = document.getElementById('diverroralert');
         $(modal).hide();
     }
-      handleSubmit(event) {
+      handleSubmit=(event)=> {
       
 
         event.preventDefault();
         var date = this.state.reportStartDate;
         var millisecs = new Date(date).getTime();
 
-       
+       var this_=this;
 
         var data = {
           adate :parseInt(millisecs),
@@ -99,12 +99,19 @@ class Editappointment extends Component {
                 //handle success
                 console.log(response);
                
-                if (response.data.success === true) {
+              
                   $("#divsucessalert").show();
                   $("#spansucess").html('Updated successfully');
-              }
+              
               setTimeout(function () {
-                window.location = '/Appoinmentlist'
+                if(this_.state.page === "viewpatient" ){
+             
+                  window.location="/Viewpatient/"  + this_.state.pid + "/" + this_.state.page1;
+      
+                 }
+                 else{
+                  window.location = '/Appoinmentlist'
+                 }
                 },1000)
         
             })

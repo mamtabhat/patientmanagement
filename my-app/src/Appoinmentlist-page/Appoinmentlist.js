@@ -403,7 +403,7 @@ class Datalist1 extends Component {
         
          <li className="nav-item"><a className=" nav-link active" data-toggle="tab" onClick={this.todayAppointment}>Today</a></li>
          <li className="nav-item"><a className=" nav-link" data-toggle="tab" onClick = {this.tmrwAppointment}>Tomorrow</a></li>
-         <li className="nav-item"><a className=" nav-link" data-toggle="tab" onClick = {this.Customonclick}>Custom Schedule</a></li>
+         <li className="nav-item"><a className=" nav-link" data-toggle="tab" onClick = {this.Customonclick}>Custom Range</a></li>
          </ul>
        </div>
                

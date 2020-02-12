@@ -66,7 +66,7 @@ import $ from 'jquery';
         var date = this.state.reportStartDate;
         var millisecs = new Date(date).getTime();
 
-       
+        var this_=this;
 
         var data = {
           adate :parseFloat(millisecs),
@@ -107,7 +107,17 @@ else{
           $("#spansucess").html('Created successfully');
       }
       setTimeout(function () {
-        window.location = '/Appoinmentlist'
+      
+
+           if(this_.state.page === "viewpatient" ){
+             
+            window.location="/Viewpatient/"  + this_.state.pid + "/" + this_.state.page1;
+
+           }
+           else{
+            window.location = '/Appoinmentlist'
+           }
+
         },1000)
        
 

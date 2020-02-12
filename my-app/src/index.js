@@ -40,7 +40,7 @@ import createdischarge from './discharge-sheets/createdischarge'
 import editdischarge from './discharge-sheets/modifydischarge'
 import changename from './loginpage/changeusername'
 import Createappweb from './Appoinmentpage/CreateAppoinmentweb';
-
+import contactdetails from './Appoinmentpage/contactdetails';
 const routs = (
    <Router>
       
@@ -71,9 +71,10 @@ const routs = (
          <Route path="/createdischarge/" component={createdischarge}></Route>
          <Route path="/changename/" component={changename} />
          <Route path="/Casesheets/:pid" component={Casesheets} />
+         <Route path="/contactdetails/:name/:date" component={contactdetails} />
          <Route path="/Createcasesheets/:pid/:page/:page1/" component={Createcasesheets} />
          <Route path="/Editcasesheet/:pid/:cid/:aseg/:pseg/:page/:page1/" component={Editcasesheetdata} />
-         <Route path="/Createappweb/:id/" component={Createappweb} />
+         <Route path="/Createappweb/:id/:name/" component={Createappweb} />
    </Router>
 );
 ReactDOM.render(routs, document.getElementById('root'));

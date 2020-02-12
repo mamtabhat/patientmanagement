@@ -16,7 +16,7 @@ import $ from 'jquery';
         var match = props.match;
         this.state = { 
            type: 0, 
-         
+           name:match.params.name,
            pid:match.params.id,
            reportStartDate: `${new Date().getFullYear()}-${`${new Date().getMonth()+1}`.padStart(2,0)}-${`${new Date().getDate()}`.padStart(2,0)}T${`${new Date().getHours()}`.padStart(2,0)}:${`${new Date().getMinutes()}`.padStart(2, 0)}`,
          
@@ -65,7 +65,7 @@ import $ from 'jquery';
         var date = this.state.reportStartDate;
         var millisecs = new Date(date).getTime();
 
-       
+        var _this = this;
 
         var data = {
           adate :parseFloat(millisecs),
@@ -102,7 +102,7 @@ else{
           $("#spansucess").html('Created successfully');
       }
       setTimeout(function () {
-        window.location = '/'
+        window.location='/contactdetails/' + _this.state.name + "/" + _this.state.reportStartDate;
         },1000)
        
 
@@ -125,7 +125,8 @@ else{
 
             <div className="margindata">
                 <ol className="breadcrumb bg-white">
-                <li><a className="breadcrumb-item text-decoration-none text-muted" href="/Appoinment">Appointment Booking</a></li>
+                <li className="breadcrumb-item  ml-1"><a  className="breadcrumb-item text-decoration-none text-muted" href='/'>Home</a></li>
+                   <li><a className="breadcrumb-item text-decoration-none text-muted" href="/Appoinment">Appointment Booking</a></li>
                    <li className="breadcrumb-item active ml-1"><strong>Create Appointment</strong></li>
                 </ol>
              </div>
@@ -177,7 +178,7 @@ else{
            </div>
          <div className="float-right">
          <a className="btn btn-danger mr-1" href={"/Appoinment"}>Cancel</a>
-         <button className="btn btn-success">Create</button>
+         <button className="btn btn-success">Book Appointment</button>
         
          </div>
         
