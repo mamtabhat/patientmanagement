@@ -2750,6 +2750,10 @@ Goback = () =>{
     }
     })
     .then( (response) => {
+
+
+      console.log("dis", response);
+
         //handle success
   
         
@@ -2765,7 +2769,7 @@ Goback = () =>{
         
 
         
-        document.getElementById('discontent').disabled  = true;
+    document.getElementById('discontent').disabled  = true;
      $('#disbutton').hide();
      $('#casesheetdiv').hide();
      $('#opticaldiv').hide();
@@ -2785,9 +2789,9 @@ Goback = () =>{
     })
     .catch( (error) => {
       //handle error
-      console.log(error.response);
-      $("#diverroralert").show();
-      $("#spanerror").html(error.response.data.error);
+      //console.log(error);
+     // $("#diverroralert").show();
+      //$("#spanerror").html(error.response.data.error);
   });
 
 }
@@ -5425,7 +5429,7 @@ onChange={this.typesdata}
                         <textarea
                      name="distext"
                      className="form-control mt-1"
-                    
+                     id="discontent"
                      rows="10"
                      value={this.state.distext}
                      onChange={this.prelistdata}
@@ -5433,9 +5437,9 @@ onChange={this.typesdata}
                      onKeyUp={this.handleInput}
                     ></textarea>
                     <br></br>
-                    <div id="disbutton" className="float-right">
+                    <div  className="float-right">
                     <button className="btn btn-danger mr-1 mb-1" onClick={this.Goback}>Cancel</button>
-                    <button className="btn btn-success mb-1" onClick={this.updatedischarge}>Update</button>
+                    <button id="disbutton" className="btn btn-success mb-1" onClick={this.updatedischarge}>Update</button>
                     </div>
                    
                    </div>
@@ -5458,6 +5462,7 @@ onChange={this.typesdata}
                      name="distext"
                      className="form-control mt-1"
                      rows="10"
+                     id="discontent"
                      value={this.state.distext}
                      onChange={this.prelistdata}
                      placeholder="Discharge content"
@@ -5467,9 +5472,9 @@ onChange={this.typesdata}
                      Enter Discharge content
                    </div>
                     <br></br>
-                    <div id="disbutton" className="float-right">
+                    <div  className="float-right">
                     <button className="btn btn-danger mr-1 mb-1" onClick={this.Goback}>Cancel</button>
-                    <button className="btn btn-success mb-1" onClick={this.createdischarge}>Create</button>
+                    <button id="disbutton" className="btn btn-success mb-1" onClick={this.createdischarge}>Create</button>
                     </div>
                    
                    </div>
