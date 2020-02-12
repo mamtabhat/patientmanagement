@@ -56,7 +56,7 @@ export default class Headerdata extends Component {
           return (
         <div style={position}>
          <header>
-          <nav  className="navbar navbar-expand-lg navbar-light bg-light">
+          <nav  className="navbar navbar-expand-lg navbar-light bg-info">
          
          <Container fluid={true}>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -71,19 +71,19 @@ export default class Headerdata extends Component {
             <div className="collapse navbar-collapse float-right"  id="navbarSupportedContent">
               <ul style={{fontSize: "18px"}} className="navbar-nav mr-auto">
                 <li className="nav-item ">
-                  <a className="nav-link" style={{color:"#007bff"}} href="/">Home <span className="sr-only">(current)</span></a>
+                  <a className="nav-link text-white" href="/">Home <span className="sr-only">(current)</span></a>
                 </li>
                 <li className="nav-item">
-                  <a style={{color:"#007bff"}} className="nav-link" href="/Doctor">Doctors</a>
+                  <a  className="nav-link text-white" href="/Doctor">Doctors</a>
                 </li>
                 <li className="nav-item">
-                <a style={{color:"#007bff"}} className="nav-link"  href="/department">Departments</a>
+                <a  className="nav-link text-white"  href="/department">Departments</a>
                 </li>
                 <li className="nav-item">
-                  <a style={{color:"#007bff"}} className="nav-link" href="/contact">Contact</a>
+                  <a  className="nav-link text-white" href="/contact">Contact</a>
                 </li>
                 <li className="nav-item">
-                  <a style={{color:"#007bff"}} className="nav-link" href="/login">Login</a>
+                  <a className="nav-link text-white" href="/login">Login</a>
                 </li>
               </ul>
               

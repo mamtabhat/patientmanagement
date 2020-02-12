@@ -291,7 +291,7 @@ class Header extends Component {
         <Container>
         <div className="margindata">
                 <ol className="breadcrumb bg-white">
-                <li className="breadcrumb-item  ml-1"><a  className="breadcrumb-item text-decoration-none text-muted" href='/'>Home</a></li>
+                <li className="ml-1"><a className="breadcrumb-item text-decoration-none text-muted" href='/'>Home</a></li>
                    <li className="breadcrumb-item active ml-1"><strong>Appointment Booking</strong></li>
                 </ol>
              </div>

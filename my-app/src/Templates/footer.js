@@ -152,11 +152,16 @@ export default class Footer extends Component {
         </Row>
         </div>
         
-        <div className="borderstyend">
+        
+       
+        </Container>
+       
+        <div className="borderstyend bg-info">
+        <Container fluid={true}>
         <Row>
         <Col md="6" lg="6" xs="12" sm="8" >
 
-        <p style={{color:"#cccccc",marginTop:"10px"}}>@Copyright 2020. All Rights Reserved By AVY EYE CARE & OPTICALS</p>
+        <p className="text-white" style={{marginTop:"10px"}}>@Copyright 2020. All Rights Reserved By AVY EYE CARE & OPTICALS</p>
 
         </Col>
 
@@ -168,10 +173,9 @@ export default class Footer extends Component {
          </div>
          </Col>
           </Row>
+          </Container>
           </div>
-       
-        </Container>
-            
+         
             </div>
               </div>
              
