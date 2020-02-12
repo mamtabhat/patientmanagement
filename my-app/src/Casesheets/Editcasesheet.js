@@ -2704,7 +2704,8 @@ Goback = () =>{
 
      console.log("discharge",response.data.data);
 
-
+     document.getElementById('discontent').disabled  = false;
+     $('#disbutton').show();
      $('#casesheetdiv').hide();
      $('#opticaldiv').hide();
      $('#Prescriptiondiv').hide();
@@ -2732,6 +2733,63 @@ Goback = () =>{
       $("#diverroralert").show();
       $("#spanerror").html(error.response.data.error);
   });
+} else {
+
+  var data = {
+    "did": this.state.didid
+  }
+
+
+  axios({
+    method: 'post',
+    url: config.url+'discharge/ctk/getdischargesheet',
+    data: data,
+    headers: {
+        'Content-Type': 'application/json',
+        'auth': auth
+    }
+    })
+    .then( (response) => {
+        //handle success
+  
+        
+
+        if(response.data.data){
+          console.log("dis resp", response.data.data);
+          this.setState({
+            distext : response.data.data.content
+           
+          })
+        }
+
+        
+
+        
+        document.getElementById('discontent').disabled  = true;
+     $('#disbutton').hide();
+     $('#casesheetdiv').hide();
+     $('#opticaldiv').hide();
+     $('#Prescriptiondiv').hide();
+     $('#dischargediv').show();
+     $('#createid').hide();
+     $('#createpres').hide();
+     $('#prestable').show();
+     $('#Casesheetid').css("color", "white");
+     $('#Opticalid').css("color", "white");
+     $('#Prescriptionid').css("color", "white");
+     $('#Dischargeid').css("color", "black");
+
+
+
+
+    })
+    .catch( (error) => {
+      //handle error
+      console.log(error.response);
+      $("#diverroralert").show();
+      $("#spanerror").html(error.response.data.error);
+  });
+
 }
 }
 
@@ -3612,9 +3670,7 @@ if(this.state.page1 == "1"){
         <div id="casesheetdata" className="cardstyle" style={{border:"1px solid grey",height:"auto"}}>
        <div className="col-md-12 col-sm-12 col-lg-12 col-xs-12">
       
-       {(() => {
-            if(sadmin == "2"){
-             return(
+       
               <div className="row" style={styledata}>
               <div className="col-md-3">
                 <center><h5 id="Casesheetid" style={{cursor:"pointer"}} onClick={this.Casesheet}>Case sheet</h5></center>
@@ -3630,26 +3686,10 @@ if(this.state.page1 == "1"){
               </div>
             
          </div>
-             );
-            } else {
-              return(
-                <div className="row" style={styledata}>
-                <div className="col-md-4">
-                  <center><h5 id="Casesheetid" style={{cursor:"pointer"}} onClick={this.Casesheet}>Case sheet</h5></center>
-                </div>
-                <div className="col-md-4">
-                <center><h5 id="Opticalid" style={{color:"white",cursor:"pointer"}} onClick={this.Optical}>Optical</h5></center>
-                </div>
-                <div className="col-md-4">
-                <center><h5 id="Prescriptionid" style={{color:"white",cursor:"pointer"}} onClick={this.Prescription}>Prescription</h5></center>
-                </div>
-              
-           </div>
-              );
-            }
+             
 
 
-            })()}
+            
 
         <div id="diverroralert" className="modalalert">
                   <div className="modal-contentalert alert alert-danger" role="alert">
@@ -5393,7 +5433,7 @@ onChange={this.typesdata}
                      onKeyUp={this.handleInput}
                     ></textarea>
                     <br></br>
-                    <div className="float-right">
+                    <div id="disbutton" className="float-right">
                     <button className="btn btn-danger mr-1 mb-1" onClick={this.Goback}>Cancel</button>
                     <button className="btn btn-success mb-1" onClick={this.updatedischarge}>Update</button>
                     </div>
@@ -5427,7 +5467,7 @@ onChange={this.typesdata}
                      Enter Discharge content
                    </div>
                     <br></br>
-                    <div className="float-right">
+                    <div id="disbutton" className="float-right">
                     <button className="btn btn-danger mr-1 mb-1" onClick={this.Goback}>Cancel</button>
                     <button className="btn btn-success mb-1" onClick={this.createdischarge}>Create</button>
                     </div>
