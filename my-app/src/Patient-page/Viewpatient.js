@@ -241,6 +241,7 @@ Editappointment=(id,pid,event)=>{
 
   }
   renderTableData() {
+    const sadmin = sessionStorage.getItem('sadmin')  
     return this.state.datalist2.map((student, index) => {
        //const { sno, patientname, phone,age, gender } = student //destructuring
         var aseg = student.aseg;
@@ -271,14 +272,27 @@ Editappointment=(id,pid,event)=>{
                 
                 })()}
              <Td><a className="btn btn-success btn-sm" title="edit case sheet" href={"/Editcasesheet/"+this.state.pid+"/"+student._key+"/"+student.aseg+"/"+student.pseg + "/" + "viewpatient" + "/" + this.state.page  }><i class="fa fa-edit"></i></a></Td>
-             <Td><button className="btn btn-danger btn-sm" title="delete case sheet" onClick={this.deletecasesheet.bind(this, student._key)}><i className="fa fa-trash-alt" aria-hidden="true"></i></button></Td>
+             {(() => {
+
+                 if(sadmin === '2'){
+                   return(
+                    <Td><button className="btn btn-danger btn-sm" title="delete case sheet" onClick={this.deletecasesheet.bind(this, student._key)}><i className="fa fa-trash-alt" aria-hidden="true"></i></button></Td>
+                   )
+                 }
+                else{
+                  return(
+                    <Td></Td>
+                  )
+                }
+            
+            })()}
           </Tr>
        )
     })
  }
 
 render(){
-        
+   
     return (
         <div>
              <Headerdata/>
@@ -411,7 +425,7 @@ render(){
                 
                  <h5 id='title'>Appointment List</h5>
                  
-                 <a style={{marginTop:"-4.5rem"}} href={"/Createappointment/"+ this.state.pid + "/" + "viewpatient" + "/" + this.state.page } className="btn btn-primary float-right mr-2 rounded-circle  "> <i title='Create Appointment'  className="fa fa-plus"></i></a>
+                 <a title='Create Appointment' style={{marginTop:"-4.5rem"}} href={"/Createappointment/"+ this.state.pid + "/" + "viewpatient" + "/" + this.state.page } className="btn btn-primary float-right mr-2 rounded-circle  "> <i   className="fa fa-plus"></i></a>
                 
                  </div>
                     {(() => {

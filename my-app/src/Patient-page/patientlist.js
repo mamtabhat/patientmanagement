@@ -65,21 +65,30 @@ class Datalist1 extends Component {
         var auth =  sessionStorage.getItem('auth');
         var data ;
 
-        if(this.state.patientname.match("^[a-zA-Z ]*$")!=null) {
+         
+          console.log(this.state.patientname.match("^[0-9]") !== null)
+
+       /* if(this.state.patientname.match("^[a-zA-Z ]*$")!==null || this.state.patientname.match(/^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$/)!==null ) {
           data = {
             name: this.state.patientname,
         }
-        }
-        else{
+        }*/
+         if (this.state.patientname.match("^[0-9]") !== null){
 
           data = {
             phone:parseInt(this.state.patientname),
           }
         }
+        else{
+          data = {
+            name: this.state.patientname,
+        }
+        }
 
 
         var postdata = JSON.stringify(data);
       
+        console.log(postdata)
         axios({
             method: 'Post',
             url: config.url+'patient/ctk/retrievepatient',
@@ -162,7 +171,7 @@ class Datalist1 extends Component {
                <div onClick={this.Searchpatient}><i  className="fa fa-search  class3"></i></div>
                  </div>
                  <div  className='col-md-2'>
-                 <a href={"/Createpatient"} className="btn btn-primary float-right m-3 rounded-circle  "> <i title='Create Patient' className="fas fa-plus"></i></a>
+                 <a href={"/Createpatient"} title='Create Patient' className="btn btn-primary float-right m-3 rounded-circle  "> <i  className="fas fa-plus"></i></a>
         </div>
         </div>
       
@@ -239,7 +248,7 @@ class Datalist1 extends Component {
                  <Td> <a title="Edit" id="Editopt" href={"/Editpatient/"+person._key + "/" + person.gender + "/" + "patientlist" + "/" + "1" } className="btn btn-sm btn-success mr-1"><i title='Edit Patient' className="fas fa-edit "></i></a></Td>
                 
                 
-                 <Td><a href={"/Createappointment/"+person._key + "/" + "patientlist" + "/" + "1"} className="btn btn-sm btn-primary mr-1"> <i title='Create Appointment' id={person._key} className="fa fa-plus "></i></a></Td>
+                 <Td><a title='Create Appointment' href={"/Createappointment/"+person._key + "/" + "patientlist" + "/" + "1"} className="btn btn-sm btn-primary mr-1"> <i  id={person._key} className="fa fa-plus "></i></a></Td>
                  <Td><a className="btn btn-primary btn-sm  mr-1" href={"/Casesheets/"+person._key}>Casesheet</a></Td>
                  </Tr>
                 ))}
