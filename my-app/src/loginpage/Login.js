@@ -139,7 +139,7 @@ class Bodydata extends Component {
        <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
           <div className="carousel-inner" role="listbox">
               <div className="carousel-item active">
-              <div className="stylelogin">
+              <div className="stylelogin newmargin">
               <Col md="6">
            <div className="login-form" >
            <form onSubmit={this.handleSubmit}>
