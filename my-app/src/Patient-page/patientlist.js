@@ -245,10 +245,10 @@ class Datalist1 extends Component {
                 
                   })()}
 
-                 <Td> <a title="Edit" id="Editopt" href={"/Editpatient/"+person._key + "/" + person.gender + "/" + "patientlist" + "/" + "1" } className="btn btn-sm btn-success mr-1"><i title='Edit Patient' className="fas fa-edit "></i></a></Td>
+                 <Td> <a title="Edit" id="Editopt" href={"/Editpatient/"+person._key + "/" + person.gender + "/" + "patientlist" + "/" + "3" } className="btn btn-sm btn-success mr-1"><i title='Edit Patient' className="fas fa-edit "></i></a></Td>
                 
                 
-                 <Td><a title='Create Appointment' href={"/Createappointment/"+person._key + "/" + "patientlist" + "/" + "1"} className="btn btn-sm btn-primary mr-1"> <i  id={person._key} className="fa fa-plus "></i></a></Td>
+                 <Td><a title='Create Appointment' href={"/Createappointment/"+person._key + "/" + "patientlist" + "/" + "3"} className="btn btn-sm btn-primary mr-1"> <i  id={person._key} className="fa fa-plus "></i></a></Td>
                  <Td><a className="btn btn-primary btn-sm  mr-1" href={"/Casesheets/"+person._key}>Casesheet</a></Td>
                  </Tr>
                 ))}

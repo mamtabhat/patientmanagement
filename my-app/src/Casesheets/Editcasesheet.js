@@ -3414,7 +3414,7 @@ Goback = () =>{
                   {(() => {
              if(sadmin == "2"){
               return (
-                <Td><button className="btn btn-success btn-sm" name="opticalid" value={optical._key} onClick={this.editoptical.bind(this, optical._key)}><i class="fa fa-edit"></i></button></Td>
+                <Td><button title="edit optical" className="btn btn-success btn-sm" name="opticalid" value={optical._key} onClick={this.editoptical.bind(this, optical._key)}><i class="fa fa-edit"></i></button></Td>
               );
            } else {
             return(
@@ -3429,7 +3429,7 @@ Goback = () =>{
              {(() => {
              if(sadmin == "2"){
               return (
-                <Td><button className="btn btn-danger btn-sm" onClick={this.deleteoptical.bind(this, optical._key)}><i className="fa fa-trash-alt" aria-hidden="true"></i></button></Td>
+                <Td><button title="delete optical" className="btn btn-danger btn-sm" onClick={this.deleteoptical.bind(this, optical._key)}><i className="fa fa-trash-alt" aria-hidden="true"></i></button></Td>
               );
            } else {
             return(
@@ -3470,7 +3470,7 @@ renderPresData() {
                 {(() => {
              if(sadmin == "2"){
               return (
-                <Td><button className="btn btn-success btn-sm" name="opticalid" value={pres._key} onClick={this.editpres.bind(this, pres._key,'aaaaa')}><i class="fa fa-edit"></i></button></Td>
+                <Td><button title="edit prescription" className="btn btn-success btn-sm" name="opticalid" value={pres._key} onClick={this.editpres.bind(this, pres._key,'aaaaa')}><i class="fa fa-edit"></i></button></Td>
               );
            } else {
              return(
@@ -3484,7 +3484,7 @@ renderPresData() {
            {(() => {
              if(sadmin == "2"){
               return (
-                <Td><button className="btn btn-danger btn-sm" onClick={this.deletepres.bind(this, pres._key)}><i className="fa fa-trash-alt" aria-hidden="true"></i></button></Td>
+                <Td><button title="delete prescription" className="btn btn-danger btn-sm" onClick={this.deletepres.bind(this, pres._key)}><i className="fa fa-trash-alt" aria-hidden="true"></i></button></Td>
               );
            } else {
              return(
@@ -3546,15 +3546,26 @@ render(){
 
         {(() => {
 
-if(this.state.page == "viewpatient"){
+if(this.state.page1 == "1"){
   return(
   <div id="breadcrumb" className="margindata">
   <ol className="breadcrumb bg-white">
-     <li><a className="breadcrumb-item text-decoration-none text-muted" href={"/Viewpatient/"+this.state.patientid+"/1"}>View Patient</a></li>
+     <li><a className="breadcrumb-item text-decoration-none text-muted" href={"/Patientlist"}>Patient List</a></li>
+     <li className="ml-1"><a className="breadcrumb-item text-decoration-none text-muted" href={"/Viewpatient/"+this.state.patientid+"/1"}>View Patient</a></li>
      <li className="breadcrumb-item active ml-1"><strong>Edit Case sheet</strong></li>
   </ol>
 </div>
 );
+} else if(this.state.page1 == "2") {
+  return(
+    <div id="breadcrumb" className="margindata">
+    <ol className="breadcrumb bg-white">
+       <li><a className="breadcrumb-item text-decoration-none text-muted" href={"/Appoinmentlist"}>Appointment List</a></li>
+       <li className="ml-1"><a className="breadcrumb-item text-decoration-none text-muted" href={"/Viewpatient/"+this.state.patientid+"/2"}>View Patient</a></li>
+       <li className="breadcrumb-item active ml-1"><strong>Edit Case sheet</strong></li>
+    </ol>
+  </div>
+  );
 } else {
   return(
     <div id="breadcrumb" className="margindata">
@@ -5322,7 +5333,7 @@ onChange={this.typesdata}
                         if(this.state.didid != ""){
                           return(
                         <div className="float-right">
-                        <button title="print" onClick={this.printcasesheet} className="btn btn-info"><i class="fa fa-print" aria-hidden="true"></i></button>
+                        <button title="print discharge" onClick={this.printcasesheet} className="btn btn-info"><i class="fa fa-print" aria-hidden="true"></i></button>
                        </div>
                           );
                         }

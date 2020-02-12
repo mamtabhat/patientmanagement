@@ -221,7 +221,7 @@ class Casesheets extends Component {
                      );
                      }
                   })()}
-                  <Td><a className="btn btn-success btn-sm" title="edit case sheet" href={"/Editcasesheet/"+this.state.pid+"/"+student._key+"/"+student.aseg+"/"+student.pseg + "/" + "casesheet"+"/" + '1' }><i className="fa fa-edit"></i></a></Td>
+                  <Td><a className="btn btn-success btn-sm" title="edit case sheet" href={"/Editcasesheet/"+this.state.pid+"/"+student._key+"/"+student.aseg+"/"+student.pseg + "/" + "casesheet"+"/" + '3' }><i className="fa fa-edit"></i></a></Td>
                   {(() => {
                      if(sadmin == "2"){
                         return (
@@ -286,7 +286,7 @@ class Casesheets extends Component {
            <div className="col-md-6">
            <div className="float-right mt-3">
 
-             <a className="btn btn-primary mr-2 rounded-circle" title="create case sheet" href={"/Createcasesheets/"+this.state.pid + "/" + "casesheet" + "/" + '1'}><i class="fa fa-plus" aria-hidden="true"></i></a>
+             <a className="btn btn-primary mr-2 rounded-circle" title="create case sheet" href={"/Createcasesheets/"+this.state.pid + "/" + "casesheet" + "/" + '3'}><i class="fa fa-plus" aria-hidden="true"></i></a>
            </div> 
            </div>
 
@@ -326,7 +326,7 @@ class Casesheets extends Component {
                   <div class="col-md-4">
                   <div className="float-right mt-3">
 
-                  <a title="create case sheets" className="btn btn-primary rounded-circle" href={"/Createcasesheets/"+this.state.pid+ "/" + "casesheet" + "/" + '1'}><i class="fa fa-plus" aria-hidden="true"></i></a>
+                  <a title="create case sheets" className="btn btn-primary rounded-circle" href={"/Createcasesheets/"+this.state.pid+ "/" + "casesheet" + "/" + '3'}><i class="fa fa-plus" aria-hidden="true"></i></a>
 
                   </div> 
        

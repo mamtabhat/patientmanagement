@@ -280,12 +280,23 @@ class Editpatient extends Component {
             <Container style={{marginBottom:"150px"}}>
 
             {(() => {
-              if(this.state.page == "viewpatient"){
+              if(this.state.page1 == "1"){
                  return(
                   <div className="margindata">
                   <ol className="breadcrumb bg-white">
-                  <li><a className="breadcrumb-item text-decoration-none text-muted" href={"/Viewpatient/"+this.state.pid+"/1"}>View Patient</a></li>
+                  <li><a className="breadcrumb-item text-decoration-none text-muted" href={"/Patientlist"}>Patient List</a></li>
+                  <li className="ml-1"><a className="breadcrumb-item text-decoration-none text-muted" href={"/Viewpatient/"+this.state.pid+"/1"}>View Patient</a></li>
                      <li className="breadcrumb-item active ml-1"><strong>Edit Patient</strong></li>
+                  </ol>
+                  </div>
+                 );
+              } else if(this.state.page1 == "2") {
+                return(
+                  <div className="margindata">
+                  <ol className="breadcrumb bg-white">
+                  <li><a className="breadcrumb-item text-decoration-none text-muted" href={"/Appoinmentlist"}>Appointment List</a></li>
+                  <li className="ml-1"><a className="breadcrumb-item text-decoration-none text-muted" href={"/Viewpatient/"+this.state.pid+"/2"}>View Patient</a></li>
+                  <li className="breadcrumb-item active ml-1"><strong>Edit Patient</strong></li>
                   </ol>
                   </div>
                  );
@@ -294,7 +305,7 @@ class Editpatient extends Component {
                   <div className="margindata">
                   <ol className="breadcrumb bg-white">
                   <li><a className="breadcrumb-item text-decoration-none text-muted" href="/Patientlist">Patient List</a></li>
-                     <li className="breadcrumb-item active ml-1"><strong>Edit Patient</strong></li>
+                  <li className="breadcrumb-item active ml-1"><strong>Edit Patient</strong></li>
                   </ol>
                   </div>
                  );

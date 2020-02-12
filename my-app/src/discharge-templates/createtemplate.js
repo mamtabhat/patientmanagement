@@ -117,11 +117,11 @@ else{
             <div className="margindata">
                 <ol className="breadcrumb bg-white">
                 <li><a className="breadcrumb-item text-decoration-none text-muted" href="/dischargetemplate">Discharge Templates</a></li>
-                   <li className="breadcrumb-item active ml-1"><strong>Create Templates</strong></li>
+                   <li className="breadcrumb-item active ml-1"><strong>Create Template</strong></li>
                 </ol>
              </div>
                  
-                 <h3 class="text-center">Create Templates</h3>
+                 <h3 class="text-center">Create Template</h3>
 
                 <Row className="mt-3">
                 <div className="col-md-3">

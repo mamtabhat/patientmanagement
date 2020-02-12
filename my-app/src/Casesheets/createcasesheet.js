@@ -1447,29 +1447,40 @@ class Createcasesheets extends Component {
             <Headerdata/>
             <Container fluid={true} style={{marginBottom:"100px"}}>
             {(() => {
-             if(this.state.page == "viewpatient") {
-               return(
-               <div id="breadcrumb" className="margindata">
-                <ol className="breadcrumb bg-white">
-                   <li><a className="breadcrumb-item text-decoration-none text-muted" href={"/Viewpatient/"+this.state.patientid+"/1"}>View Patient</a></li>
-                   <li className="breadcrumb-item active ml-1"><strong>Create Case sheet</strong></li>
-                </ol>
-            </div>
-               );
-             } else {
-              return(
-                <div id="breadcrumb" className="margindata">
-                 <ol className="breadcrumb bg-white">
-                    <li><a className="breadcrumb-item text-decoration-none text-muted" href={"/Patientlist"}>Patient List</a></li>
-                    <li className="ml-1"><a className="breadcrumb-item text-decoration-none text-muted" href={"/Casesheets/"+this.state.patientid}>Case sheet list</a></li>
-                    <li className="breadcrumb-item active ml-1"><strong>Create Case sheet</strong></li>
-                 </ol>
-             </div>
-                );
-             }
 
+if(this.state.page1 == "1"){
+  return(
+  <div id="breadcrumb" className="margindata">
+  <ol className="breadcrumb bg-white">
+    <li><a className="breadcrumb-item text-decoration-none text-muted" href={"/Patientlist"}>Patient List</a></li>
+     <li className="ml-1"><a className="breadcrumb-item text-decoration-none text-muted" href={"/Viewpatient/"+this.state.patientid+"/1"}>View Patient</a></li>
+     <li className="breadcrumb-item active ml-1"><strong>Create Case sheet</strong></li>
+  </ol>
+</div>
+);
+} else if(this.state.page1 == "2") {
+  return(
+    <div id="breadcrumb" className="margindata">
+    <ol className="breadcrumb bg-white">
+       <li><a className="breadcrumb-item text-decoration-none text-muted" href={"/Appoinmentlist"}>Appointment List</a></li>
+       <li className="ml-1"><a className="breadcrumb-item text-decoration-none text-muted" href={"/Viewpatient/"+this.state.patientid+"/2"}>View Patient</a></li>
+       <li className="breadcrumb-item active ml-1"><strong>Create Case sheet</strong></li>
+    </ol>
+  </div>
+  );
+} else {
+  return(
+    <div id="breadcrumb" className="margindata">
+    <ol className="breadcrumb bg-white">
+       <li><a className="breadcrumb-item text-decoration-none text-muted" href={"/Patientlist"}>Patient List</a></li>
+       <li className="ml-1"><a className="breadcrumb-item text-decoration-none text-muted" href={"/Casesheets/"+this.state.patientid}>Case sheet list</a></li>
+       <li className="breadcrumb-item active ml-1"><strong>Create Case sheet</strong></li>
+    </ol>
+  </div>
+  );
+}
 
-               })()}
+})()}
             <div id="casesheetdata" className="cardstyle" style={{border:"1px solid grey",height:"auto"}}>
            <div className="col-md-12 col-sm-12 col-lg-12 col-xs-12">
            {(() => {
@@ -2319,7 +2330,7 @@ class Createcasesheets extends Component {
               </div>
               <div className="col-md-3">
               <div className="float-right">
-            <button id="printbutton-pres" style={{display:"none"}} title="print" onClick={this.printpresdata} className="btn btn-info"><i class="fa fa-print" aria-hidden="true"></i></button>
+            <button id="printbutton-pres" style={{display:"none"}} title="print prescription" onClick={this.printpresdata} className="btn btn-info"><i class="fa fa-print" aria-hidden="true"></i></button>
             </div>
               </div>
 
@@ -2882,7 +2893,7 @@ class Createcasesheets extends Component {
                       </div>
                       <div className="col-md-6 mt-3">
                       <div className="float-right">
-             <button id="printbutton-disc" style={{display:"none"}} title="print" onClick={this.printcasesheet} className="btn btn-info"><i class="fa fa-print" aria-hidden="true"></i></button>
+             <button id="printbutton-disc" style={{display:"none"}} title="print discharge" onClick={this.printcasesheet} className="btn btn-info"><i class="fa fa-print" aria-hidden="true"></i></button>
                    </div>
                       </div>
            
