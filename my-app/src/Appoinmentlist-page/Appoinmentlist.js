@@ -191,7 +191,7 @@ class Datalist1 extends Component {
 
                    self.setState({datalist1:data1})
 
-                   
+                   console.log(datalist1,"data")
                     
                      //  for (let i =0 ;i<datalist1.length; i++){
 

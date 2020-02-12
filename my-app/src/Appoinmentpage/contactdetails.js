@@ -42,16 +42,37 @@ class Contactdetail extends Component {
               
              
       
-              <Col md="3"></Col>
+              <Col md="2"></Col>
 
-              <Col md="6" className="margindata">
+              <Col md="8" className="card p-1" >
 
-              <h5 >Dear {this.state.name} ,</h5>
+             <Container>
+             
+              <h5 className='mt-2'>Dear {this.state.name} ,</h5>
 
-              <p>Your Appointment booked successfully for this date and time <strong>({new Date(this.state.date).toLocaleString() })</strong>.If you want know more details contact this number <strong>86820 00055 .</strong></p>
-              <a href='/' className="btn btn-success text-white">Home</a>
+              <p>Your Appointment booked successfully for this date and time <strong>({new Date(this.state.date).toLocaleString() })</strong>.If you want know more details contact this below information. </p>
+             
+              <div className='form-group'>
+                
+                <strong >Phone</strong>
+                <div className='row'>
+
+                 <a><i className='fa fa-phone-alt text-primary ml-3'></i></a>
+                 <label className='ml-3'>86820 00055</label>
+                </div> 
+                <strong >Email</strong>
+                <div className='row'>
+
+                 <a><i className='fa fa fa-envelope text-primary ml-3'></i></a>
+                 <label className='ml-3'>avy@gmail.com</label>
+                </div>
+                </div>
+                <div className='float-right mb-2'>
+                <a href='/' className="btn btn-success text-white ">Home</a>
+                </div>
+                </Container>
               </Col>
-              <Col md="3"></Col>
+              <Col md="2"></Col>
               </Row>
               </Container>
           <Footerdata/>

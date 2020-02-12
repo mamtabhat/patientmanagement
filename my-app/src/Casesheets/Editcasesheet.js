@@ -13,6 +13,10 @@ import bootbox from 'bootbox';
 import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
 import Logoimg from '../images/logonew.png';
 
+const bullet = "\u2022";
+const bulletWithSpace = `${bullet} `;
+const enter = 13;
+
 const styledata = {
   backgroundColor:"gray",
   borderRadius: "5px 5px 0px 0px",
@@ -171,6 +175,31 @@ class Editcasesheetdata extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     
  }
+
+
+ handleInput = (event) => {
+  const { keyCode, target } = event;
+  const { selectionStart, value } = target;
+  
+  if (keyCode === enter) {
+    console.log('a');
+    target.value = [...value]
+      .map((c, i) => i === selectionStart - 1
+        ? `\n${bulletWithSpace}`
+        : c
+      )
+      .join('');
+      console.log(target.value);
+      
+    target.selectionStart = selectionStart+bulletWithSpace.length;
+    target.selectionEnd = selectionStart+bulletWithSpace.length;
+  }
+  
+  if (value[0] !== bullet) {
+    target.value = `${bulletWithSpace}${value}`;
+  }
+}
+
 
 
 
@@ -5357,10 +5386,11 @@ onChange={this.typesdata}
                      name="distext"
                      className="form-control mt-1"
                     
-                     rows="5"
+                     rows="10"
                      value={this.state.distext}
                      onChange={this.prelistdata}
                      placeholder="Discharge content"
+                     onKeyUp={this.handleInput}
                     ></textarea>
                     <br></br>
                     <div className="float-right">
@@ -5387,11 +5417,11 @@ onChange={this.typesdata}
                         <textarea
                      name="distext"
                      className="form-control mt-1"
-                    
-                     rows="5"
+                     rows="10"
                      value={this.state.distext}
                      onChange={this.prelistdata}
                      placeholder="Discharge content"
+                     onKeyUp={this.handleInput}
                     ></textarea>
                      <div id="dischargealert" style={{marginTop:"10px"}} className="alert alert-danger modalnew" aria-hidden="true">
                      Enter Discharge content

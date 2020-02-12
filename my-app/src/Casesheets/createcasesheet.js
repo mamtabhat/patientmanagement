@@ -11,7 +11,9 @@ import config from '../config/config'
 import $ from 'jquery';
 import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
 import Logoimg from '../images/logonew.png';
-
+const bullet = "\u2022";
+const bulletWithSpace = `${bullet} `;
+const enter = 13;
 const styledata = {
   backgroundColor:"gray",
   borderRadius: "5px 5px 0px 0px",
@@ -177,7 +179,28 @@ class Createcasesheets extends Component {
       $(modal).hide();
   }
 
-
+  handleInput = (event) => {
+    const { keyCode, target } = event;
+    const { selectionStart, value } = target;
+    
+    if (keyCode === enter) {
+      console.log('a');
+      target.value = [...value]
+        .map((c, i) => i === selectionStart - 1
+          ? `\n${bulletWithSpace}`
+          : c
+        )
+        .join('');
+        console.log(target.value);
+        
+      target.selectionStart = selectionStart+bulletWithSpace.length;
+      target.selectionEnd = selectionStart+bulletWithSpace.length;
+    }
+    
+    if (value[0] !== bullet) {
+      target.value = `${bulletWithSpace}${value}`;
+    }
+  }
 
      prelistdata= event =>{
 
@@ -2910,10 +2933,11 @@ if(this.state.page1 == "1"){
                      name="distext"
                      className="form-control mt-1"
                     
-                     rows="5"
+                     rows="10"
                      value={this.state.distext}
                      onChange={this.prelistdata}
                      placeholder="Discharge content"
+                     onKeyUp={this.handleInput}
                     ></textarea>
                     <br></br>
                     <div className="float-right">

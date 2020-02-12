@@ -63,13 +63,13 @@ export default class Headerdata extends Component {
               <span className="navbar-toggler-icon"></span>
             </button>
             <Col md="3" xs="8" sm="6" lg="2">
-            <img style={{maxWidth:"400px",height:"55px"}} src={Logoimg}></img>
+            <img style={{width:"70%"}} src={Logoimg}></img>
             </Col>
             
            
             <Col md="9" xs="12" sm="10" lg="6">
             <div className="collapse navbar-collapse float-right"  id="navbarSupportedContent">
-              <ul style={{fontSize: "18px",padding:"10px"}} className="navbar-nav mr-auto">
+              <ul style={{fontSize: "18px"}} className="navbar-nav mr-auto">
                 <li className="nav-item ">
                   <a className="nav-link" style={{color:"#007bff"}} href="/">Home <span className="sr-only">(current)</span></a>
                 </li>

@@ -168,7 +168,7 @@ class Bodydata extends Component {
         
          <Col md="3"></Col>
          <Col md="3"></Col>
-         <Col md="6" style={{marginTop:"20px"}}>
+         <Col md="6" className="mt-1">
        
 
          
@@ -190,9 +190,9 @@ class Bodydata extends Component {
          <Col md="3"></Col>
          <Col md="6">
         
-         <div style={{marginTop:"20px"}}>
+         <div >
          <input type="submit" style={{width: "100%"}} className="btn btn-primary text-center rounded-pill" value="Login" /> 
-         <p style={{textAlign:"center",color:"#007bff"}}>Forgot Password?</p>
+         <p className="mt-2 text-center text-primary" >Forgot Password?</p>
          </div>
          <span id="submitvalid" style={{color: "red",display:"none"}}></span>
          </Col>

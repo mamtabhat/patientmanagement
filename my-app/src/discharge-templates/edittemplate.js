@@ -7,7 +7,9 @@ import config from '../config/config'
 import { Container,Row} from 'react-bootstrap';
 
 import $ from 'jquery';
- 
+const bullet = "\u2022";
+const bulletWithSpace = `${bullet} `;
+const enter = 13;
 class CreateForm extends Component {
 
    
@@ -150,7 +152,28 @@ else{
       componentDidMount(){
         this.EditTemplatedata()
       }
-      
+      handleInput = (event) => {
+        const { keyCode, target } = event;
+        const { selectionStart, value } = target;
+        
+        if (keyCode === enter) {
+          console.log('a');
+          target.value = [...value]
+            .map((c, i) => i === selectionStart - 1
+              ? `\n${bulletWithSpace}`
+              : c
+            )
+            .join('');
+            console.log(target.value);
+            
+          target.selectionStart = selectionStart+bulletWithSpace.length;
+          target.selectionEnd = selectionStart+bulletWithSpace.length;
+        }
+        
+        if (value[0] !== bullet) {
+          target.value = `${bulletWithSpace}${value}`;
+        }
+      }
     render(){
         
         return (
@@ -211,6 +234,7 @@ else{
            value={this.state.content}
            onChange={this.handleChange}
            style={{height:"150px"}}
+           onKeyUp={this.handleInput}
          />
         <div id="contentalert" style={{marginTop:"10px"}} className="alert alert-danger modalnew" aria-hidden="true">
               Enter content
