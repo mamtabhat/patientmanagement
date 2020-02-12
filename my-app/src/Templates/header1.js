@@ -174,14 +174,14 @@ export default class Headerdata extends Component {
        else{
         var body = <div style={position}>
         <header>
-         <nav  className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav  className="navbar navbar-expand-lg navbar-info bg-info">
         
         <Container fluid={true}>
            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
              <span className="navbar-toggler-icon"></span>
            </button>
            <Col md="2" xs="4" sm="2" lg="2" >
-           <img style={{width: "100%"}} src={Logoimg}></img>
+           <img style={{width: "70%"}} src={Logoimg}></img>
            </Col>
            
           
@@ -189,24 +189,25 @@ export default class Headerdata extends Component {
            <div className="collapse navbar-collapse float-right"  id="navbarSupportedContent">
             
           
-             <ul style={{fontSize: "18px",padding:"10px"}} className="navbar-nav mr-auto">
              
-               <li className="nav-item ">
-                 <a className="nav-link" style={{color:"#007bff"}} href="/Appoinmentlist">Appointments</a>
+           <ul style={{fontSize: "18px"}} className="navbar-nav mr-auto">
+              <li className="nav-item ">
+                 <a className="nav-link" style={{color:"#fff"}} href="/Appoinmentlist">Appointments</a>
                </li>
                <li className="nav-item ">
-                 <a className="nav-link" style={{color:"#007bff"}} href="/Patientlist">Patients</a>
+                 <a className="nav-link" style={{color:"#fff"}} href="/Patientlist">Patients</a>
                </li>
-               </ul>
-               <li className="navbar-nav mr-auto dropdown">
-               <a href="#" className="dropdown-toggle" style={{fontSize: "18px"}} data-toggle="dropdown"  role="button" aria-haspopup="true" aria-expanded="false">Welcome {username}<span><i class="downarrow"></i></span></a>
-               <ul style={{padding:"5px"}} className="dropdown-menu newsfeed-home">
-               <li className="dropdown" ><a href="/changepassword"  >Change Password</a></li>
-                  <li className="dropdown" ><a href="/changename"  >Change Username</a></li>
-                 <li className="dropdown" ><a  href="#" onClick={this.Logout} >Logout</a></li>
+                </ul>
+                <li className="navbar-nav mr-auto dropdown">
+                <a href="#" className="dropdown-toggle" style={{fontSize: "18px",color:"#fff"}} data-toggle="dropdown"  role="button" aria-haspopup="true" aria-expanded="false">Welcome {username}<span><i class="downarrow"></i></span></a>
+                <ul style={{padding:"5px"}} className="dropdown-menu newsfeed-home">
+                  <li className="dropdown" ><a href="/changepassword" style={{color:"#17a2b8"}} >Change Password</a></li>
+                  <li className="dropdown" ><a href="/changename" style={{color:"#17a2b8"}} >Change Username</a></li>
+                  <li className="dropdown" ><a href="#" style={{color:"#17a2b8"}}  onClick={this.Logout} >Logout</a></li>
 
-               </ul>
-             </li>
+                </ul>
+              </li>
+           
            
              
              
