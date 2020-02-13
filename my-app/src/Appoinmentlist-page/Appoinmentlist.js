@@ -434,7 +434,7 @@ class Datalist1 extends Component {
                             <Tr key={index}>
                              <Td>{index+1}</Td>
                            
-                             <Td style={{cursor:"pointer"}} onClick={this.Viewpatient.bind(null, person.pid)} title="Click to View Patient Details">{person.name}</Td>
+                             <Td style={{cursor:"pointer"}} onClick={this.Viewpatient.bind(null, person.pid)} title="Click to View Patient Details"><a href="#">{person.name}</a></Td>
                              
                              <Td>{person.phone}</Td>
                              {(() => {

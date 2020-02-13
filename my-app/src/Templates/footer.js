@@ -69,9 +69,9 @@ export default class Footer extends Component {
              <div className="row" style={{marginTop:"20px",padding:"5px"}}>
 
                <i style={{fontSize:"25px"}} className="fas fa-phone listyle"></i>
-              
-               <div className="form-group">
-                 <label className="listyle1" >Phone</label>
+               <label className="spanstyle" >Phone</label>
+               <div className="input-group margin-bottom-sm ">
+                
                <p className="listyle1" > 86820 00055</p>
                </div>
                </div> 
@@ -79,8 +79,9 @@ export default class Footer extends Component {
               <div className="row" style={{padding:"5px"}}>
 
             <i style={{fontSize:"25px"}} className="fas fa-envelope listyle"></i>
-            <div className="form-group">
-                 <label className="spanstyle" >Email</label>
+           <label className="spanstyle" >Email</label>
+            <div className="input-group margin-bottom-sm ">
+           
             <p className="listyle1" > support@validtheme.com</p>
             </div> 
             </div> 
@@ -89,8 +90,9 @@ export default class Footer extends Component {
             <div className="row" style={{padding:"5px"}}>
 
                <i style={{fontSize:"25px"}} className="fas fa-map listyle"></i>
-               <div className="form-group">
-                 <label className="spanstyle" >Address</label>
+                <label className="spanstyle" >Address</label>
+                <div className="input-group margin-bottom-sm ">
+               
                <p className="listyle1" > Jansons MRI Opposite,</p>
                <p className="listyle1">Perunduari Road,</p>
                <p className="listyle1" > Erode - 638 011</p>

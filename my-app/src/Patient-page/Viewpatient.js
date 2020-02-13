@@ -353,34 +353,34 @@ render(){
                         {this.state.datalist1.map((patientlist,index) => (
                     <div onClick={this.Editpatient.bind(null,this.state.pid,patientlist.gender)} title = "Click to Edit patient details" >
                   
-                    <div className='row p-2'>
+                    <div className='row newdiv'>
                      <i className="fas fa-user text-primary m-4"></i>
-                     <div className="form-group ">
                      <h5>Name</h5>
-                    <p style={{textAlign:"center"}}>{patientlist.name}</p>
+                     <div className="input-group margin-bottom-sm ">
+                     <a href="#"> <p className='marginleftdata'>{patientlist.name}</p></a>
                      </div>
                      </div>
-                     <div className='row p-2'>
+                     <div className='row newdiv'>
                      <i className="fas fa-phone-alt text-primary m-4"></i>
-                     <div className="form-group ">
                      <h5>Phone</h5>
-                   
-                      <p style={{textAlign:"center"}}>{patientlist.phone}</p>
+                     <div className="input-group margin-bottom-sm ">
+                      <p className='marginleftdata'>{patientlist.phone}</p>
                      </div>
                      </div>
-                     <div className='row p-2'>
+                     <div className='row newdiv'>
                      <i className="fas fa-transgender text-primary m-4"></i>
-                     <div className="form-group ">
                      <h5>Gender</h5>
+                     <div className="input-group margin-bottom-sm ">
+                   
                      {(() => {
                           if(patientlist.gender === 1){
                             return(
-                                <p style={{textAlign:"center"}}>Female</p>
+                                <p className='marginleftdata'>Female</p>
                             )
                           }
                           else{
                             return(
-                                <p style={{textAlign:"center"}}>Male</p>
+                                <p className='marginleftdata'>Male</p>
                             )
                           }
                      
@@ -389,18 +389,19 @@ render(){
                      </div>
                      </div>
                     
-                     <div className='row newdiv'>
+                      <div className='row newdiv'>
                      <i className="fas fa-map-marked text-primary m-4"></i>
-                    
                      <h5 >Address</h5>
-                     <p style={{marginLeft:"71px"}} >{patientlist.address}</p>
-                   
+                     <div className="input-group margin-bottom-sm ">
+                    
+                     <p  style={{marginLeft:"62px"}} >{patientlist.address}</p>
                      </div>
-                     <div className='row p-2'>
+                     </div>
+                     <div className='row newdiv'>
                      <i className="fas fa-map-marker-alt text-primary m-4"></i>
-                     <div className="form-group ">
                      <h5>Pincode</h5>
-                     <p style={{textAlign:"center"}}>{patientlist.pin}</p>
+                     <div className="input-group margin-bottom-sm ">
+                     <p className='marginleftdata' >{patientlist.pin}</p>
                      </div>
                      </div>
                      </div>

@@ -8,6 +8,7 @@ import axios from 'axios';
 import config from '../config/config'
 import  '../Templates/header.css'; 
 import '../App-page/App.css'
+import $ from 'jquery'; 
 
 const position = {
   position: "fixed",
@@ -28,10 +29,11 @@ export default class Headerdata extends Component {
   
       this.state = {
         show: false,
-      
+        menu: false
       }
     
       this.toggleShow = this.toggleShow.bind(this);
+      this.toggleMenu = this.toggleMenu.bind(this);
       this.hide = this.hide.bind(this);
     }
   
@@ -44,10 +46,22 @@ export default class Headerdata extends Component {
       }
       this.setState({show: false});
     }
-    
+    toggleMenu(){
+      console.log("hi")
+      this.setState({ menu: !this.state.menu })
+    }
  
 
-   Logout(){
+   Logout = () => {
+
+      console.log(window.innerWidth,"welcome")
+      console.log(window.innerWidth < 991)
+    if(window.innerWidth < 991)
+   {
+    this.setState({ menu: !this.state.menu })
+
+   }
+  
 
     var data = sessionStorage.getItem('Auth');
     
@@ -56,7 +70,7 @@ export default class Headerdata extends Component {
  
   
   
-    var auth =  sessionStorage.getItem('auth');
+     var auth =  sessionStorage.getItem('auth');
      var username =sessionStorage.getItem('username');
      var sadmin = sessionStorage.getItem('sadmin');
     bootbox.confirm({
@@ -77,6 +91,10 @@ export default class Headerdata extends Component {
       callback: function (result) {
 
         if (result === true) {
+         
+         
+        
+         
           axios({
             method: 'get',
             url: config.url+'ctk/logout',
@@ -117,14 +135,14 @@ export default class Headerdata extends Component {
     render(){
       const username = sessionStorage.getItem('username');
        const sadmin = sessionStorage.getItem('sadmin')  
-        
+       const show = (this.state.menu) ? "show" : "" ;
        if(sadmin === '2'){
         var body = <div style={position}>
          <header>
           <nav  className="navbar navbar-expand-lg navbar-light bg-info">
          
          <Container fluid={true}>
-            <button className="navbar-toggler bg-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button className="navbar-toggler bg-white" type="button"   onClick={ this.toggleMenu } aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
             </button>
             <Col md="3" xs="6" sm="4" lg="2">
@@ -132,8 +150,8 @@ export default class Headerdata extends Component {
             </Col>
             
            
-            <Col md="9" xs="12" sm="8" lg="10">
-            <div className="collapse navbar-collapse float-right"  id="navbarSupportedContent">
+            <Col  md="9" xs="12" sm="8" lg="10" id="navbarmenu">
+            <div className={"float-right collapse navbar-collapse " + show}  >
              
            
             <ul style={{fontSize: "18px"}} className="navbar-nav mr-auto">
