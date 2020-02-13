@@ -174,7 +174,7 @@ export default class Headerdata extends Component {
        else{
         var body = <div style={position}>
         <header>
-        <nav  className="navbar navbar-expand-lg navbar-info bg-info">
+        <nav  className="navbar navbar-expand-lg navbar-light bg-info">
         
         <Container fluid={true}>
            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

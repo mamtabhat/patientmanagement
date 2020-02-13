@@ -74,16 +74,13 @@ export default class Headerdata extends Component {
                   <a className="nav-link text-white" href="/">Home <span className="sr-only">(current)</span></a>
                 </li>
                 <li className="nav-item">
-                  <a  className="nav-link text-white" href="/Doctor">Doctors</a>
-                </li>
-                <li className="nav-item">
                 <a  className="nav-link text-white"  href="/department">Departments</a>
                 </li>
                 <li className="nav-item">
                   <a  className="nav-link text-white" href="/contact">Contact</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link text-white" href="/login">Login</a>
+                  <a className="nav-link text-white" href="/login">Doctor Login</a>
                 </li>
               </ul>
               

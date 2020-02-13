@@ -4178,9 +4178,9 @@ if(this.state.page1 == "1"){
             <div className="row">
             
                   <div className="col-md-12 col-xs-12">
-                  <div id="opticaltable" className="card mt-4" style={{width:"100%"}}>
+                  <div id="opticaltable" className="mt-4" style={{width:"100%",overflow:"auto"}}>
                         
-                  <table border="1">
+                  <table className="table" border="1">
               <thead>
              <tr>
          <th width="40"></th>
@@ -4208,6 +4208,7 @@ if(this.state.page1 == "1"){
        <td><input
             type="text"
             name="ossph"
+            style={{minWidth:"80px"}}
             className="form-control mt-1"
             placeholder="sph"
            value = {this.state.ossph}
@@ -4216,6 +4217,7 @@ if(this.state.page1 == "1"){
         <td> <input
               type="text"
               name="oscyl"
+              style={{minWidth:"80px"}}
               className="form-control mt-1"
               placeholder="CYL"
               value = {this.state.oscyl}
@@ -4224,12 +4226,13 @@ if(this.state.page1 == "1"){
         <td><input
               type="text"
               name="osaxis"
+              style={{minWidth:"80px"}}
               className="form-control mt-1"
               placeholder="AXIS"
               value = {this.state.osaxis}
               onChange={this.opticllistdata}
             /></td>
-        <td><select id="va" name="osva" value = {this.state.osva} onChange={this.opticllistdata} className="form-control mt-1">
+        <td><select id="va" name="osva" style={{minWidth:"80px"}} value = {this.state.osva} onChange={this.opticllistdata} className="form-control mt-1">
               <option defaultValue>Select va </option>
               <option>6/60</option>
               <option>6/36</option>
@@ -4244,6 +4247,7 @@ if(this.state.page1 == "1"){
             <td><input
             type="text"
             name="odsph"
+            style={{minWidth:"80px"}}
             className="form-control mt-1"
             placeholder="sph"
             value = {this.state.odsph}
@@ -4252,6 +4256,7 @@ if(this.state.page1 == "1"){
            <td> <input
               type="text"
               name="odcyl"
+              style={{minWidth:"80px"}}
               className="form-control mt-1"
               placeholder="CYL"
               value = {this.state.odcyl}
@@ -4260,12 +4265,13 @@ if(this.state.page1 == "1"){
                      <td><input
                          type="text"
                          name="odaxis"
+                         style={{minWidth:"80px"}}
                          className="form-control mt-1"
                           placeholder="AXIS"
                           value={this.state.odaxis}
                           onChange={this.opticllistdata}
                           /></td>
-        <td><select id="va" name="odva"  value={this.state.odva} onChange={this.opticllistdata} className="form-control mt-1">
+        <td><select id="va" name="odva" style={{minWidth:"80px"}}  value={this.state.odva} onChange={this.opticllistdata} className="form-control mt-1">
                              <option defaultValue>Select va </option>
                                  <option>6/60</option>
                                  <option>6/36</option>
@@ -4282,17 +4288,19 @@ if(this.state.page1 == "1"){
                                  <td><input
                                   type="text"
                                   name="osaxis"
+                                  style={{minWidth:"80px"}}
                                   className="form-control mt-1"
                                   placeholder="AXIS"
                                    /></td>
                                  <td colspan="2"><input
                                type="text"
+                               style={{minWidth:"80px"}}
                                name="osaxis"
                                className="form-control mt-1"
                                placeholder="AXIS"
              
                                 /></td>
-                                 <td><select id="va" name="odva"   className="form-control mt-1">
+                                 <td><select id="va" name="odva" style={{minWidth:"80px"}}  className="form-control mt-1">
                              <option defaultValue>Select va </option>
                                  <option>6/60</option>
                                  <option>6/36</option>
@@ -4306,16 +4314,18 @@ if(this.state.page1 == "1"){
                                  <td><input
                                 type="text"
                                 name="osaxis"
+                                style={{minWidth:"80px"}}
                                 className="form-control mt-1"
                                 placeholder="AXIS"
                                 /></td>
                                  <td colspan="2"><input
                                   type="text"
                                  name="osaxis"
+                                 style={{minWidth:"80px"}}
                                  className="form-control mt-1"
                                  placeholder="AXIS"
                                   /></td>
-                                 <td><select id="va" name="odva"  className="form-control mt-1">
+                                 <td><select id="va" name="odva" style={{minWidth:"80px"}}  className="form-control mt-1">
                              <option defaultValue>Select va </option>
                                  <option>6/60</option>
                                  <option>6/36</option>
@@ -4387,12 +4397,16 @@ onChange={this.opticllistdata}
 
  
 
-        <div className="row mt-3">
+<div className="row mt-3">
 
-        <div className="col-md-3">
-<span>Kryptok</span>
-<input
-style={{marginLeft:"38px"}}
+<div className="col-md-3">
+  <div className="row">
+   <div className="col-md-6 col-xs-8">
+   <span>Kryptok</span>
+   </div>
+   <div className="col-md-1 col-xs-4">
+   <input
+
 type="checkbox"
 name="kryptok"
 id="kryptok"
@@ -4400,11 +4414,19 @@ defaultChecked={this.state.checked}
 value={this.state.kryptok}
 onChange={this.typesdata}
 />
+   </div>
+  </div>
+
+
 </div>
-<div className="col-md-3">
-<span>Unicvis D</span>
-<input
-style={{marginLeft:"10px"}}
+<div className="col-md-3 col-xs-12">
+  <div className="row">
+    <div className="col-md-6">
+    <span>Unicvis D</span>
+    </div>
+  <div className="col-md-1">
+  <input
+
 type="checkbox"
 name="unicvisd"
 id="unicvisd"
@@ -4413,10 +4435,17 @@ value={this.state.unicvisd}
 onChange={this.typesdata}
 />
 </div>
-<div className="col-md-3">
-<span>Hi index</span>
+  </div>
+
+
+</div>
+<div className="col-md-3 col-xs-3">
+  <div className="row">
+    <div className="col-md-6">
+    <span>Hi index</span>
+    </div>
+<div className="col-md-1">
 <input
-style={{marginLeft:"10px"}}
 type="checkbox"
 name="hiindex"
 id="hiindex"
@@ -4425,10 +4454,15 @@ value={this.state.hiindex}
 onChange={this.typesdata}
 />
 </div>
-<div className="col-md-3">
+  </div>
+</div>
+<div className="col-md-3 col-xs-3">
+  <div className="row">
+<div className="col-md-6">
 <span>Photochromic</span>
+</div>
+<div className="col-md-1">
 <input
-style={{marginLeft:"31px"}}
 type="checkbox"
 name="photochromic"
 id="photochromic"
@@ -4437,11 +4471,19 @@ value={this.state.photochromic}
 onChange={this.typesdata}
 />
 </div>
+  </div>
 
-<div className="col-md-3">
-<span>Progreesive</span>
+
+</div>
+
+<div className="col-md-3 col-xs-3">
+
+<div className="row">
+  <div className="col-md-6">
+  <span>Progreesive</span>
+  </div>
+<div className="col-md-1">
 <input
-style={{marginLeft:"10px"}}
 type="checkbox"
 name="progreesive"
 id="progreesive"
@@ -4450,22 +4492,35 @@ value={this.state.progreesive}
 onChange={this.typesdata}
 />
 </div>
-<div className="col-md-3">
-<span>Glass</span>
-<input
-style={{marginLeft:"39px"}}
+</div>
+</div>
+<div className="col-md-3 col-xs-3">
+  <div className="row">
+    <div className="col-md-6">
+    <span>Glass</span>
+    </div>
+    <div className="col-md-1">
+    <input
 type="checkbox"
 name="glass"
 id="glass"
 defaultChecked={this.state.checked}
 value={this.state.glass}
 onChange={this.typesdata}
-/>
+ />
+    </div>
+
+  </div>
+
+
 </div>
-<div className="col-md-3">
-<span>White</span>
-<input
-style={{marginLeft:"26px"}}
+<div className="col-md-3 col-xs-3">
+  <div className="row">
+ <div className="col-md-6">
+ <span>White</span>
+ </div>
+ <div className="col-md-1">
+ <input
 type="checkbox"
 name="white"
 id="white"
@@ -4473,11 +4528,18 @@ defaultChecked={this.state.checked}
 value={this.state.white}
 onChange={this.typesdata}
 />
+ </div>
+  </div>
+
+
 </div>
-<div className="col-md-3">
-<span>Arc</span>
+<div className="col-md-3 col-xs-3">
+  <div className="row">
+    <div className="col-md-6">
+    <span>Arc</span>
+    </div>
+<div className="col-md-1">
 <input
-style={{marginLeft:"106px"}}
 type="checkbox"
 name="arc"
 id="arc"
@@ -4486,23 +4548,38 @@ value={this.state.arc}
 onChange={this.typesdata}
 />
 </div>
+  </div>
 
-<div className="col-md-3">
-<span>Executive</span>
-<input
-style={{marginLeft:"26px"}}
-type="checkbox"
+
+</div>
+
+<div className="col-md-3 col-xs-3">
+  <div className="row">
+    <div className="col-md-6">
+    <span>Executive</span>
+    </div>
+    <div className="col-md-1">
+    <input
+
+ type="checkbox"
 name="executive"
 id="executive"
 defaultChecked={this.state.checked}
 value={this.state.executive}
 onChange={this.typesdata}
 />
+    </div>
+  </div>
+
+
 </div>
-<div className="col-md-3">
-<span>Plastic</span>
-<input
-style={{marginLeft:"30px"}}
+<div className="col-md-3 col-xs-3">
+  <div className="row">
+    <div className="col-md-6">
+    <span>Plastic</span>
+    </div>
+    <div className="col-md-1">
+    <input
 type="checkbox"
 name="plastic"
 id="plastic"
@@ -4510,11 +4587,20 @@ defaultChecked={this.state.checked}
 value={this.state.plastic}
 onChange={this.typesdata}
 />
+    </div>
+
+  </div>
+
+
+
 </div>
-<div className="col-md-3">
-<span>Tint</span>
-<input
-style={{marginLeft:"40px"}}
+<div className="col-md-3 col-xs-3">
+  <div className="row">
+  <div className="col-md-6">
+  <span>Tint</span>
+  </div>
+  <div className="col-md-1">
+  <input
 type="checkbox"
 name="tint"
 id="tint"
@@ -4522,18 +4608,27 @@ defaultChecked={this.state.checked}
 value={this.state.tint}
 onChange={this.typesdata}
 />
+  </div>
+  </div>
+
+
 </div>
-<div className="col-md-3">
-<span>Ophthalmologist</span>
+<div className="col-md-3 col-xs-3">
+  <div className="row">
+  <div className="col-md-6">
+  <span>Ophthalmologist</span>
+  </div>
+<div className="col-md-1">
 <input
 type="checkbox"
-style={{marginLeft:"10px"}}
 name="ophthalmologist"
 id="ophthalmologist"
 defaultChecked={this.state.checked}
 value={this.state.ophthalmologist}
 onChange={this.typesdata}
 />
+</div>
+</div>
 </div>
 </div>
 <textarea
@@ -4787,7 +4882,7 @@ onChange={this.typesdata}
 </div>
 
 
-       <div id="createpres" style={{display:"none"}} className="mt-4">
+       <div id="createpres" style={{display:"none",width:"100%",overflow:"auto"}} className="mt-4">
             <table className="table mt-2" border="1"> 
               <thead>
                 <tr>
@@ -4835,6 +4930,7 @@ onChange={this.typesdata}
                 <input
                 type="number"
                 name="Time1"
+                style={{minWidth:"80px"}}
                 className="form-control mt-1"
                 placeholder="Times"
                 value={this.state.Time1}
@@ -4844,6 +4940,7 @@ onChange={this.typesdata}
                 <input
                 type="number"
                 name="Day1"
+                style={{minWidth:"80px"}}
                 className="form-control mt-1"
                 placeholder="Days"
                 value={this.state.Day1}
@@ -4884,6 +4981,7 @@ onChange={this.typesdata}
                 <input
                 type="number"
                 name="Time2"
+                style={{minWidth:"80px"}}
                 className="form-control mt-1"
                 placeholder="Times"
                 value={this.state.Time2}
@@ -4892,6 +4990,7 @@ onChange={this.typesdata}
               <td><input
                 type="number"
                 name="Day2"
+                style={{minWidth:"80px"}}
                 className="form-control mt-1"
                 placeholder="Days"
                 value={this.state.Day2}
@@ -4933,6 +5032,7 @@ onChange={this.typesdata}
                 <input
                 type="number"
                 name="Time3"
+                style={{minWidth:"80px"}}
                 className="form-control mt-1"
                 placeholder="Times"
                 value={this.state.Time3}
@@ -4942,6 +5042,7 @@ onChange={this.typesdata}
                 <input
                 type="number"
                 name="Day3"
+                style={{minWidth:"80px"}}
                 className="form-control mt-1"
                 placeholder="Days"
                 value={this.state.Day3}
@@ -4983,6 +5084,7 @@ onChange={this.typesdata}
                 <input
                 type="number"
                 name="Time4"
+                style={{minWidth:"80px"}}
                 className="form-control mt-1"
                 placeholder="Times"
                 value={this.state.Time4}
@@ -4992,6 +5094,7 @@ onChange={this.typesdata}
                 <input
                 type="number"
                 name="Day4"
+                style={{minWidth:"80px"}}
                 className="form-control mt-1"
                 placeholder="Days"
                 value={this.state.Day4}
@@ -5033,6 +5136,7 @@ onChange={this.typesdata}
                 <input
                 type="number"
                 name="Time5"
+                style={{minWidth:"80px"}}
                 className="form-control mt-1"
                 placeholder="Times"
                 value={this.state.Time5}
@@ -5042,6 +5146,7 @@ onChange={this.typesdata}
                 <input
                 type="number"
                 name="Day5"
+                style={{minWidth:"80px"}}
                 className="form-control mt-1"
                 placeholder="Days"
                 value={this.state.Day5}
@@ -5083,6 +5188,7 @@ onChange={this.typesdata}
                 <input
                 type="number"
                 name="Time6"
+                style={{minWidth:"80px"}}
                 className="form-control mt-1"
                 placeholder="Times"
                 value={this.state.Time6}
@@ -5092,6 +5198,7 @@ onChange={this.typesdata}
                 <input
                 type="number"
                 name="Day6"
+                style={{minWidth:"80px"}}
                 className="form-control mt-1"
                 placeholder="Days"
                 value={this.state.Day6}
@@ -5133,6 +5240,7 @@ onChange={this.typesdata}
                 <input
                 type="number"
                 name="Time7"
+                style={{minWidth:"80px"}}
                 className="form-control mt-1"
                 placeholder="Times"
                 value={this.state.Time7}
@@ -5142,6 +5250,7 @@ onChange={this.typesdata}
                 <input
                 type="number"
                 name="Day7"
+                style={{minWidth:"80px"}}
                 className="form-control mt-1"
                 placeholder="Days"
                 value={this.state.Day7}
@@ -5183,6 +5292,7 @@ onChange={this.typesdata}
                 <input
                 type="number"
                 name="Time8"
+                style={{minWidth:"80px"}}
                 className="form-control mt-1"
                 placeholder="Times"
                 value={this.state.Time8}
@@ -5192,6 +5302,7 @@ onChange={this.typesdata}
                 <input
                 type="number"
                 name="Day8"
+                style={{minWidth:"80px"}}
                 className="form-control mt-1"
                 placeholder="Days"
                 value={this.state.Day8}
@@ -5233,6 +5344,7 @@ onChange={this.typesdata}
                 <input
                 type="number"
                 name="Time9"
+                style={{minWidth:"80px"}}
                 className="form-control mt-1"
                 placeholder="Times"
                 value={this.state.Time9}
@@ -5242,6 +5354,7 @@ onChange={this.typesdata}
                 <input
                 type="number"
                 name="Day9"
+                style={{minWidth:"80px"}}
                 className="form-control mt-1"
                 placeholder="Days"
                 value={this.state.Day9}
@@ -5284,6 +5397,7 @@ onChange={this.typesdata}
                 <input
                 type="number"
                 name="Time10"
+                style={{minWidth:"80px"}}
                 className="form-control mt-1"
                 placeholder="Times"
                 value={this.state.Time10}
@@ -5293,6 +5407,7 @@ onChange={this.typesdata}
                 <input
                 type="number"
                 name="Day10"
+                style={{minWidth:"80px"}}
                 className="form-control mt-1"
                 placeholder="Days"
                 value={this.state.Day10}
@@ -5328,7 +5443,7 @@ onChange={this.typesdata}
              </div>
 
     </div>
-    <div id="dischargediv" className="col-md-12 col-sm-12 col-lg-12 col-xs-12" style={{display:"none",height:"500px"}}>
+    <div id="dischargediv" className="col-md-12 col-sm-12 col-lg-12 col-xs-12" style={{display:"none",height:"520px"}}>
           <Container>
                <div className="row">
           <div className="col-md-1 mt-3">
