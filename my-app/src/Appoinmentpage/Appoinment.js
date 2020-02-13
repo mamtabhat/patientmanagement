@@ -330,7 +330,7 @@ class Header extends Component {
           
               <h2 className="text-center">Appointment Booking</h2>
                
-              <div id='divsearch'   class="input-group margin-bottom-sm custle">
+              <div id='divsearch'   class="input-group margin-bottom-sm">
               
               <input
               type="number"
