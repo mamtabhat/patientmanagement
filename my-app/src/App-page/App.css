@@ -91,3 +91,90 @@
   top: -25px;
   right: 5px;
  }
+
+
+ .firstdata {
+  background-image: url('../images/banner.png');
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+ 
+
+}
+
+.seconddata {
+  background-image: url('../images/banner2.jpg');
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+ 
+
+}
+
+.thirddata {
+  background-image: url('../images/banner-center.jpg');
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+ 
+
+}
+
+@media only screen and  (max-width: 1024px) {
+  .imgmargin{
+    margin-top: 50px;
+    height:700px;
+  }
+}
+
+@media only screen and (min-width: 1325px) and (max-width: 1300px) {
+  .imgmargin{
+    margin-top: 50px;
+    height:450px;
+  }
+}
+@media only screen and (min-width: 1301px) and  (max-width: 1550px) {
+  .imgmargin{
+    margin-top: 60px;
+    height:500px;
+  }
+}
+@media only screen and (min-width: 1551px) and  (max-width: 1750px) {
+  .imgmargin{
+    margin-top: 74px;
+    height:530px;
+  }
+}
+@media only screen and (min-width: 1751px) and  (max-width: 1850px) {
+  .imgmargin{
+    margin-top: 78px;
+    height:550px;
+  }
+}
+@media only screen and (min-width: 1851px) and  (max-width: 2050px) {
+  .imgmargin{
+    margin-top: 83px;
+    height:630px;
+  }
+}
+@media only screen and (min-width: 2051px) and  (max-width: 2250px) {
+  .imgmargin{
+    margin-top: 86px;
+    height:680px;
+  }
+}
+@media only screen and (min-width: 2251px) and  (max-width: 2450px){
+  .imgmargin{
+    margin-top: 85px;
+    height:780px;
+  }
+}
+@media only screen and (min-width: 2451px) {
+  .imgmargin{
+    margin-top: 90px;
+    height:900px;
+  }
+}

@@ -4042,7 +4042,7 @@ if(this.state.page1 == "1"){
                        </div> 
                       <div  className="row">
                    <div className="col-md-12">
-                  <div  className="card mt-4" style={{width:"100%"}}>
+                  <div  className="mt-4" style={{width:"100%"}}>
                   <div className="table-responsive">
                  <Table className="table tabledata">
                  
@@ -4758,7 +4758,7 @@ onChange={this.typesdata}
                        </div> 
                         <div  className="row">
                         <div className="col-md-12 col-xs-12">
-                       <div  className="card mt-4" style={{width:"100%"}}>
+                       <div  className="mt-4" style={{width:"100%"}}>
                              
                       <Table className="table tabledata">
                      
@@ -4881,8 +4881,8 @@ onChange={this.typesdata}
 
 </div>
 
-
-       <div id="createpres" style={{display:"none",width:"100%",overflow:"auto"}} className="mt-4">
+       <div id="createpres" style={{display:"none"}}>
+       <div  style={{width:"100%",overflow:"auto"}} className="mt-4">
             <table className="table mt-2" border="1"> 
               <thead>
                 <tr>
@@ -5416,7 +5416,8 @@ onChange={this.typesdata}
                 </tr>
               </tbody>
             </table>
-           <label>Review</label>
+             </div>
+             <label>Review</label>
             <textarea
                   name="Review"
                  className="form-control mt-1"

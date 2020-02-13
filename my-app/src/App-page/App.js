@@ -5,8 +5,7 @@ import Img2 from '../images/banner.png'
 import Img3 from '../images/banner2.jpg'
 import Imgdata from '../images/secondimg.png'
 
-import './App.css';
-    
+import '../App-page/App.css'
 
 import Footerdata from '../Templates/footer';
 import Headerdata from '../Templates/Header'
@@ -18,17 +17,17 @@ import Headerdata from '../Templates/Header'
 //C:\Users\W4T\Desktop\Myreactapp\my-app\public\logo512.png
 
 
-const style1 = {
-    backgroundImage: "url(" + Img1 + ")",
-    width: "100%",
-    height: "450px",
-    backgroundSize: "cover",
-    backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat',
-      marginTop: "50px"
+// const style1 = {
+//     backgroundImage: "url(" + Img1 + ")",
+//     width: "100%",
+//     height: "450px",
+//     backgroundSize: "cover",
+//     backgroundPosition: 'center',
+//       backgroundRepeat: 'no-repeat',
+//       marginTop: "50px"
     
    
-  }
+//   }
 
 
   const Imgfile = {
@@ -43,29 +42,29 @@ const style1 = {
 
 
   
-const secondimg = {
-    backgroundImage: "url(" + Img3 + ")",
-    width: "100%",
-    height: "450px",
-    backgroundSize: "cover",
-  backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    marginTop: "50px"
+// const secondimg = {
+//     backgroundImage: "url(" + Img3 + ")",
+//     width: "100%",
+//     height: "450px",
+//     backgroundSize: "cover",
+//   backgroundPosition: 'center',
+//     backgroundRepeat: 'no-repeat',
+//     marginTop: "50px"
    
    
-}
-const thirdimg = {
-  backgroundImage: "url(" + Img2 + ")",
-  width: "100%",
-  height: "450px",
-  position: "relative",
-  backgroundSize: "cover",
-  backgroundPosition: 'center',
-  backgroundRepeat: 'no-repeat',
-  marginTop: "50px"
+// }
+// const thirdimg = {
+//   backgroundImage: "url(" + Img2 + ")",
+//   width: "100%",
+//   height: "450px",
+//   position: "relative",
+//   backgroundSize: "cover",
+//   backgroundPosition: 'center',
+//   backgroundRepeat: 'no-repeat',
+//   marginTop: "50px"
  
  
-}
+// }
 
 const style3 = {
     fontSize:"40px",
@@ -97,7 +96,7 @@ const Doctors = {
 
  const seconddata = {
     float : "right",
-    paddingTop:"120px",
+    paddingTop:"60px",
   }
  
 
@@ -138,7 +137,7 @@ class Bodydata extends Component {
 
           <div className="carousel-inner" role="listbox">
               <div className="carousel-item active">
-              <div style={thirdimg}>
+              <div className="firstdata imgmargin">
               <Container>
                       <div style={seconddata}>
                          <h3 style={{color:"chocolate"}}>BUILDING THE RELATIONSHIP FOR A</h3>
@@ -153,13 +152,13 @@ class Bodydata extends Component {
               </div>
               <div className="carousel-item">
 
-                  <div style={secondimg}>
+                  <div className="seconddata imgmargin">
                   <Container>
                       <div style={seconddata}>
                       
                       
-                      <Col md="7">
-                      <h1 >Welcome to Avy Eye Care !</h1>
+                      <Col md="7" xs="12">
+                      <h1>Welcome to Avy Eye Care !</h1>
                      <h2>Best OPHTHALMOLOGY Services</h2>
                        
                          <p style={{textAlign:"justify"}}>Our ophthalmology services are geared to constantly challenge the status quo and explore new means to protect and restore sight.
@@ -177,7 +176,7 @@ class Bodydata extends Component {
                   </div>
               </div>
               <div className="carousel-item">
-              <div style={style1}>
+              <div className="thirddata imgmargin">
               <Container> 
               
       <div style={{paddingTop:"150px",color:"white"}}>

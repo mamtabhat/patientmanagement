@@ -2942,22 +2942,20 @@ onChange={this.typesdata}
                 </tr>
               </tbody>
             </table>
-           <label>Review</label>
-            <textarea
+             </div>
+             </div>  
+             <label>Review</label>
+             <textarea
                   name="Review"
                  className="form-control mt-1"
                 placeholder="Review"
                 value={this.state.Review}
                 onChange={this.prelistdata}
               ></textarea>
-
-              <div id="createid" className="float-right">
+             <div id="createid" className="float-right">
               <a className="btn btn-danger mr-1" href="#" onClick={this.Goback}>Cancel</a>
               <button className="btn btn-success mt-2 mb-2" onClick={this.createpres}>Create</button>
-             </div>
-
-             </div>
-             </div>              
+             </div>            
         </div>
         
         <div id="dischargediv" className="col-md-12 col-sm-12 col-lg-12 col-xs-12" style={{display:"none",height:"500px"}}>
