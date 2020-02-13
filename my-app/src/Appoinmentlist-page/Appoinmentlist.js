@@ -342,7 +342,7 @@ class Datalist1 extends Component {
             <h5 id='title'>Appointment List</h5>
            </div>
           
-           <div id='divsearch'  class="col-md-6 col-lg-5  col-xs-6 input-group margin-bottom-sm custle">
+           <div id='divsearch'  class="col-md-4 col-lg-4  col-xs-12 input-group margin-bottom-sm custle">
                 
                 <input
                 type="text"
@@ -367,9 +367,9 @@ class Datalist1 extends Component {
            </div>
            </div>
           
-           <div style={{display:"none"}} id='customdiv' className="container col-md-8 col-lg-8 col-xs-12 input-group margin-bottom-sm customstyle"  >
+           <div style={{display:"none"}} id='customdiv' className="container input-group margin-bottom-sm"  >
             
-            <div className="form-group"   style={{marginRight:"10px"}}>
+            <div className="form-group col-md-4 col-lg-4 col-xs-12"   style={{marginRight:"10px"}}>
              <label><strong>Start Date and Time</strong></label>
              <input
                  type="datetime-local"
@@ -381,7 +381,7 @@ class Datalist1 extends Component {
                 onChange={this.handleChange}
                 />
                 </div>
-                <div className="form-group"   style={{marginRight:"10px"}}>
+                <div className="form-group col-md-4 col-lg-4 col-xs-12"    style={{marginRight:"10px"}}>
                     <label><strong>End Date and Time</strong></label>
                     <input
                  type="datetime-local"
@@ -393,7 +393,7 @@ class Datalist1 extends Component {
                 onChange={this.handleChange}
                 />
                </div>
-               <div className="form-group" style={{marginTop:"30px"}} >
+               <div className="form-group col-md-2 col-lg-2 col-xs-12" style={{marginTop:"30px"}} >
               
               <input type="submit" onClick={this.SearchAppointment} className="btn btnstyle1" value="Submit" /> 
               </div>

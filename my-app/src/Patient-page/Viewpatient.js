@@ -436,7 +436,7 @@ render(){
                     else{
                      return(
 
-
+                      <div className="table-responsive">
                    <div style={{cursor:"pointer"}} className= "container">
                      <Table  className="table table-hover"  >
                         <Thead className="thead-dark" >
@@ -476,6 +476,7 @@ render(){
                             ))}
                          </Tbody>
                         </Table>
+                     </div>
                      </div>
                      )
                     }
@@ -542,12 +543,12 @@ render(){
             {(() => {
            if(this.state.page === '2'){
              return(
-              <a className="btn btn-danger mr-5" href="/Appoinmentlist" >Back</a>
+              <a className="btn btn-danger mr-5 mt-2" href="/Appoinmentlist" >Back</a>
              )
            }
            else{
              return(
-              <a className="btn btn-danger mr-5" href="/Patientlist" >Back</a>
+              <a className="btn btn-danger mr-5 mt-2" href="/Patientlist" >Back</a>
              )
            }
       

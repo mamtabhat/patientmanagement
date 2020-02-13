@@ -155,7 +155,7 @@ width: 100%;
   background-color: transparent;
   border-bottom: transparent;
 }
-@media only screen and  (max-width: 450px) {
+@media only screen and  (max-width: 750px) {
   .custle{
    margin: 20px;
     
