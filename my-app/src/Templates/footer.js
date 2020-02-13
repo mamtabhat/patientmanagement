@@ -159,19 +159,19 @@ export default class Footer extends Component {
         <div className="borderstyend bg-info">
         <Container fluid={true}>
         <Row>
-        <Col md="6" lg="6" xs="12" sm="8" >
+        <Col md="12" lg="12" xs="12" sm="12" >
 
-        <p className="text-white" style={{marginTop:"10px"}}>@Copyright 2020. All Rights Reserved By AVY EYE CARE & OPTICALS</p>
+        <p className="text-white text-center mt-1" >@Copyright 2020. All Rights Reserved By AVY EYE CARE & OPTICALS</p>
 
         </Col>
 
-        <Col md="6" lg="6" xs="12" sm="8" >
+        {/* <Col md="6" lg="6" xs="12" sm="8" >
         <div className="row" style={{float:"right",margin:"10px"}}>
          <p className="spanstyle">Terms of user</p>
          <p className="spanstyle">License</p>
          <p className="spanstyle">Support</p>
          </div>
-         </Col>
+         </Col> */}
           </Row>
           </Container>
           </div>
