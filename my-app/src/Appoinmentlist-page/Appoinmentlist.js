@@ -367,7 +367,7 @@ class Datalist1 extends Component {
            </div>
            </div>
           
-           <div style={{display:"none"}} id='customdiv' className="container input-group margin-bottom-sm"  >
+           <div style={{display:"none"}} id='customdiv' className="container input-group margin-bottom-sm mt-3"  >
             
             <div className="form-group col-md-4 col-lg-4 col-xs-12"   >
              <label><strong>Start Date and Time</strong></label>
