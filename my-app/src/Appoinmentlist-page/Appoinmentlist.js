@@ -338,7 +338,7 @@ class Datalist1 extends Component {
                <div className="cardstyle">
                  
                <div className='row'>
-           <div className='col-md-5 col-lg-3 col-xs-6'>
+           <div className='col-md-6 col-lg-4 col-xs-6'>
             <h5 id='title'>Appointment List</h5>
            </div>
           
@@ -348,7 +348,7 @@ class Datalist1 extends Component {
                 type="text"
                 name="ref"
                 className="form-control class2"
-                placeholder="Enter Appointment reference"
+                placeholder="Enter Reference"
                  value={this.state.ref}
                  onChange={this.handleChange}
                  />
@@ -356,9 +356,9 @@ class Datalist1 extends Component {
                    </div>
 
     
-           <div  className='col-md-4 col-lg-4 col-xs-12' >
+           <div  className='custle1' >
 
-           <select name="type"  className="form-control"  style={{margin:"20px",width:"90%"}} onChange={this.Optionchange} value={this.state.type} >
+           <select name="type"  className="form-control"  style={{marginTop:"20px"}} onChange={this.Optionchange} value={this.state.type} >
                <option value="0">Select type</option>
                <option value="1">General</option>
                <option value="2">Cataract</option>
@@ -369,7 +369,7 @@ class Datalist1 extends Component {
           
            <div style={{display:"none"}} id='customdiv' className="container input-group margin-bottom-sm"  >
             
-            <div className="form-group col-md-4 col-lg-4 col-xs-12"   style={{marginRight:"10px"}}>
+            <div className="form-group col-md-4 col-lg-4 col-xs-12"   >
              <label><strong>Start Date and Time</strong></label>
              <input
                  type="datetime-local"
@@ -381,7 +381,7 @@ class Datalist1 extends Component {
                 onChange={this.handleChange}
                 />
                 </div>
-                <div className="form-group col-md-4 col-lg-4 col-xs-12"    style={{marginRight:"10px"}}>
+                <div className="form-group col-md-4 col-lg-4 col-xs-12" >
                     <label><strong>End Date and Time</strong></label>
                     <input
                  type="datetime-local"
@@ -393,7 +393,7 @@ class Datalist1 extends Component {
                 onChange={this.handleChange}
                 />
                </div>
-               <div className="form-group col-md-2 col-lg-2 col-xs-12" style={{marginTop:"30px"}} >
+               <div className="form-group custle" style={{marginTop:"30px"}} >
               
               <input type="submit" onClick={this.SearchAppointment} className="btn btnstyle1" value="Submit" /> 
               </div>

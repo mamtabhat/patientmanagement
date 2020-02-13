@@ -62,12 +62,12 @@ export default class Headerdata extends Component {
             <button className="navbar-toggler bg-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
             </button>
-            <Col md="3" xs="8" sm="6" lg="2">
-            <img style={{width:"70%"}} src={Logoimg}></img>
+            <Col md="3" xs="6" sm="4" lg="2">
+            <img style={{width:"100%"}} src={Logoimg}></img>
             </Col>
             
            
-            <Col md="9" xs="12" sm="10" lg="6">
+            <Col md="9" xs="12" sm="8" lg="10">
             <div className="collapse navbar-collapse float-right"  id="navbarSupportedContent">
               <ul style={{fontSize: "18px"}} className="navbar-nav mr-auto">
                 <li className="nav-item ">
@@ -76,6 +76,9 @@ export default class Headerdata extends Component {
                 <li className="nav-item">
                 <a  className="nav-link text-white"  href="/department">Departments</a>
                 </li>
+                {/* <li className="nav-item">
+                  <a  className="nav-link text-white" href="/Doctor">Doctors</a>
+                </li> */}
                 <li className="nav-item">
                   <a  className="nav-link text-white" href="/contact">Contact</a>
                 </li>

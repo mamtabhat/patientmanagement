@@ -160,7 +160,7 @@ class Templatedata extends Component {
                  <div >
                      <h5 id='title'>Discharge Templates</h5>
               
-                     <a style={{marginTop:"-4.5rem"}} className="btn btn-primary rounded-circle  float-right mr-2" href={"/createtemplate"}><i title='Create Discharge Templates'  className="fa fa-plus"></i></a>
+                    <a style={{marginTop:"-3rem"}} className="btn btn-primary rounded-circle  float-right mr-2 " href={"/createtemplate"}><i title='Create Discharge Templates'  className="fa fa-plus"></i></a>
                 </div>
                    <h2 id='title' style={{textAlign:"center"}}>Click Create Discharge Templates icon to Create a Discharge Templates</h2>
                 </div>
@@ -200,7 +200,7 @@ class Templatedata extends Component {
            <div >
             <h5 id='title'>Discharge Templates</h5>
            
-                   <a style={{marginTop:"-4.5rem"}} className="btn btn-primary rounded-circle  float-right mr-2" href={"/createtemplate"}><i title='Create Templates'  className="fa fa-plus"  ></i></a>
+                   <a style={{marginTop:"-3rem"}} className="btn btn-primary rounded-circle  float-right mr-2" href={"/createtemplate"}><i title='Create Templates'  className="fa fa-plus"  ></i></a>
                  </div>
                
                 <div className="container">

@@ -14,7 +14,7 @@
   text-align: justify;
   font-family: arial, sans-serif;
   color: black;
-  margin: 30px;
+  margin: 17px;
 }
 
 #students {
@@ -128,7 +128,7 @@ border-bottom-right-radius: 10px;
   border-top-right-radius: 10px;
 background-color: #007bff;
 color: white;
-width: 60px;
+width: 56px;
 font-size: 16px;
 border: none;
 padding: 15px;
@@ -155,9 +155,18 @@ width: 100%;
   background-color: transparent;
   border-bottom: transparent;
 }
+@media only screen and  (max-width: 1000px) {
+  .custle1{
+   margin-left: 45px;
+   margin-right: 5px;
+   margin-bottom: 20px; 
+  }
+}
+
 @media only screen and  (max-width: 750px) {
   .custle{
-   margin: 20px;
+   margin-left: 30px;
+   margin-right: 5px;
     
   }
 }

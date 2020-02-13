@@ -127,12 +127,12 @@ export default class Headerdata extends Component {
             <button className="navbar-toggler bg-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
             </button>
-            <Col md="2" xs="4" sm="2" lg="2" >
-            <img style={{width: "70%"}} src={Logoimg}></img>
+            <Col md="3" xs="6" sm="4" lg="2">
+            <img style={{width: "100%"}} src={Logoimg}></img>
             </Col>
             
            
-            <Col md="10" xs="8" sm="10" lg="10" >
+            <Col md="9" xs="12" sm="8" lg="10">
             <div className="collapse navbar-collapse float-right"  id="navbarSupportedContent">
              
            
@@ -180,12 +180,12 @@ export default class Headerdata extends Component {
            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
              <span className="navbar-toggler-icon"></span>
            </button>
-           <Col md="2" xs="4" sm="2" lg="2" >
-           <img style={{width: "70%"}} src={Logoimg}></img>
+            <Col md="3" xs="6" sm="4" lg="2">
+           <img style={{width: "100%"}} src={Logoimg}></img>
            </Col>
            
           
-           <Col md="10" xs="8" sm="10" lg="10" >
+           <Col md="9" xs="12" sm="8" lg="10">
            <div className="collapse navbar-collapse float-right"  id="navbarSupportedContent">
             
           

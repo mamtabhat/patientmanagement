@@ -417,7 +417,7 @@ render(){
                 
                  <h5 id='title'>Appointment List</h5>
                  
-                 <a title='Create Appointment' style={{marginTop:"-4.5rem"}} href={"/Createappointment/"+ this.state.pid + "/" + "viewpatient" + "/" + this.state.page } className="btn btn-primary float-right mr-2 rounded-circle  "> <i   className="fa fa-plus"></i></a>
+                 <a title='Create Appointment' style={{marginTop:"-3rem"}} href={"/Createappointment/"+ this.state.pid + "/" + "viewpatient" + "/" + this.state.page } className="btn btn-primary float-right mr-2 rounded-circle  "> <i   className="fa fa-plus"></i></a>
                 
                  </div>
                     {(() => {
@@ -491,7 +491,7 @@ render(){
                <div >
               <h5 id='title' className="mt-3">Case sheet list</h5>
 
-              <a style={{marginTop:"-3.5rem"}} className="btn btn-primary mr-2  rounded-circle float-right" title="create case sheet" href={"/Createcasesheets/" + this.state.pid + "/" + "viewpatient" + "/" + this.state.page }><i class="fa fa-plus" aria-hidden="true"></i></a>
+              <a style={{marginTop:"-3rem"}} className="btn btn-primary mr-2  rounded-circle float-right" title="create case sheet" href={"/Createcasesheets/" + this.state.pid + "/" + "viewpatient" + "/" + this.state.page }><i class="fa fa-plus" aria-hidden="true"></i></a>
           
           
 
@@ -524,7 +524,7 @@ render(){
                  
                
                  
-                 <a style={{marginTop:"-3.5rem"}} className="btn btn-primary mr-2  rounded-circle float-right" title="create case sheet" href={"/Createcasesheets/"+this.state.pid +  "/" + "viewpatient" + "/" + this.state.page}><i class="fa fa-plus" aria-hidden="true"></i></a>
+                 <a style={{marginTop:"-3rem"}} className="btn btn-primary mr-2  rounded-circle float-right" title="create case sheet" href={"/Createcasesheets/"+this.state.pid +  "/" + "viewpatient" + "/" + this.state.page}><i class="fa fa-plus" aria-hidden="true"></i></a>
                   <div >
                   <h2 style={{textAlign:"center"}} className="mt-5">Click Create Case sheet icon to Create a Case sheet for this patient</h2>
                 </div>
