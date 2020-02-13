@@ -420,7 +420,7 @@ class Casesheets extends Component {
             <div className="float-right mt-2 mr-2 mb-2">
                    <a className="btn btn-danger mr-1" href="/Patientlist">Back</a>
                     </div>
-            <div className="row" style={{marginTop:"120px"}}>
+            <div className="row" style={{marginTop:"130px"}}>
             </div>
             </Container>
          </div>

@@ -128,3 +128,27 @@
     top: -30px;
   
 }
+
+@media only screen and  (max-width: 759px){
+  .equipment {
+    height: 300px;
+  }
+}
+
+@media only screen and (min-width: 760px) and  (max-width: 993px){
+  .equipment {
+    height: 350px;
+  }
+}
+
+@media only screen and  (min-width: 994px) and  (max-width: 1199px){
+  .equipment {
+    height: 320px;
+  }
+}
+
+@media only screen and  (min-width: 1200px){
+  .equipment {
+    height: 300px;
+  }
+}

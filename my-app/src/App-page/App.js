@@ -74,29 +74,29 @@ const style3 = {
 
 const working = {
    backgroundColor: "#33CCFF",
-   height : "240px",
+   height : "330px",
    color: "white"
 }
 const Doctors = {
     backgroundColor: "#3399FF",
-    height : "240px",
+    height : "330px",
     color: "white"
  }
  const Appoinments = {
     backgroundColor: "#3366FF",
-    height : "240px",
+    height : "330px",
     color: "white"
  }
  const Emergency = {
     backgroundColor: "#3333FF",
-    height : "240px",
+    height : "330px",
     color: "white"
  }
   
 
  const seconddata = {
     float : "right",
-    paddingTop:"60px",
+    paddingTop:"50px",
   }
  
 
@@ -214,32 +214,32 @@ class Bodydata extends Component {
                 <Container>
                     <div style={{marginBottom:"50px"}}>
                     <Row style={{marginTop:"20px"}}>
-                 <Col md="3" style={{height:"220px"}}>
-                     <div className="card text-center" style={Emergency}>
+                 <Col md="4" xs="12" lg="3">
+                     <div className="card text-center medical mt-1">
                      <Container fluid={true}>
                          <h5 style={{marginTop:"15px"}}>MEDICAL SERVICES</h5>
                          <p style={{marginTop:"15px",textAlign:"justify"}}>Get world class eye care services and treatment from highly qualified and certified Eye Care Doctors in Avy Eye Care Super Specialty Eye Hospital.</p>
                          </Container> 
                      </div>
                      </Col> 
-                     <Col md="3" style={{height:"220px"}}>
-                     <div className="card text-center" style={Appoinments}>
+                     <Col md="4" xs="12" lg="3">
+                     <div className="card text-center doctor mt-1">
                      <Container fluid={true}>
                      <h5 style={{marginTop:"15px"}}>Doctors</h5>
                      <p style={{marginTop:"15px",textAlign:"justify"}}>Avy Eye Care Super Specialty Eye Hospital has an impressive list of highly qualified and dedicated Eye Specialists and Surgeons offering a wide range of super specialty Ophthalmic care.</p>
                      </Container> 
                      </div>
                      </Col>
-                     <Col md="3" style={{height:"220px"}}>
-                     <div className="card text-center" style={Doctors}>
+                     <Col md="4" xs="12" lg="3">
+                     <div className="card text-center appointment mt-1">
                      <Container fluid={true}>
                          <h5 style={{marginTop:"15px"}}>Appointments</h5>
                          <p style={{marginTop:"15px",textAlign:"justify"}}>Book an Appointment Online with a Avy Eye Care Super Specialty Eye Hospital. The information you provide will enable us to assist you as efficiently as possible.</p>
                          </Container> 
                      </div>
                      </Col>
-                     <Col md="3" style={{height:"220px"}}>
-                     <div className="card text-center" style={working} >
+                     <Col md="4" xs="12" lg="3">
+                     <div className="card text-center emergency mt-1">
                      <Container fluid={true}>
                          <h5 style={{marginTop:"15px"}}>Emergency Cases</h5>
                          <h5 style={{marginTop:"15px"}}><i class="fas fa-phone">  1-800-123-4560</i></h5>
@@ -267,7 +267,7 @@ class Bodydata extends Component {
                             <div style={seconddata}>
                                <h1>Complete Medical </h1>
                                <h1>Solutions in One Place</h1>
-                               <div style={{paddingTop:"50px"}}>
+                               <div>
                                <p>Our aim is to provide an unrivalled solution for a wide range of eye health problems. That's why we offer much more than just laser eye surgery, lens replacement and cararact surgery. Some of our leading medical treatments offer cutting edge solutions for glaucoma, floaters, keratoconus, eyelid conditions and more. All carried out by one of our highly qualified specialists at one of our modern dedicated Eye Care Centre.</p>
                                </div>
                                
@@ -286,29 +286,29 @@ class Bodydata extends Component {
             <Container fluid={true}>
            <div style={{marginTop:"30px"}}>
             <Row>
-                <Col md="3">
-                    <div style={{height:"300px"}} className="card text-center">
+                <Col md="4" sm="6" lg="3">
+                    <div className="card text-center equipment mt-1">
                     <span style={style3} className="fa fa-wheelchair" aria-hidden="true"></span>
                     <h5 style={{marginTop:"10px"}}>Modern Equipment</h5>
                     <p style={{textAlign:"justify",padding:"5px"}}> Avy Eye Care hospital is well-equipped with state-of-the-art surgical and diagnostic equipment, Sterile operation theatres and total productivity systems with emphasis on patient satisfaction</p>
                     </div>
                 </Col>
-                <Col md="3">
-                <div style={{height:"300px"}} className="card text-center">
+                <Col md="4" sm="6" lg="3">
+                <div className="card text-center equipment  mt-1">
                 <span style={style3} className="fa fa-user-md" aria-hidden="true"></span>
                 <h5 style={{marginTop:"10px"}}>Famous Doctors</h5>
                 <p style={{textAlign:"justify",padding:"5px"}}>we have a dedicated team of specialist ophthalmologists, nursing staffs and administrative staffs and support staffs and expert trained eye care professionals and clinical & non clinical staffs</p>
               </div>
                 </Col>
-                <Col md="3">
-                <div style={{height:"300px"}} className="card text-center">
+                <Col md="4" sm="6" lg="3">
+                <div className="card text-center equipment mt-1">
                 <span style={style3} className="fa fa-life-ring" aria-hidden="true"></span>
                 <h5 style={{marginTop:"10px"}}>Health Monitoring</h5>
                 <p style={{textAlign:"justify",padding:"5px"}}>We offer both out-patient services and in-patient services at our hospitals. We have a dedicated team of Specialist Ophthalmologists, nursing staff, administrative staff and support staff to ensure that all our patients receive excellent treatment.</p>
                 </div>
                 </Col>
-                <Col md="3">
-                <div style={{height:"300px"}} className="card text-center">
+                <Col md="4" sm="6" lg="3">
+                <div className="card text-center equipment mt-1">
                 <span style={style3} className="far fa-folder-open" aria-hidden="true"></span>
                  <h5 style={{marginTop:"10px"}}>Booking a Visit</h5>
                  <p style={{textAlign:"justify",padding:"5px"}}>Now fix your appointment with our expert professional online and experience hassle-free consultation</p>

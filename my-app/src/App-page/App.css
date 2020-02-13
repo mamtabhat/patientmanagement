@@ -78,7 +78,7 @@
 }
 .modal-open .modal {
   display: block;
-   margin-top: 150px;
+   margin-top: 220px;
  }
  .myButtonClass
  {
@@ -129,52 +129,215 @@
     height:700px;
   }
 }
-
-@media only screen and (min-width: 1325px) and (max-width: 1300px) {
+@media only screen and (min-width: 1025px) and (max-width: 1120px) {
   .imgmargin{
-    margin-top: 50px;
+    margin-top: 66px;
+    height:450px;
+  }
+}
+
+@media only screen and (min-width: 1121px) and (max-width: 1300px) {
+  .imgmargin{
+    margin-top: 75px;
     height:450px;
   }
 }
 @media only screen and (min-width: 1301px) and  (max-width: 1550px) {
   .imgmargin{
-    margin-top: 60px;
-    height:500px;
+    margin-top: 82px;
+    height:500px; 
   }
 }
 @media only screen and (min-width: 1551px) and  (max-width: 1750px) {
   .imgmargin{
-    margin-top: 74px;
+    margin-top: 90px;
     height:530px;
   }
 }
 @media only screen and (min-width: 1751px) and  (max-width: 1850px) {
   .imgmargin{
-    margin-top: 78px;
-    height:550px;
+    margin-top: 94px;
+    height:600px;
   }
 }
 @media only screen and (min-width: 1851px) and  (max-width: 2050px) {
   .imgmargin{
-    margin-top: 83px;
-    height:630px;
+    margin-top: 97px;
+    height:670px;
   }
 }
 @media only screen and (min-width: 2051px) and  (max-width: 2250px) {
   .imgmargin{
-    margin-top: 86px;
-    height:680px;
+    margin-top: 120px;
+    height:720px;
   }
 }
 @media only screen and (min-width: 2251px) and  (max-width: 2450px){
   .imgmargin{
-    margin-top: 85px;
+    margin-top: 120px;
     height:780px;
   }
 }
 @media only screen and (min-width: 2451px) {
   .imgmargin{
-    margin-top: 90px;
+    margin-top: 120px;
     height:900px;
   }
 }
+
+
+@media only screen and  (max-width: 759px){
+  .medical {
+    background-color: #3333FF;
+    height: 240px;
+    color: white;
+  } 
+}
+
+@media only screen and (min-width: 760px) and  (max-width: 993px){
+  .medical {
+    background-color: #3333FF;
+    height: 315px;
+    color: white;
+  } 
+}
+@media only screen and  (min-width: 994px) and  (max-width: 1199px){
+  .medical {
+    background-color: #3333FF;
+    height: 290px;
+    color: white;
+  }
+}
+
+@media only screen and  (min-width: 1200px){
+  .medical {
+    background-color: #3333FF;
+    height: 240px;
+    color: white;
+  } 
+}
+
+
+@media only screen and  (max-width: 759px){
+  .doctor {
+    background-color: #3366FF;
+    height: 240px;
+    color: white;
+  }
+}
+
+@media only screen and (min-width: 760px) and  (max-width: 993px){
+  .doctor {
+    background-color: #3366FF;
+    height: 315px;
+    color: white;
+  }
+}
+
+@media only screen and  (min-width: 994px) and  (max-width: 1199px){
+  .doctor {
+    background-color: #3366FF;
+    height: 290px;
+    color: white;
+  }
+}
+
+@media only screen and  (min-width: 1200px){
+  .doctor {
+    background-color: #3366FF;
+    height: 240px;
+    color: white;
+  }
+}
+
+
+@media only screen and  (max-width: 759px){
+  .appointment {
+    background-color: #3399FF;
+    height: 240px;
+    color: white;
+  }
+}
+
+@media only screen and (min-width: 760px) and  (max-width: 993px){
+  .appointment {
+    background-color: #3399FF;
+    height: 315px;
+    color: white;
+  }
+}
+
+@media only screen and  (min-width: 994px) and  (max-width: 1199px){
+  .appointment {
+    background-color: #3399FF;
+    height: 290px;
+    color: white;
+  }
+}
+
+@media only screen and  (min-width: 1200px){
+  .appointment {
+    background-color: #3399FF;
+    height: 240px;
+    color: white;
+  }
+}
+
+
+@media only screen and  (max-width: 759px){
+  .emergency {
+    background-color: #33CCFF;
+    height: 240px;
+    color: white;
+  }
+}
+
+@media only screen and (min-width: 760px) and  (max-width: 993px){
+  .emergency {
+    background-color: #33CCFF;
+    height: 315px;
+    color: white;
+  }
+}
+
+@media only screen and  (min-width: 994px) and  (max-width: 1199px){
+  .emergency {
+    background-color: #33CCFF;
+    height: 290px;
+    color: white;
+  }
+}
+
+@media only screen and  (min-width: 1200px){
+  .emergency {
+    background-color: #33CCFF;
+    height: 240px;
+    color: white;
+  }
+}
+
+
+@media only screen and  (max-width: 759px){
+  .equipment {
+    height: 300px;
+  }
+}
+
+@media only screen and (min-width: 760px) and  (max-width: 993px){
+  .equipment {
+    height: 350px;
+  }
+}
+
+@media only screen and  (min-width: 994px) and  (max-width: 1199px){
+  .equipment {
+    height: 320px;
+  }
+}
+
+@media only screen and  (min-width: 1200px){
+  .equipment {
+    height: 300px;
+  }
+}
+
