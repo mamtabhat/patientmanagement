@@ -29,12 +29,7 @@ export default class Footer extends Component {
             </div>
            
             <p className="parasty">Our ophthalmology services are geared to constantly challenge the status quo and explore new means to protect and restore sight. Eye care specialists at Westminster have the skills and technology to offer the best possible preventive care and corrective procedures for your vision. As it deserves nothing less.</p>
-            <h5 className="parasty1">CONSULTING TIME</h5>
-          
-            <p className="parasty1">Monday - Sunday</p>
-            <p className="parasty2">&#10140; 10.00 am - 02.00 pm </p>
-            <p className="parasty2">&#10140; 4.00 am - 8.00 pm</p>
-          
+           
            
             </div>
         </Col>
@@ -59,34 +54,7 @@ export default class Footer extends Component {
             </ul>
             </div>
         </Col>
-        <Col md="4" xs="12" lg="3" sm="6">
-            <div style={{marginBottom:"20px"}} >
-          
-            <h5 className="menustyle">LATEST TWEETS</h5>
-            <div className="row">
-            <div  className="bordersty1">
-            </div>
-            <div  className="bordersty2">
-            </div>
-            </div>
-            <p className="parasty"> @Becare Looking for an awesome CREATIVE WordPress Theme? Find it here: http://t.co/0WWEMQEQ48</p>
-          
-            
-             <div className="row">
-
-               <i  className="fab fa-twitter listyle"></i>
-               <p className="listyle1" > 01 day ago</p>
-               </div> 
-               </div> 
-               <p className="listyle2">@Jisham It is a long established fact that a reader will be distracted by the readable . Find it here: http://t.co/0WWEMQEQ48</p>
-          
-              <div className="row">
-
-            <i  className="fab fa-twitter listyle"></i>
-            <p className="listyle1" > 02 day ago</p>
-            </div> 
-            
-        </Col>
+       
 
         <Col md="4" xs="12" lg="3" sm="6">
             <div style={{marginBottom:"20px"}} >
@@ -129,11 +97,11 @@ export default class Footer extends Component {
              </div> 
              </div> 
              </div>
-              <div className="from-group" style={{padding:"10px"}}>
+             {/* <div className="from-group" style={{padding:"10px"}}>
 
                 <h6 style={{color:"#fff"}} >SUBSCRIBE NEWSLETTER</h6>
 
-                <div  class="input-group margin-bottom-sm">
+                 <div  class="input-group margin-bottom-sm">
                 
                  <input
                  type="email"
@@ -143,11 +111,52 @@ export default class Footer extends Component {
                  
                   />
                  <span> <i  className="fa fa-paper-plane form-control inputstyle1"></i></span>
-                    </div>
+                    </div> 
                
-                </div>
+                </div>*/}
 
             </div>
+        </Col>
+        <Col md="4" xs="12" lg="3" sm="6">
+            <div style={{marginBottom:"20px"}} >
+          
+
+
+            <h5 className="menustyle">CONSULTING TIME</h5>
+            <div className="row">
+            <div  className="bordersty1">
+            </div>
+            <div  className="bordersty2">
+            </div>
+            </div>
+          <p className="parasty1">Monday - Sunday</p>
+          <p className="parasty2">&#10140; 10.00 am - 02.00 pm </p>
+          <p className="parasty2">&#10140; 4.00 am - 8.00 pm</p>
+        
+            {/* <h5 className="menustyle">LATEST TWEETS</h5>
+            <div className="row">
+            <div  className="bordersty1">
+            </div>
+            <div  className="bordersty2">
+            </div>
+            </div>
+            <p className="parasty"> @Becare Looking for an awesome CREATIVE WordPress Theme? Find it here: http://t.co/0WWEMQEQ48</p>
+          
+            
+             <div className="row">
+
+               <i  className="fab fa-twitter listyle"></i>
+               <p className="listyle1" > 01 day ago</p>
+               </div> 
+               </div> 
+               <p className="listyle2">@Jisham It is a long established fact that a reader will be distracted by the readable . Find it here: http://t.co/0WWEMQEQ48</p>
+          
+              <div className="row">
+
+            <i  className="fab fa-twitter listyle"></i>
+            <p className="listyle1" > 02 day ago</p> */}
+            </div> 
+            
         </Col>
         </Row>
         </div>

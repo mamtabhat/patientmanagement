@@ -14,34 +14,56 @@
     }
   }
 
-  @media only screen and (min-width: 350px) and  (max-width: 600px) {
+  @media only screen and (min-width: 350px) and  (max-width: 460px) {
     .newmargin{
         margin-top: 65px;
     }
   }
-  @media only screen  and (min-width: 601px) and  (max-width: 750px) {
+ 
+  @media only screen  and (min-width: 461px) and  (max-width: 575px) {
     .newmargin{
-        margin-top: 75px;
+        margin-top: 85px;
     }
   }
-  @media only screen  and (min-width: 751px) and  (max-width: 990px) {
-    .newmargin{
-        margin-top: 56px;
-    }
-  }
-  @media only screen and (min-width: 991px) and  (max-width: 1700px) {
+ 
+  @media only screen  and (min-width: 576px) and  (max-width: 600px) {
     .newmargin{
         margin-top: 60px;
     }
   }
-  @media screen and (min-width: 1701px) and (max-width: 1990px) {
+  @media only screen  and (min-width: 601px) and  (max-width: 767px) {
     .newmargin{
         margin-top: 75px;
     }
   }
-  @media screen and (min-width: 1990px) and (max-width: 2400px) {
+  @media only screen and (min-width: 768px) and  (max-width: 991px) {
+    .newmargin{
+        margin-top: 70px;
+    }
+  }
+  @media only screen and (min-width: 992px) and  (max-width: 1260px) {
+    .newmargin{
+        margin-top: 60px;
+    }
+  }
+  @media screen and (min-width: 1261px) and (max-width: 1650px) {
+    .newmargin{
+        margin-top: 75px;
+    }
+  }
+  @media screen and (min-width: 1651px) and (max-width: 1850px) {
     .newmargin{
         margin-top: 95px;
+    }
+  }
+  @media screen and (min-width: 1851px) and (max-width: 2200px) {
+    .newmargin{
+        margin-top: 110px;
+    }
+  }
+  @media screen and (min-width: 2200px) and (max-width: 2500px) {
+    .newmargin{
+        margin-top: 140px;
     }
   }
   .stylelogin1 {

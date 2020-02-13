@@ -92,8 +92,9 @@ class contactdata extends Component {
           
           
            <div  className="divstyle">
+           
             <h4 className="divstyle1">Get In Touch With Us</h4>
-              <p style={{textAlign:"justify"}}>Our next drew much you with rank. Tore many held age hold rose than our. She literature sentiments any contrasted. Set aware joy sense young now tears china shy.</p>
+              <p style={{textAlign:"justify"}}>If you have any questions about the services we provide simply use the form below. We try and respond to all queries and comments within 24 hours.</p>
             </div>
         
                 );

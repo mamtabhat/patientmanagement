@@ -140,7 +140,7 @@ class Bodydata extends Component {
           <div className="carousel-inner" role="listbox">
               <div className="carousel-item active">
               <div className="stylelogin newmargin">
-              <Col md="6">
+              <Col md="8" lg="6" xs="12">
            <div className="login-form" >
            <form onSubmit={this.handleSubmit}>
            <div className="form-group" style={{marginTop:"20px"}} >
@@ -148,7 +148,7 @@ class Bodydata extends Component {
               <h2 className="text-center" style={{color:"#007bff"}}>Login</h2>
               <Container>
            <Row>
-           <Col md="3"></Col>
+           <Col md="3"  ></Col>
            <Col md="6" style={{marginTop:"20px"}}>
             
 
@@ -230,19 +230,19 @@ class Bodydata extends Component {
                      </div>
                       
                       <div className="row" style={{marginTop:"40px"}}>
-                        <div className="col-md-3 col-sm-6 col-xs-12 text-center">
+                        <div className="col-md-4 col-sm-6 col-xs-12  col-lg-3 text-center">
                          <h3 style={{fontSize:"1.4rem"}}>More Experience</h3>
                          <p style={{textAlign:"justify"}}>Every year, more than a million people come to Avy Eye Care Hospital for care. Our highly specialized experts are deeply experienced in treating rare and complex conditions.</p>
                         </div>
-                        <div className="col-md-3 col-sm-6 col-xs-12 text-center">
+                        <div className="col-md-4 col-sm-6 col-xs-12  col-lg-3 text-center">
                         <h3 style={{fontSize:"1.4rem"}}>The right answers</h3>
                         <p style={{textAlign:"justify"}}>Getting effective treatment depends on identifying the right problem. In a recent study, 88 percent of patients who came to Avy Eye Care for a second opinion received a new or refined diagnosis.</p>
                         </div>
-                        <div className="col-md-3 col-sm-6 col-xs-12 text-center">
+                        <div className="col-md-4 col-sm-6 col-xs-12  col-lg-3 text-center">
                         <h3 style={{fontSize:"1.4rem"}}>Seamless care</h3>
                         <p style={{textAlign:"justify"}}>At Avy Eye Care, every aspect of your care is coordinated and teams of experts work together to provide exactly the care you need. What might take months elsewhere can often be done in days here.</p>
                         </div>
-                        <div className="col-md-3 col-sm-6 col-xs-12 text-center">
+                        <div className="col-md-4 col-sm-6 col-xs-12  col-lg-3 text-center">
                         <h3 style={{fontSize:"1.4rem"}}>Unparalleled expertise</h3>
                         <p style={{textAlign:"justify"}}>Avy Eye Care experts are some of the best in the world. In the U.S. News {'&'} World Report rankings of top hospitals, Avy Eye Care is consistently ranked among the top hospitals in the nation.</p>
                         </div>
@@ -298,29 +298,29 @@ class Bodydata extends Component {
             <Container fluid={true}>
            <div style={{marginTop:"30px"}}>
             <Row>
-                <Col md="3" className="addstyledata">
-                    <div style={{height:"300px"}} className="card text-center">
+                <Col md="4" sm="6" lg="3" className="addstyledata">
+                    <div style={{height:"350px"}} className="card text-center">
                     <span  className="fa fa-wheelchair stylelogin2" aria-hidden="true"></span>
                     <h5 className="addstyledata">Modern Equipment</h5>
                     <p style={{textAlign:"justify" , padding:"5px"}}>Avy Eye Care hospital is well-equipped with state-of-the-art surgical and diagnostic equipment, Sterile operation theatres and total productivity systems with emphasis on patient satisfaction</p>
                     </div>
                 </Col>
-                <Col md="3" className="addstyledata">
-                <div style={{height:"300px"}} className="card text-center">
+                <Col md="4" sm="6" lg="3" className="addstyledata">
+                <div style={{height:"350px"}} className="card text-center">
                 <span  className="fa fa-user-md stylelogin2" aria-hidden="true"></span>
                 <h5 className="addstyledata">Famous Doctors</h5>
                 <p style={{textAlign:"justify",padding:"5px"}}>we have a dedicated team of specialist ophthalmologists, nursing staffs and administrative staffs and support staffs and expert trained eye care professionals and clinical & non clinical staffs</p>
               </div>
                 </Col>
-                <Col md="3" className="addstyledata">
-                <div style={{height:"300px"}} className="card text-center">
+                <Col md="4" sm="6" lg="3" className="addstyledata">
+                <div style={{height:"350px"}} className="card text-center">
                 <span  className="fa fa-life-ring stylelogin2" aria-hidden="true"></span>
                 <h5 className="addstyledata">Health Monitoring</h5>
                 <p style={{textAlign:"justify",padding:"5px"}}>We offer both out-patient services and in-patient services at our hospitals. We have a dedicated team of Specialist Ophthalmologists, nursing staff, administrative staff and support staff to ensure that all our patients receive excellent treatment.</p>
                 </div>
                 </Col>
-                <Col md="3" className="addstyledata">
-                <div style={{height:"300px"}} className="card text-center">
+                <Col md="4" sm="6" lg="3" className="addstyledata">
+                <div style={{height:"350px"}} className="card text-center">
                 <span  className="far fa-folder-open stylelogin2" aria-hidden="true"></span>
                  <h5 className="addstyledata">Booking a Visit</h5>
                  <p style={{textAlign:"justify",padding:"5px"}}>Now fix your appointment with our expert professional online and experience hassle-free consultation</p>
