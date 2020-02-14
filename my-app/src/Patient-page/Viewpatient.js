@@ -571,6 +571,16 @@ render(){
               <a className="btn btn-danger mr-5 mt-2" href="/Appoinmentlist" >Back</a>
              )
            }
+           else if(this.state.page === '3'){
+            return(
+             <a className="btn btn-danger mr-5 mt-2" href={"/Createcasesheets/" + this.state.pid + "/viewpatient/4"   } >Back</a>
+            )
+          }
+          else if(this.state.page === '4'){
+            return(
+             <a className="btn btn-danger mr-5 mt-2" href="#" onClick={this.back} >Back</a>
+            )
+          }
            else{
              return(
               <a className="btn btn-danger mr-5 mt-2" href="/Patientlist" >Back</a>
