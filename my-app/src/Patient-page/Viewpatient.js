@@ -232,6 +232,12 @@ componentDidMount(){
     window.location = '/Editpatient' + "/"+ id + "/" + gender + "/" + "viewpatient" + "/" + this.state.page ;
 
   }
+
+  back(){
+    window.history.back();
+  }
+
+
   renderTableData() {
     const sadmin = sessionStorage.getItem('sadmin')  
     return this.state.datalist2.map((student, index) => {
@@ -307,11 +313,29 @@ render(){
             );
 
 
-          } else {
+          } else if(this.state.page == "2") {
             return(
               <div className="margindata">
                 <ol className="breadcrumb bg-white">
                    <li><a className="breadcrumb-item text-decoration-none text-muted" href="/Appoinmentlist">Appointment List</a></li>
+                   <li className="breadcrumb-item active ml-1"><strong>View Patient</strong></li>
+                </ol>
+            </div>
+            );
+          } else if(this.state.page == "3"){
+            return(
+              <div className="margindata">
+                <ol className="breadcrumb bg-white">
+                   <li><a className="breadcrumb-item text-decoration-none text-muted" href={"/Createcasesheets/"+this.state.pid+"/viewpatient/4"}>Create Case sheet</a></li>
+                   <li className="breadcrumb-item active ml-1"><strong>View Patient</strong></li>
+                </ol>
+            </div>
+            );
+          } else {
+            return(
+              <div className="margindata">
+                <ol className="breadcrumb bg-white">
+                   <li><a className="breadcrumb-item text-decoration-none text-muted" href="#" onClick={this.back}>Edit Case sheet</a></li>
                    <li className="breadcrumb-item active ml-1"><strong>View Patient</strong></li>
                 </ol>
             </div>
