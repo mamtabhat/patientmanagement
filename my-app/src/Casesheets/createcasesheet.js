@@ -1592,7 +1592,7 @@ if(this.state.page1 == "1"){
 
        <div className="col-md-4 col-lg-4">
        
-         <div title="view patient" onClick={this.viewpatientdata.bind(this, this.state.patientid)} id="patientdetail" className="cardstyle">
+         <div style={{cursor:"pointer"}} title="view patient" onClick={this.viewpatientdata.bind(this, this.state.patientid)} id="patientdetail" className="cardstyle">
          <div className="card-header">
          <h6>Patient details</h6>
          </div>
@@ -1828,7 +1828,7 @@ if(this.state.page1 == "1"){
             <a id="uparrow-optical"  onClick={this.uparrowoptical}><i class="fa fa-angle-double-up"></i></a>
                </div>
               <div className="col-md-5">
-            <div title="view patient" onClick={this.viewpatientdata.bind(this, this.state.patientid)} id="patient-optical" className="cardstyle" style={{display:"none"}}>
+            <div title="view patient" onClick={this.viewpatientdata.bind(this, this.state.patientid)} id="patient-optical" className="cardstyle" style={{display:"none",cursor:"pointer"}}>
             <div className="card-header">
          <h6>Patient details</h6>
          </div>
@@ -2392,7 +2392,7 @@ onChange={this.typesdata}
             <a id="uparrow-pres"  onClick={this.uparrowpres}><i class="fa fa-angle-double-up"></i></a>
           </div>
               <div className="col-md-5">
-            <div title="view patient" onClick={this.viewpatientdata.bind(this, this.state.patientid)} id="patient-pres" className="cardstyle" style={{display:"none"}}>
+            <div title="view patient" onClick={this.viewpatientdata.bind(this, this.state.patientid)} id="patient-pres" className="cardstyle" style={{display:"none",cursor:"pointer"}}>
             <div className="card-header">
          <h6>Patient details</h6>
          </div>
@@ -2979,7 +2979,7 @@ onChange={this.typesdata}
             <a id="uparrow-dis"  onClick={this.uparrowdis}><i class="fa fa-angle-double-up"></i></a>
            </div>
                       <div className="col-md-5 mt-2">
-                      <div title="view patient" onClick={this.viewpatientdata.bind(this, this.state.patientid)} id="patient-dis" className="cardstyle" style={{display:"none"}}>
+                      <div title="view patient" onClick={this.viewpatientdata.bind(this, this.state.patientid)} id="patient-dis" className="cardstyle" style={{display:"none",cursor:"pointer"}}>
                       <div className="card-header">
                <h6>Patient details</h6>
               </div>
