@@ -133,7 +133,7 @@ export default class Footer extends Component {
             </div>
           <p className="parasty1">Monday - Sunday</p>
           <p className="parasty2">&#10140; 10.00 am - 02.00 pm </p>
-          <p className="parasty2">&#10140; 4.00 am - 8.00 pm</p>
+          <p className="parasty2">&#10140; 4.00 pm - 8.00 pm</p>
         
             {/* <h5 className="menustyle">LATEST TWEETS</h5>
             <div className="row">

@@ -29,8 +29,8 @@ class contactdata extends Component {
        <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
           <div className="carousel-inner" role="listbox">
               <div className="carousel-item active">
-              <div className="stylecont">
-              <div className="imgtextcont">
+              <div className="stylecont imgmargin2">
+              <div className="imgtextcont ">
                <h1 style={{textAlign:"center",color:"white"}}>Contact Us</h1>
              </div>
              </div>  

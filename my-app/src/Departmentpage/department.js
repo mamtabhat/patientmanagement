@@ -42,12 +42,12 @@ class Bodydata extends Component {
         <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
         <div className="carousel-inner" role="listbox">
             <div className="carousel-item active">
-            <div className="styledepart">
+            <div className="styledepart imgmargin1">
             <div >
-              <div className="col-md-8 col-xs-12 col-lg-6 paddingdata">
-              <h5 className="imgtext1">DEPARTMENTS</h5>
-               <h1 className="imgtext1">Ophthalmology</h1>
-                <p className="imgtext1">Our ophthalmology services are geared to constantly challenge the status quo and explore new means to protect and restore sight. Eye care specialists at Avy Eye Care have the skills and technology to offer the best possible preventive care and corrective procedures for your vision. As it deserves nothing less.</p>
+              <div className="col-md-8 col-xs-12 col-lg-6 paddingdata float-right">
+              <h5 className="text-dark">DEPARTMENTS</h5>
+               <h1 className="text-dark">Ophthalmology</h1>
+                <p className="text-dark">Our ophthalmology services are geared to constantly challenge the status quo and explore new means to protect and restore sight. Eye care specialists at Avy Eye Care have the skills and technology to offer the best possible preventive care and corrective procedures for your vision. As it deserves nothing less.</p>
               </div>
             
           </div>

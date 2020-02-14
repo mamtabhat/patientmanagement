@@ -143,7 +143,7 @@ class Bodydata extends Component {
               <Col md="8" lg="6" xs="12">
            <div className="login-form" >
            <form onSubmit={this.handleSubmit}>
-           <div className="form-group" style={{marginTop:"20px"}} >
+           <div className="form-group" style={{marginTop:"40px"}} >
          
               <h2 className="text-center" style={{color:"#007bff"}}>Login</h2>
               <Container>

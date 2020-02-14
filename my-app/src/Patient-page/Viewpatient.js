@@ -357,7 +357,7 @@ render(){
                      <i className="fas fa-user text-primary m-4"></i>
                      <h5>Name</h5>
                      <div className="input-group margin-bottom-sm ">
-                     <a href="#"> <p className='marginleftdata'>{patientlist.name}</p></a>
+                     <p className='marginleftdata'>{patientlist.name}</p>
                      </div>
                      </div>
                      <div className='row newdiv'>
